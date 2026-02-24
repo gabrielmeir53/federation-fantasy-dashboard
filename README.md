@@ -8,7 +8,7 @@ Run four simultaneous Fantrax leagues with 12 teams where each owner manages a f
 
 ---
 
-![Dashboard Screenshot](https://github.com/gabrielmeir53/federation-fantasy-dashboard/blob/52c79e3dad5b104faea7d072a0e708bfd40e5057/readme/Screenshot%202026-02-24%20at%2013.42.11.png)
+[![Dashboard Screenshot](https://github.com/gabrielmeir53/federation-fantasy-dashboard/blob/52c79e3dad5b104faea7d072a0e708bfd40e5057/readme/Screenshot%202026-02-24%20at%2013.42.11.png)](https://www.ysffantasy.com)
 
 *Our fantasy league's [dashboard](https://www.ysffantasy.com).*
 
