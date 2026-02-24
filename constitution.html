@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Federation — Constitution, Bylaws &amp; Rules</title>
+<link rel="icon" type="image/svg+xml" href="logos/federation.svg">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1120;--surface:#111827;--surface2:#1a2438;--surface3:#243044;--border:#2d3a50;--text:#e4e8f0;--text-dim:#8892a8;--text-muted:#556078;--accent:#f0c040}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+nav{position:sticky;top:0;z-index:100;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;height:52px;gap:1rem;padding:0 1.2rem}
+.nav-brand{display:flex;align-items:center;gap:.5rem}
+.nav-brand img{height:28px}
+.nav-brand span{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:700;color:var(--accent);text-transform:uppercase}
+.nav-back{font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);background:none;border:1px solid var(--border);padding:.3rem .7rem;border-radius:4px;cursor:pointer;margin-left:auto;text-decoration:none;transition:all .2s}
+.nav-back:hover{color:var(--text);border-color:var(--text-dim)}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+@media(max-width:768px){.container{padding:1rem}}
+.search-box{width:100%;padding:.65rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:.88rem;margin-bottom:1rem;font-family:'Source Sans 3',sans-serif}
+.search-box:focus{outline:none;border-color:var(--accent)}
+.search-box::placeholder{color:var(--text-muted)}
+.match-count{font-size:.75rem;color:var(--accent);margin-bottom:.8rem;font-family:'JetBrains Mono',monospace;display:none}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem}
+.toc h2{font-family:'Oswald',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+.toc a{display:block;color:var(--text-dim);text-decoration:none;padding:.15rem 0;font-size:.82rem;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a.t1{font-weight:600;color:var(--text);margin-top:.3rem}
+.toc a.t2{padding-left:1.2rem;font-size:.78rem}
+section{margin-bottom:2.5rem;scroll-margin-top:65px}
+section.hidden{display:none}
+section h1{font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--accent);margin-bottom:.7rem;padding-bottom:.35rem;border-bottom:2px solid var(--accent)}
+section h2{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text);margin:1rem 0 .5rem}
+section h3{font-family:'Oswald',sans-serif;font-size:.92rem;font-weight:500;color:var(--text-dim);margin:.8rem 0 .4rem}
+section p,section li{font-size:.86rem;line-height:1.7;color:var(--text-dim);margin-bottom:.35rem}
+section ol,section ul{padding-left:1.4rem;margin-bottom:.7rem}
+section table{width:100%;border-collapse:collapse;margin:.7rem 0}
+section table th,section table td{padding:.35rem .6rem;border:1px solid var(--border);font-size:.8rem;text-align:left}
+section table th{background:var(--surface2);color:var(--text);font-family:'Oswald',sans-serif;font-weight:500}
+section table td{color:var(--text-dim)}
+.fn{font-size:.72rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:.6rem;padding-top:.4rem;font-style:italic}
+.vr{background:var(--surface2);border-radius:4px;padding:.35rem .7rem;margin:.35rem 0;font-size:.75rem;font-style:italic;color:var(--text-muted)}
+.vr.pass{border-left:3px solid #60d060}
+.vr.fail{border-left:3px solid #c06060}
+.vr.pending{border-left:3px solid var(--accent)}
+mark.hl{background:rgba(240,192,64,.3);color:var(--text);padding:0 2px;border-radius:2px}
+.hero{text-align:center;padding:2rem 0 1rem}
+.hero h1{font-family:'Oswald',sans-serif;font-size:2.2rem;font-weight:700;text-transform:uppercase;background:linear-gradient(135deg,var(--accent) 0%,#fff 50%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .subtitle{font-family:'Oswald',sans-serif;font-size:.82rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);margin-top:.3rem}
+footer{text-align:center;padding:1.5rem 1rem .8rem;color:#556;font-size:.72rem;border-top:1px solid rgba(255,255,255,.06);margin-top:2rem}
+footer a{color:#557;text-decoration:underline}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <div class="nav-brand"><img src="logos/federation.svg" onerror="this.style.display='none'"><span>Federation</span></div>
+  <a class="nav-back" href="dashboard.html">&larr; Dashboard</a>
+</div></nav>
+<div class="container">
+  <div class="hero">
+    <h1>Constitution &amp; Bylaws</h1>
+    <div class="subtitle">Fantasy Sports Federation &bull; Official Rules</div>
+  </div>
+  <input class="search-box" type="text" placeholder="Search rules..." id="search">
+  <div class="match-count" id="matchCount"></div>
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <a class="t1" href="#preamble">Preamble</a>
+    <a class="t1" href="#structure">Article I — Federation Structure</a>
+    <a class="t2" href="#leagues">Section A: Leagues</a>
+    <a class="t2" href="#teams">Section B: Teams &amp; Ownership</a>
+    <a class="t1" href="#scoring">Article II — Scoring &amp; Standings</a>
+    <a class="t2" href="#federation-points">Section A: Federation Points</a>
+    <a class="t2" href="#tiebreakers">Section B: Tiebreakers</a>
+    <a class="t1" href="#season">Article III — Season Format</a>
+    <a class="t2" href="#regular-season">Section A: Regular Season</a>
+    <a class="t2" href="#playoffs">Section B: Playoffs</a>
+    <a class="t1" href="#transactions">Article IV — Transactions</a>
+    <a class="t1" href="#draft">Article V — Draft</a>
+    <a class="t1" href="#governance">Article VI — Governance</a>
+    <a class="t1" href="#amendments">Article VII — Amendments</a>
+    <a class="t1" href="#conduct">Article VIII — Code of Conduct</a>
+    <a class="t1" href="#rules">Rules, Resolutions &amp; Directives</a>
+    <a class="t2" href="#directives">Commission Directives</a>
+    <a class="t2" href="#resolutions">Commission &amp; Federation Resolutions</a>
+    <a class="t2" href="#notices">Commission Notices</a>
+    <a class="t1" href="#legal">Legal Notices</a>
+  </div>
+
+  <!-- ═══════════════ PREAMBLE ═══════════════ -->
+  <section id="preamble">
+    <h1>Preamble</h1>
+    <p>We, the members of the Fantasy Sports Federation, establish this Constitution to govern the operation of our multi-sport dynasty fantasy league. The Federation operates four concurrent leagues across the NFL, NBA, NHL, and MLB, with the goal of crowning an overall champion based on combined performance across all sports.</p>
+    <p><em>Customize this section with your league's founding statement and mission.</em></p>
+  </section>
+
+  <!-- ═══════════════ ARTICLE I ═══════════════ -->
+  <section id="structure">
+    <h1>Article I — Federation Structure</h1>
+
+    <h2 id="leagues">Section A: Leagues</h2>
+    <p>The Federation shall consist of four (4) leagues, each corresponding to a major North American professional sport:</p>
+    <ol>
+      <li><strong>Federation Football League (FFL)</strong> — NFL</li>
+      <li><strong>Federation Basketball Association (FBA)</strong> — NBA</li>
+      <li><strong>Federation Hockey League (FHL)</strong> — NHL</li>
+      <li><strong>Federation Baseball League (FBL)</strong> — MLB</li>
+    </ol>
+    <p>All leagues are hosted on Fantrax and must be set to Public visibility.</p>
+
+    <h2 id="teams">Section B: Teams &amp; Ownership</h2>
+    <p>The Federation consists of twelve (12) member teams. Each owner operates a single franchise that competes in all four leagues simultaneously.</p>
+    <table>
+      <thead><tr><th>Owner</th><th>Team Name</th><th>Abbreviation</th></tr></thead>
+      <tbody>
+        <tr><td>Owner 1</td><td>Alpha FC</td><td>AFC</td></tr>
+        <tr><td>Owner 2</td><td>Bravo United</td><td>BRU</td></tr>
+        <tr><td>Owner 3</td><td>Charlie SC</td><td>CSC</td></tr>
+        <tr><td>Owner 4</td><td>Delta Athletic</td><td>DAT</td></tr>
+        <tr><td>Owner 5</td><td>Echo Rangers</td><td>ERG</td></tr>
+        <tr><td>Owner 6</td><td>Foxtrot City</td><td>FXC</td></tr>
+        <tr><td>Owner 7</td><td>Golf Town</td><td>GTN</td></tr>
+        <tr><td>Owner 8</td><td>Hotel FC</td><td>HFC</td></tr>
+        <tr><td>Owner 9</td><td>India United</td><td>IUN</td></tr>
+        <tr><td>Owner 10</td><td>Juliet SC</td><td>JSC</td></tr>
+        <tr><td>Owner 11</td><td>Kilo Athletic</td><td>KAT</td></tr>
+        <tr><td>Owner 12</td><td>Lima Rovers</td><td>LRV</td></tr>
+      </tbody>
+    </table>
+    <p class="fn">Update this table with your league's actual team names and owners.</p>
+  </section>
+
+  <!-- ═══════════════ ARTICLE II ═══════════════ -->
+  <section id="scoring">
+    <h1>Article II — Scoring &amp; Standings</h1>
+
+    <h2 id="federation-points">Section A: Federation Points</h2>
+    <p>At the conclusion of each league's season, teams are awarded Federation Points based on their final standing:</p>
+    <table>
+      <thead><tr><th>Finish</th><th>Points</th></tr></thead>
+      <tbody>
+        <tr><td>1st</td><td>12</td></tr>
+        <tr><td>2nd</td><td>11</td></tr>
+        <tr><td>3rd</td><td>10</td></tr>
+        <tr><td>4th</td><td>9</td></tr>
+        <tr><td>5th</td><td>8</td></tr>
+        <tr><td>6th</td><td>7</td></tr>
+        <tr><td>7th</td><td>6</td></tr>
+        <tr><td>8th</td><td>5</td></tr>
+        <tr><td>9th</td><td>4</td></tr>
+        <tr><td>10th</td><td>3</td></tr>
+        <tr><td>11th</td><td>2</td></tr>
+        <tr><td>12th</td><td>1</td></tr>
+      </tbody>
+    </table>
+    <p>The formula is: <strong>Federation Points = 13 - Final Rank</strong></p>
+    <p>Maximum possible points: 48 (1st place in all 4 leagues).</p>
+    <p>For completed seasons with playoffs, the playoff results determine final standings (champion = 1st, runner-up = 2nd, etc.).</p>
+
+    <h2 id="tiebreakers">Section B: Tiebreakers</h2>
+    <p>In the event of a tie in Federation Points, the following tiebreakers shall be applied in order:</p>
+    <ol>
+      <li>Most league championships (1st-place finishes)</li>
+      <li>Highest combined win percentage across all leagues</li>
+      <li>Highest average points per game</li>
+      <li>Head-to-head record</li>
+    </ol>
+  </section>
+
+  <!-- ═══════════════ ARTICLE III ═══════════════ -->
+  <section id="season">
+    <h1>Article III — Season Format</h1>
+
+    <h2 id="regular-season">Section A: Regular Season</h2>
+    <p>Each league follows its respective sport's standard fantasy season schedule as configured on Fantrax. The regular season length varies by sport:</p>
+    <ul>
+      <li><strong>NFL:</strong> ~14 weeks</li>
+      <li><strong>NBA:</strong> ~22 weeks</li>
+      <li><strong>NHL:</strong> ~24 weeks</li>
+      <li><strong>MLB:</strong> ~24 weeks</li>
+    </ul>
+    <p><em>Customize week counts to match your league's configuration.</em></p>
+
+    <h2 id="playoffs">Section B: Playoffs</h2>
+    <p>Each league shall have a 6-team playoff format:</p>
+    <ul>
+      <li>Top 6 teams qualify based on regular season standings</li>
+      <li>Seeds 1 and 2 receive a first-round bye</li>
+      <li>Quarterfinals: Seed 3 vs 6, Seed 4 vs 5</li>
+      <li>Semifinals: Seed 1 vs lowest remaining, Seed 2 vs other</li>
+      <li>Championship: Semifinal winners</li>
+      <li>Consolation rounds determine 3rd through 6th place</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ ARTICLE IV ═══════════════ -->
+  <section id="transactions">
+    <h1>Article IV — Transactions</h1>
+    <p>Each league shall follow the transaction rules configured on Fantrax, including:</p>
+    <ul>
+      <li><strong>Free Agent Adds/Drops:</strong> Available per league settings</li>
+      <li><strong>Waiver Wire:</strong> Priority-based claims</li>
+      <li><strong>Trades:</strong> Owner-to-owner player exchanges (may include draft picks)</li>
+    </ul>
+    <p>Trade vetoes, deadlines, and other transaction rules should be defined by your league's commissioners.</p>
+    <p><em>Add your specific transaction rules here.</em></p>
+  </section>
+
+  <!-- ═══════════════ ARTICLE V ═══════════════ -->
+  <section id="draft">
+    <h1>Article V — Draft</h1>
+    <p>As a dynasty league, each sport holds an annual rookie/prospect draft. Draft order, number of rounds, and pick trading rules should be configured per your league's preferences.</p>
+    <p>The dashboard tracks draft pick ownership for up to 8 future seasons via a connected Google Sheet.</p>
+    <p><em>Add your specific draft rules here.</em></p>
+  </section>
+
+  <!-- ═══════════════ ARTICLE VI ═══════════════ -->
+  <section id="governance">
+    <h1>Article VI — Governance</h1>
+    <p>The Federation shall be governed by a Commission of designated members with equal voting power. The Commission is responsible for:</p>
+    <ul>
+      <li>Interpreting and enforcing the Constitution</li>
+      <li>Resolving disputes between owners</li>
+      <li>Managing league settings on Fantrax</li>
+      <li>Approving or vetoing trades when necessary</li>
+      <li>Maintaining the dashboard and scraper infrastructure</li>
+    </ul>
+    <p><em>Define your commissioners and governance structure here.</em></p>
+  </section>
+
+  <!-- ═══════════════ ARTICLE VII ═══════════════ -->
+  <section id="amendments">
+    <h1>Article VII — Amendments</h1>
+    <p>This Constitution may be amended by a two-thirds (2/3) supermajority vote of all member teams. Proposed amendments must be submitted in writing and discussed for a minimum of 48 hours before a vote is called.</p>
+    <p>Types of legislative action:</p>
+    <ul>
+      <li><strong>Commission Directive:</strong> An administrative action taken by the Commission that does not require a vote (e.g., draft lottery results, platform selection).</li>
+      <li><strong>Commission Resolution:</strong> A proposal by the Commission requiring a vote of all member teams.</li>
+      <li><strong>Federation Resolution:</strong> A proposal by a member team (or group of teams) requiring a vote to amend the Constitution.</li>
+      <li><strong>Commission Notice:</strong> An official announcement or clarification from the Commission.</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ ARTICLE VIII ═══════════════ -->
+  <section id="conduct">
+    <h1>Article VIII — Code of Conduct</h1>
+    <p>The Federation hereby adopts this Code of Conduct as an official and binding document. All owners, by virtue of their membership, agree to abide by the principles and rules outlined below.</p>
+
+    <h2>Principles of Conduct</h2>
+    <p><strong>A. Sportsmanship and Respect</strong> &mdash; All owners shall conduct themselves respectfully in all official and unofficial league communications. Harassment, personal attacks, discrimination, and the use of hateful or offensive language will not be tolerated. Friendly rivalries and competitive banter are encouraged but must not cross the line into malicious personal insults or targeted harassment.</p>
+    <p><strong>B. Competitive Integrity</strong> &mdash; All owners have a duty to compete. Collusion, tanking, and bad-faith transactions are strictly prohibited.</p>
+    <p><strong>C. League Activity and Engagement</strong> &mdash; All owners are expected to actively manage their rosters, communicate in a timely manner, and fulfill their financial responsibilities to the Federation.</p>
+
+    <h2>Enforcement and Penalties</h2>
+    <p>Any owner who believes a violation has occurred may bring the issue to the Commission for review. The Commission will investigate all credible reports and has final authority to interpret this Code of Conduct.</p>
+    <p><strong>Minor Infractions:</strong> An informal or formal warning from the Commission.</p>
+    <p><strong>Significant Infractions:</strong> Reversal of a transaction, forfeiture of a game, temporary suspension of roster transaction privileges, or forfeiture of FAAB.</p>
+    <p><strong>Major or Repeated Infractions:</strong> Forfeiture of future draft picks, suspension of league activities for a set period, or, in the most severe cases, suspension or expulsion from the Federation.</p>
+  </section>
+
+  <!-- ═══════════════ RULES & RESOLUTIONS ═══════════════ -->
+  <section id="rules">
+    <h1>Rules, Resolutions &amp; Directives</h1>
+
+    <h2 id="directives">Comm. Directive I &mdash; Federation Draft Lottery Results</h2>
+    <p>Conducted by the Commission. The Federation Draft Lottery resulted in the following draft order:</p>
+    <ol>
+      <li>Alpha FC</li><li>Bravo United</li><li>Charlie SC</li>
+      <li>Delta Athletic</li><li>Echo Rangers</li><li>Foxtrot City</li>
+      <li>Golf Town</li><li>Hotel FC</li><li>India United</li>
+      <li>Juliet SC</li><li>Kilo Athletic</li><li>Lima Rovers</li>
+    </ol>
+
+    <h2>Comm. Directive II &mdash; Federation Team Names</h2>
+    <p>Decided/agreed on by each team and the Commission. All 12 official team names and abbreviations have been established.</p>
+    <ul>
+      <li><strong>Owner 1:</strong> Alpha FC (AFC)</li>
+      <li><strong>Owner 2:</strong> Bravo United (BRU)</li>
+      <li><strong>Owner 3:</strong> Charlie SC (CSC)</li>
+      <li><strong>Owner 4:</strong> Delta Athletic (DAT)</li>
+      <li><strong>Owner 5:</strong> Echo Rangers (ERG)</li>
+      <li><strong>Owner 6:</strong> Foxtrot City (FXC)</li>
+      <li><strong>Owner 7:</strong> Golf Town (GTN)</li>
+      <li><strong>Owner 8:</strong> Hotel FC (HFC)</li>
+      <li><strong>Owner 9:</strong> India United (IUN)</li>
+      <li><strong>Owner 10:</strong> Juliet SC (JSC)</li>
+      <li><strong>Owner 11:</strong> Kilo Athletic (KAT)</li>
+      <li><strong>Owner 12:</strong> Lima Rovers (LRV)</li>
+    </ul>
+
+    <h2>Comm. Directive III &mdash; Fantasy Platform</h2>
+    <p>All Federation Leagues will utilize Fantrax as their official fantasy platform; ESPN's scoring system being implemented, as directed in the Constitution &amp; Bylaws.</p>
+
+    <h2 id="resolutions">Comm. Res. I &mdash; Approval and Enactment of the Constitution &amp; Bylaws</h2>
+    <p>Proposed by the Commission. The Federation hereby votes to formally enact the "Fantasy Sports Federation Constitution, Bylaws, &amp; Rules". Upon passage, the Constitution shall be considered the supreme governing document of the Federation.</p>
+    <div class="vr pass">Passed 9-0 &mdash; Approved by AFC, HFC, LRV, CSC, FXC, JSC, ERG, BRU, IUN, GTN.</div>
+
+    <h2>Comm. Res. II &mdash; Initial Federation Draft Dates</h2>
+    <p>Proposed by the Commission. The Federation Draft shall begin the day following ratification at 7:00pm EDT. Each pick will be allowed a maximum of 12 hours to be selected.</p>
+    <div class="vr pass">Passed 7-0 &mdash; Approved by HFC, CSC, AFC, ERG, FXC, BRU, GTN.</div>
+
+    <h2>Comm. Res. III &mdash; Federation Dues for Inaugural Season</h2>
+    <p>Proposed by the Commission. Dues for the inaugural Federation Season shall be set at $25. Dues must be paid to a Commission member prior to the start of the Federation Draft.</p>
+    <div class="vr pass">Passed 7-0 &mdash; Approved by HFC, CSC, AFC, ERG, FXC, BRU, GTN.</div>
+
+    <h2>Fed. Res. I &mdash; Amending the Constitution to Differentiate Pitchers</h2>
+    <p>Proposed by Golf Town. The baseball roster requirements shall be amended from 8 pitchers to 6 starting pitchers and 2 relief pitchers.</p>
+    <div class="vr pass">Passed 9-2 &mdash; Approved by BRU, CSC, FXC, AFC, GTN, LRV, IUN, HFC, KAT. Opposed by ERG, DAT.</div>
+
+    <h2>Comm. Res. IV &mdash; Emergency Resolution to Amend FFL Scoring</h2>
+    <p>Proposed by the Commission. Football scoring amended to add: 0.5 points per reception and 0.1 point per Field Goal yard.</p>
+    <div class="vr pass">Passed 10-0 &mdash; Approved by BRU, GTN, IUN, AFC, CSC, ERG, LRV, HFC, FXC, JSC.</div>
+
+    <h2>Comm. Res. V &mdash; Establishment of a Rolling Dues Collection System ($100)</h2>
+    <p>Proposed by the Commission. Annual dues of $100 collected in four equal installments. Payment deadline within 28 days following conclusion of each league's championship game. Required &#8532; vote (8 of 12).</p>
+    <div class="vr fail">Failed 7-5 (did not reach required 8 votes) &mdash; Approved by AFC, CSC, HFC, KAT, BRU, FXC, JSC. Opposed by DAT, ERG, GTN, IUN, LRV.</div>
+
+    <h2>Comm. Res. VI &mdash; Rookie Draft &amp; Taxi Squad Rules</h2>
+    <p>Proposed by the Commission. Taxi squads: FBA 3, FFL 3, FHL 5, FBL 5. Required &#8538; vote (10 of 12).</p>
+    <div class="vr fail">Failed 9-3 (did not reach required 10 votes) &mdash; Approved by AFC, CSC, HFC, KAT, BRU, FXC, ERG, JSC, IUN. Opposed by DAT, GTN, LRV.</div>
+
+    <h2>Comm. Res. VII &mdash; Establishment of a Rolling Dues Collection System ($120)</h2>
+    <p>Proposed by the Commission. Annual dues of $120 collected in four installments. Payout structure: 1st Place $500, 2nd Place $200, 3rd Place $100. Each league Champion receives $100. $20/year for Federation Administration. Requires &#190; vote (9 of 12).</p>
+    <div class="vr pending">Pending vote</div>
+
+    <h2>Comm. Res. VIII &mdash; Rookie Draft &amp; Taxi Squad Rules (revised)</h2>
+    <p>Proposed by the Commission. Taxi squads: FBA 3, FFL 3, FHL 4, FBL 5. Revised draft dates for all leagues. Passage voids Commission Notice III. Requires &#8538; vote (10 of 12).</p>
+    <div class="vr pending">Pending vote</div>
+
+    <h2 id="notices">Comm. Notice I &mdash; Protocol for Potential Cancellation of MLB Season</h2>
+    <p>Announced by the Commission. Unless a full round-robin regular season schedule and a three-week playoff can be held during the FBL season, due to a potential MLB lockout, the Federation Season would only be based on the FBA, FFL, and FHL.</p>
+
+    <h2>Comm. Notice II &mdash; Trade Deadline Dates</h2>
+    <p>Announced by the Commission. Trade deadlines:</p>
+    <ul>
+      <li>FBA: The Sunday of Week 16, at 11:59pm EST</li>
+      <li>FFL: The Wednesday following Week 11, at 11:59pm EST</li>
+      <li>FHL: The Sunday of Week 16, at 11:59pm EST</li>
+      <li>FBL: The Sunday of Week 17, at 11:59pm EDT</li>
+    </ul>
+    <p>Once a league's deadline passes, all assets for that league (players, future draft picks, and FAAB) are locked until the league's Championship concludes.</p>
+
+    <h2>Comm. Notice III &mdash; Rookie Draft Dates</h2>
+    <p>Announced by the Commission. Rookie draft dates:</p>
+    <ul>
+      <li>FBL: February, at 7:00pm EDT</li>
+      <li>FFL: Late July, at 12:00pm EDT</li>
+      <li>FHL: Late July, following the FFL Rookie Draft</li>
+      <li>FBA: Late July, following the FHL Rookie Draft</li>
+    </ul>
+
+    <h2>Comm. Notice IV &mdash; Trade Procedures</h2>
+    <p>Teams must follow these procedures to submit and process a trade:</p>
+    <ol>
+      <li>Once teams have come to an agreement, the proposing team shall create a group chat with the accepting team owner(s) and at least one member of the Commission, with a message stating the terms of the trade.</li>
+      <li>The accepting team owner(s) must confirm the terms prior to the Commission informing the Federation. The 48-hour review period will not begin until confirmation of acceptance by all teams involved.</li>
+      <li>Once confirmed, a Commission member will send a message to the Federation informing them of the trade and its terms.</li>
+      <li>A team may submit a complaint to any member of the Commission, who will then present the complaint to the rest of the Commission and begin the review process outlined in the Constitution.</li>
+      <li>As soon as they are able to, the Commission shall enter the trades on Fantrax, setting the processing time 48 hours from when the trade was accepted by all parties.</li>
+    </ol>
+
+    <p class="fn">The above directives, resolutions, and notices are examples from a live league. Customize these for your own Federation as rules are proposed, voted on, and enacted.</p>
+  </section>
+
+  <!-- ═══════════════ LEGAL ═══════════════ -->
+  <section id="legal">
+    <h1 id="website-legal-notices">Legal Notices</h1>
+    <p>This dashboard is not affiliated with, endorsed by, or connected to the NFL, NBA, NHL, MLB, Fantrax, or any professional sports organization. Player names, team names, and statistics are used for informational purposes only in the context of fantasy sports.</p>
+    <p>This project is open source and available under the MIT License. See the <a href="https://github.com" style="color:var(--accent)">GitHub repository</a> for details.</p>
+  </section>
+
+</div>
+<footer>
+  &copy; Your League Name. All rights reserved.<br>
+  <span style="color:#445">Not affiliated with the NFL, NBA, NHL, MLB, or Fantrax. <a href="#website-legal-notices">Legal notices</a>.</span><br>
+  <span style="color:#445">Built with the <a href="https://github.com/gabrielmeir53/ysffantasy" style="color:#557;text-decoration:underline">Fantasy Federation Dashboard</a> &mdash; originally created by the ySF Commission.</span>
+</footer>
+<script>
+// Search functionality
+const searchInput = document.getElementById('search');
+const matchCount = document.getElementById('matchCount');
+const sections = document.querySelectorAll('section');
+
+searchInput.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  // Remove previous highlights
+  document.querySelectorAll('mark.hl').forEach(m => {
+    const parent = m.parentNode;
+    parent.replaceChild(document.createTextNode(m.textContent), m);
+    parent.normalize();
+  });
+  if (!q) {
+    sections.forEach(s => s.classList.remove('hidden'));
+    matchCount.style.display = 'none';
+    return;
+  }
+  let total = 0;
+  sections.forEach(s => {
+    const text = s.textContent.toLowerCase();
+    if (text.includes(q)) {
+      s.classList.remove('hidden');
+      // Highlight matches
+      const walker = document.createTreeWalker(s, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      for (const node of nodes) {
+        const idx = node.textContent.toLowerCase().indexOf(q);
+        if (idx === -1) continue;
+        const before = node.textContent.substring(0, idx);
+        const match = node.textContent.substring(idx, idx + q.length);
+        const after = node.textContent.substring(idx + q.length);
+        const mark = document.createElement('mark');
+        mark.className = 'hl';
+        mark.textContent = match;
+        const parent = node.parentNode;
+        const frag = document.createDocumentFragment();
+        if (before) frag.appendChild(document.createTextNode(before));
+        frag.appendChild(mark);
+        if (after) frag.appendChild(document.createTextNode(after));
+        parent.replaceChild(frag, node);
+        total++;
+      }
+    } else {
+      s.classList.add('hidden');
+    }
+  });
+  matchCount.textContent = total + ' match' + (total !== 1 ? 'es' : '');
+  matchCount.style.display = 'block';
+});
+</script>
+</body>
+</html>
