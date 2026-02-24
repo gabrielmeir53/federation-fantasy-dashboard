@@ -1,0 +1,52 @@
+# Federation Dashboard — .htaccess
+# =================================
+
+# ── Force HTTPS ──────────────────────────────────────
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── Default page ─────────────────────────────────────
+DirectoryIndex index.html
+
+# ── Cache static assets ──────────────────────────────
+# Logos and fonts: cache for 30 days
+<FilesMatch "\.(svg|woff2|woff|ttf|eot)$">
+    Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+
+# HTML files: cache for 5 minutes (users see fresh data quickly)
+<FilesMatch "\.(html)$">
+    Header set Cache-Control "public, max-age=300"
+</FilesMatch>
+
+# JSON data: cache for 10 minutes
+<FilesMatch "\.(json)$">
+    Header set Cache-Control "public, max-age=600"
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# ── Security headers ─────────────────────────────────
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# ── Block access to sensitive files ──────────────────
+<FilesMatch "\.(py|sh|log|md|env)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Block dotfiles (except .htaccess itself)
+<FilesMatch "^\.(?!htaccess)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# ── Compression ──────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# ── Error pages ──────────────────────────────────────
+ErrorDocument 404 /index.html

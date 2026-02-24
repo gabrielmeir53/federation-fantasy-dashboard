@@ -1,0 +1,38 @@
+# Generated data (except prev season file which is tracked for playoffs)
+data/*
+!data/fed_fl_prev.json
+
+# Generated dashboard (rebuilt by scraper)
+dashboard_live.html
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+scrape_log.txt
+
+# Archives
+*.zip
+
+# Cookies (session auth, should never be committed)
+cookies.txt
+
+# Environment
+.env
+.venv/
+venv/
