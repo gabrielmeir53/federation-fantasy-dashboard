@@ -8,9 +8,9 @@ Run four simultaneous Fantrax leagues with 12 teams where each owner manages a f
 
 ---
 
-![Dashboard Screenshot](https://via.placeholder.com/1200x600.png?text=Add+your+own+screenshot+here)
+![Dashboard Screenshot](https://github.com/gabrielmeir53/federation-fantasy-dashboard/blob/52c79e3dad5b104faea7d072a0e708bfd40e5057/readme/Screenshot%202026-02-24%20at%2013.42.11.png)
 
-*Add your own screenshot here -- replace this placeholder with a screenshot of your dashboard.*
+*Our fantasy league's [dashboard](www.ysffantasy.com).*
 
 ---
 
@@ -1040,7 +1040,7 @@ Built with the Fantasy Federation Dashboard — originally created by the ySF Co
 (www.ysffantasy.com)
 ```
 
-Or at minimum, include a link back to the original repository in your site footer. This is a condition of use -- we put a lot of work into building this, and a shout-out is the least we ask in return.
+Or at minimum, include a link back to the website in your site index or league rules. 
 
 ### Full MIT License Text
 
