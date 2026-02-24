@@ -1037,7 +1037,7 @@ If you use this project (in whole or in part) for your own fantasy league dashbo
 
 ```
 Built with the Fantasy Federation Dashboard — originally created by the ySF Commission
-(github.com/gabrielmeir53/ysffantasy)
+(www.ysffantasy.com)
 ```
 
 Or at minimum, include a link back to the original repository in your site footer. This is a condition of use -- we put a lot of work into building this, and a shout-out is the least we ask in return.
