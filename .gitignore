@@ -1,9 +1,6 @@
-# Generated data (except prev season file which is tracked for playoffs)
-data/*
-!data/fed_fl_prev.json
-
-# Generated dashboard (rebuilt by scraper)
-dashboard_live.html
+# Generated data (except fed_fl_prev.json which is tracked for playoffs)
+site/data/*
+!site/data/fed_fl_prev.json
 
 # Python
 __pycache__/
@@ -12,6 +9,7 @@ __pycache__/
 *.egg-info/
 
 # IDE / Editor
+.claude/
 .vscode/
 .idea/
 *.swp

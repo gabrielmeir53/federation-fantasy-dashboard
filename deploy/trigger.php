@@ -1,18 +1,18 @@
 <?php
 /**
- * Federation Dashboard Scraper — Manual Trigger
- * ==============================================
+ * Federation Scraper — Manual Trigger
+ * =============================
  * Visit: https://yourdomain.com/trigger.php?token=YOUR_SECRET
- *
+ * 
  * This kicks off the scraper immediately. Useful when you've
  * just made a trade or want fresh data before checking standings.
- *
+ * 
  * Bookmark this URL on your phone for one-tap refresh.
  */
 
 // ── CONFIGURATION ─────────────────────────────────────
-$SECRET = 'CHANGE_THIS_TO_A_RANDOM_STRING';              // ← Set a strong random token
-$SCRIPT = '/home/YOUR_CPANEL_USERNAME/scraper/run_scraper.sh';  // ← Update with your username
+$SECRET = 'CHANGE_THIS_TO_A_RANDOM_STRING';  // ← CHANGE THIS!
+$SCRIPT = '/home/YOUR_CPANEL_USERNAME/scraper/run_scraper.sh';  // ← CHANGE SECRET ABOVE!
 // ─────────────────────────────────────────────────────
 
 // Security: check token
@@ -29,7 +29,7 @@ $lockfile = sys_get_temp_dir() . '/fed_trigger.lock';
 if (file_exists($lockfile) && (time() - filemtime($lockfile)) < 120) {
     $wait = 120 - (time() - filemtime($lockfile));
     header('Content-Type: text/html; charset=utf-8');
-    echo '<!DOCTYPE html><html><body style="background:#0b1120;color:#f0c040;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0"><div style="text-align:center"><h1>&#9203;</h1><p>Scraper ran recently. Try again in ' . $wait . ' seconds.</p><p><a href="/" style="color:#f0c040">&larr; Back to Dashboard</a></p></div></body></html>';
+    echo '<!DOCTYPE html><html><body style="background:#0b1120;color:#f0c040;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0"><div style="text-align:center"><h1>⏳</h1><p>Scraper ran recently. Try again in ' . $wait . ' seconds.</p><p><a href="/" style="color:#f0c040">← Back to Dashboard</a></p></div></body></html>';
     exit;
 }
 touch($lockfile);
@@ -65,10 +65,10 @@ a:hover{text-decoration:underline}
 </head>
 <body>
 <div class="card">
-  <h1>&#9889; Scraper Triggered</h1>
+  <h1>⚡ Scraper Triggered</h1>
   <div class="spinner"></div>
   <p>The scraper is running in the background.<br>Data will refresh in 1–3 minutes.</p>
-  <a href="/" class="btn">&larr; Back to Dashboard</a>
+  <a href="/" class="btn">← Back to Dashboard</a>
   <div class="note">
     Tip: Bookmark this URL for one-tap refresh.<br>
     Rate limited to once per 2 minutes.

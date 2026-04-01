@@ -1,0 +1,142 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{float}
+
+\definecolor{fedblue}{RGB}{0,40,100}
+\definecolor{fedlight}{RGB}{230,238,250}
+\definecolor{dimgray}{RGB}{100,100,100}
+\newcommand{\rowalt}{\rowcolor{fedlight}}
+
+\hypersetup{colorlinks=true, linkcolor=fedblue, urlcolor=fedblue}
+\titleformat{\section}{\large\bfseries\color{fedblue}}{}{0em}{}
+\titlespacing{\section}{0pt}{10pt}{4pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{fedblue} Federation Power Rankings --- How It Works}\\[4pt]
+{\color{dimgray} Fantasy Sports Federation \quad|\quad 2025--26 Season}
+\end{center}
+\vspace{-4pt}
+\textcolor{fedblue}{\rule{\textwidth}{0.8pt}}
+
+\section{The Big Picture}
+
+Every week, each team gets a \textbf{Power Rating} between roughly 35 and 65 (50 is average) in each league they play in. Your \textbf{Federation Power Rating} is the average of your ratings across all active leagues. Higher is better.
+
+The rating is built from \textbf{six factors}, each measuring a different part of how well you're doing. Because different sports have wildly different scoring scales (NBA teams score $\sim$1200/week, NHL teams score $\sim$90), we convert every stat into a \textbf{$z$-score}---a number that says how many standard deviations above or below the league average you are. A $z$-score of $+1.5$ means ``way above average'' whether you're playing basketball or hockey.
+
+\section{The Six Factors}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}llcp{7.2cm}@{}}
+\toprule
+\textbf{Factor} & \textbf{What It Measures} & \textbf{Weight} & \textbf{Plain English} \\
+\midrule
+\rowalt Win \% & Are you winning? & 35\% & Your win--loss record. The most important factor because wins determine your league rank, which determines your federation points. \\
+PPG & Are you scoring? & 25\% & Your average points per game. High scorers tend to win more and are better positioned for close matchups. \\
+\rowalt MOV & Are you dominating? & 20\% & Your average margin of victory (or defeat). Winning by 50 every week is more impressive than winning by 1. \\
+Consistency & Are you reliable? & 5\% & How steady your scores are week to week. A team that scores 100 every week is safer than one that swings between 60 and 140. \\
+\rowalt SOS & Are your opponents good? & 10\% & The average quality of your opponents \emph{at the time you played them}, measured by their own power rating that week. Beating a top team counts more than beating a bottom team. \\
+Momentum & Are you getting better? & 5\% & A 50/50 blend of your recent win rate and your recent scoring compared to the league average, over the last 5 weeks. Captures who's hot and who's cooling off. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{How the Score Is Calculated}
+
+\begin{enumerate}[nosep, leftmargin=1.5em]
+\item \textbf{Compute each factor} for all 12 teams in the league.
+\item \textbf{Convert to $z$-scores}: for each factor, find the league average and standard deviation. Your $z$-score = (your value $-$ average) $\div$ standard deviation.
+\item \textbf{Combine}: multiply each $z$-score by its weight and add them up.
+\item \textbf{Scale}: multiply by 10 and add 50. That's your display score.
+\end{enumerate}
+
+\textbf{Example}: If your Win\% $z$-score is $+1.2$ and your PPG $z$-score is $+0.8$, just those two factors contribute $(0.35 \times 1.2) + (0.25 \times 0.8) = 0.62$ to your raw rating, which becomes about 6.2 points above 50 on the display scale.
+
+\section{Federation Rating}
+
+Your federation power rating is simply the \textbf{average} of your per-league ratings. If you're rated 58 in basketball and 52 in hockey, your federation rating is 55. Once a sport's season ends, that rating is \textbf{locked in} and stays in your average for the rest of the year.
+
+\section{Current Federation Power Rankings}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}rlrccccc@{}}
+\toprule
+& \textbf{Team} & \textbf{Score} & \textbf{FL} & \textbf{BA} & \textbf{HL} & \textbf{LB} & \textbf{Leagues} \\
+\midrule
+\rowalt 1 & Charlie SC & 59.0 & \#5 & \#1 & \#1 & \#2 & 4 \\
+2 & Echo Rangers & 57.6 & \#3 & \#2 & \#3 & \#4 & 4 \\
+\rowalt 3 & Foxtrot City & 56.5 & \#6 & \#3 & \#2 & \#1 & 4 \\
+4 & Juliet SC & 51.6 & \#4 & \#5 & \#7 & \#7 & 4 \\
+\rowalt 5 & Delta Athletic & 51.5 & \#2 & \#7 & \#9 & \#6 & 4 \\
+6 & Golf Town & 50.8 & \#10 & \#4 & \#6 & \#3 & 4 \\
+\rowalt 7 & Lima Rovers & 49.4 & \#1 & \#6 & \#11 & \#11 & 4 \\
+8 & Alpha FC & 46.7 & \#12 & \#10 & \#4 & \#8 & 4 \\
+\rowalt 9 & India United & 46.5 & \#9 & \#9 & \#8 & \#5 & 4 \\
+10 & Hotel FC & 46.2 & \#11 & \#8 & \#5 & \#10 & 4 \\
+\rowalt 11 & Bravo United & 44.9 & \#7 & \#11 & \#10 & \#9 & 4 \\
+12 & Kilo Athletic & 39.3 & \#8 & \#12 & \#12 & \#12 & 4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{-2pt}
+{\small\color{dimgray} FedFL frozen at Week 17 (incl.\ playoffs). FedBA and FedHL through Week 22. FedLB through Week 1.}
+
+\section{Key Takeaways}
+
+\begin{itemize}[nosep, leftmargin=1.5em]
+\item \textbf{Winning matters most} (35\% direct + 20\% via margin = $\sim$55\% of your score is about winning).
+\item \textbf{Scoring matters, but it's not everything}. The old system was 80\% scoring. This one is 25\%.
+\item \textbf{Context matters}. Beating good teams, being consistent, and trending upward all help.
+\item \textbf{Cross-sport comparison works}. A score of 58 in basketball means the same thing as 58 in hockey: well above average.
+\item \textbf{PR $\neq$ standings}. The power rating measures strength; the standings measure accumulated results. A team ranked high in PR but low in the standings may be due for a surge.
+\end{itemize}
+
+\section{The Formula}
+
+\vspace{-2pt}
+\colorbox{fedlight}{\parbox{0.95\textwidth}{\vspace{4pt}
+\[
+\text{PR}_i = 0.35\, z_{\text{WIN}}^{(i)} + 0.25\, z_{\text{PPG}}^{(i)} + 0.20\, z_{\text{MOV}}^{(i)} + 0.05\, z_{\text{CON}}^{(i)} + 0.10\, z_{\text{SOS}}^{(i)} + 0.05\, z_{\text{MOM}}^{(i)}
+\]
+\[
+\text{Display Score}_i = 50 + 10 \times \text{PR}_i \qquad\qquad \text{Fed\_PR}_i = \frac{1}{|\mathcal{A}|} \sum_{L \in \mathcal{A}} \text{PR}_i^{(L)}
+\]
+\vspace{1pt}}}
+
+\vspace{4pt}
+{\small
+\begin{tabular}{@{}ll@{\qquad}ll@{}}
+$\text{PR}_i$ & Power Rating for team $i$ & $z_X^{(i)}$ & $z$-score: $(X_i - \mu) / \sigma$ \\
+$\text{WIN}$ & Win percentage & $\text{PPG}$ & Points per game (average) \\
+$\text{MOV}$ & Margin of victory (avg) & $\text{CON}$ & Consistency: $1 - \text{stdev}/\text{mean}$ \\
+$\text{SOS}$ & Strength of schedule (opponent PR) & $\text{MOM}$ & Momentum (recent wins + scoring) \\
+$\mu,\; \sigma$ & League mean and standard deviation & $\mathcal{A}$ & Set of active/frozen leagues \\
+\end{tabular}
+}
+
+\vfill
+\begin{center}
+{\small\color{dimgray} Full methodology: \textit{FedPR v2 Proposal} \quad|\quad Questions? Ask the Commission.}
+\end{center}
+
+\end{document}

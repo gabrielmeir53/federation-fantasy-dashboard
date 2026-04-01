@@ -8,7 +8,7 @@ Federation Fantrax Scraper v3.6
 - Draft picks: scraped from Google Sheets (all future seasons)
 - Rosters: sorted by position (standard sport order)
 - Player names: resolved via league-specific + sport-wide ID lookup
-- Generates dashboard_live.html with embedded data
+- Outputs JSON to site/data/ for the multi-page website
 
 Requirements:  pip install fantraxapi requests
 Usage:         python scrape_fantrax.py --verbose
@@ -17,6 +17,14 @@ Usage:         python scrape_fantrax.py --verbose
 import json, re, sys, csv, io, traceback, requests
 from datetime import datetime
 from pathlib import Path
+
+# Fix Windows console encoding for emoji output
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ('utf-8', 'utf8'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
 
 try:
     from fantraxapi import League
@@ -41,28 +49,32 @@ DRAFT_SHEET_ID = "YOUR_DRAFT_SHEET_ID"
 DRAFT_SEASONS = ["2026-27", "2027-28", "2028-29", "2029-30", "2030-31", "2031-32", "2032-33", "2033-34"]
 
 TEAM_NAME_MAP = {
-    "Alpha FC": "team_01", "Bravo United": "team_02",
+    "Bravo United": "team_02", "Alpha FC": "team_01",
     "Charlie SC": "team_03", "Delta Athletic": "team_04",
     "Echo Rangers": "team_05", "Foxtrot City": "team_06",
     "Golf Town": "team_07", "Hotel FC": "team_08",
     "India United": "team_09", "Juliet SC": "team_10",
     "Kilo Athletic": "team_11", "Lima Rovers": "team_12",
+    "Alpha FC": "team_01", "Bravo United": "team_02",
+    "Charlie SC": "team_03", "Delta Athletic": "team_04",
+    "Foxtrot City": "team_06", "Golf Town": "team_07",
+    "India United": "team_09", "Lima Rovers": "team_12",
 }
 SHEET_LEAGUE_MAP = {"FedBA": "fed_ba", "FedFL": "fed_fl", "FedHL": "fed_hl", "FedLB": "fed_lb"}
 
 FED_TEAMS = {
-    "team_01": {"owner": "Owner 1",  "name": "Alpha FC",       "abbr": "AFC", "color": "#00333f", "logo": "afc.svg"},
-    "team_02": {"owner": "Owner 2",  "name": "Bravo United",   "abbr": "BRU", "color": "#004b41", "logo": "bru.svg"},
-    "team_03": {"owner": "Owner 3",  "name": "Charlie SC",     "abbr": "CSC", "color": "#0d00b2", "logo": "csc.svg"},
-    "team_04": {"owner": "Owner 4",  "name": "Delta Athletic", "abbr": "DAT", "color": "#12e0e5", "logo": "dat.svg"},
-    "team_05": {"owner": "Owner 5",  "name": "Echo Rangers",   "abbr": "ERG", "color": "#19b9ee", "logo": "erg.svg"},
-    "team_06": {"owner": "Owner 6",  "name": "Foxtrot City",   "abbr": "FXC", "color": "#036b08", "logo": "fxc.svg"},
-    "team_07": {"owner": "Owner 7",  "name": "Golf Town",      "abbr": "GTN", "color": "#79253a", "logo": "gtn.svg"},
-    "team_08": {"owner": "Owner 8",  "name": "Hotel FC",       "abbr": "HFC", "color": "#002868", "logo": "hfc.svg"},
-    "team_09": {"owner": "Owner 9",  "name": "India United",   "abbr": "IUN", "color": "#7700b5", "logo": "iun.svg"},
-    "team_10": {"owner": "Owner 10", "name": "Juliet SC",      "abbr": "JSC", "color": "#34302b", "logo": "jsc.svg"},
-    "team_11": {"owner": "Owner 11", "name": "Kilo Athletic",  "abbr": "KAT", "color": "#eaaa00", "logo": "kat.svg"},
-    "team_12": {"owner": "Owner 12", "name": "Lima Rovers",    "abbr": "LRV", "color": "#bc2e2e", "logo": "lrv.svg"},
+    "team_01":    {"owner":"Owner 1",       "name":"Alpha FC",         "abbr":"AFC",  "color":"#00333f", "logo":"afc.svg"},
+    "team_02":     {"owner":"Owner 2",         "name":"Bravo United",          "abbr":"BRU",  "color":"#004b41", "logo":"bru.svg"},
+    "team_03":  {"owner":"Owner 3",  "name":"Charlie SC",        "abbr":"CSC", "color":"#0d00b2", "logo":"csc.svg"},
+    "team_04":     {"owner":"Owner 4",        "name":"Delta Athletic",        "abbr":"DAT", "color":"#12e0e5", "logo":"dat.svg"},
+    "team_05":      {"owner":"Owner 5",        "name":"Echo Rangers",  "abbr":"ECR",  "color":"#19b9ee", "logo":"ecr.svg"},
+    "team_06":     {"owner":"Owner 6",      "name":"Foxtrot City",        "abbr":"FXC", "color":"#036b08", "logo":"fxc.svg"},
+    "team_07":     {"owner":"Owner 7",         "name":"Golf Town",     "abbr":"GLT", "color":"#79253a", "logo":"glt.svg"},
+    "team_08":  {"owner":"Owner 8", "name":"Hotel FC",            "abbr":"HFC",   "color":"#002868", "logo":"hfc.svg"},
+    "team_09": {"owner":"Owner 9",  "name":"India United",        "abbr":"INU", "color":"#7700b5", "logo":"inu.svg"},
+    "team_10":       {"owner":"Owner 10",           "name":"Juliet SC",  "abbr":"JSC",  "color":"#34302b", "logo":"jsc.svg"},
+    "team_11":  {"owner":"Owner 11",     "name":"Kilo Athletic",     "abbr":"KAT",   "color":"#eaaa00", "logo":"kat.svg"},
+    "team_12":      {"owner":"Owner 12",         "name":"Lima Rovers",  "abbr":"LMR", "color":"#bc2e2e", "logo":"lmr.svg"},
 }
 
 POS_ORDER = {
@@ -72,7 +84,7 @@ POS_ORDER = {
     "MLB": ["C","1B","2B","SS","3B","OF","SP","RP","Utility","Util","DH"],
 }
 
-OUTPUT_DIR = Path(__file__).parent / "data"
+OUTPUT_DIR = Path(__file__).parent / ".." / "site" / "data"
 SCRIPT_DIR = Path(__file__).parent
 VERBOSE = "--verbose" in sys.argv or "-v" in sys.argv
 
@@ -93,6 +105,15 @@ def resolve(name):
     for k, v in TEAM_NAME_MAP.items():
         if k.replace(".", "").strip() == stripped: return v
     return None
+
+def safe_num(val, default=0):
+    """Convert value to float safely, returning default for '-', None, or non-numeric strings."""
+    if val is None or val == '-' or val == '':
+        return default
+    try:
+        return float(val)
+    except (ValueError, TypeError):
+        return default
 
 def sort_roster(players, sport):
     order = POS_ORDER.get(sport, [])
@@ -204,12 +225,12 @@ def _resolve_roster(roster_items, player_names, sport):
                          "status": item.get("status", ""), "fantrax_player_id": pid})
 
     if unresolved:
-        log(f"    {unresolved}/{resolved+unresolved} unresolved. IDs: {sample_bad}")
+        log(f"    ⚠️  {unresolved}/{resolved+unresolved} unresolved. IDs: {sample_bad}")
         if roster_items:
             log(f"    Sample item keys: {list(roster_items[0].keys())}")
             log(f"    Sample: {json.dumps(roster_items[0], default=str)[:300]}")
     else:
-        log(f"    All {resolved} names resolved")
+        log(f"    ✅ All {resolved} names resolved")
     return sort_roster(players, sport)
 
 def scrape_direct(league_key, cfg):
@@ -233,11 +254,11 @@ def scrape_direct(league_key, cfg):
                     "w": int(wlt[0]) if len(wlt)>=1 else 0,
                     "l": int(wlt[1]) if len(wlt)>=2 else 0,
                     "t": int(wlt[2]) if len(wlt)>=3 else 0,
-                    "pf": row.get("totalPointsFor", 0),
-                    "win_pct": row.get("winPercentage", 0),
-                    "gb": row.get("gamesBack", 0),
+                    "pf": safe_num(row.get("totalPointsFor"), 0),
+                    "win_pct": safe_num(row.get("winPercentage"), 0),
+                    "gb": safe_num(row.get("gamesBack"), 0),
                 })
-            log(f"  {len(result['standings'])} standings")
+            log(f"  ✅ {len(result['standings'])} standings")
     except Exception as e: log(f"  Standings error: {e}")
 
     log(f"  Fetching league info...")
@@ -269,13 +290,28 @@ def scrape_direct(league_key, cfg):
     except Exception as e:
         log(f"  Matchup scores error: {e}")
 
+    # Compute Points Against from regular season matchups
+    if result["standings"] and result["matchups"]:
+        pa = {}
+        for mu in result["matchups"]:
+            if mu.get("is_playoff"): continue
+            away = mu.get("away_fed_id") or mu.get("away_name", "")
+            home = mu.get("home_fed_id") or mu.get("home_name", "")
+            a_score = mu.get("away_score", 0) or 0
+            h_score = mu.get("home_score", 0) or 0
+            pa[away] = pa.get(away, 0) + h_score
+            pa[home] = pa.get(home, 0) + a_score
+        for s in result["standings"]:
+            yid = s.get("fed_id", "")
+            s["pa"] = round(pa.get(yid, 0), 2)
+
     # Build playoff bracket and compute final standings
     if result["standings"] and result["matchups"]:
         bracket = build_playoff_bracket(result["matchups"], result["standings"])
         result["playoff_bracket"] = bracket
         if bracket["status"] == "complete":
             result["standings"] = compute_final_standings(result["standings"], bracket)
-            log(f"  Playoff bracket: complete — final standings updated")
+            log(f"  🏆 Playoff bracket: complete — final standings updated")
         else:
             log(f"  Playoff bracket: {bracket['status']}")
 
@@ -321,13 +357,32 @@ def scrape_library(league_key, cfg):
     try:
         api_standings = api_get("getStandings", {"leagueId": lid})
         if isinstance(api_standings, list):
-            lookup = {r.get("teamName",""): r for r in api_standings}
-            for entry in result["standings"]:
-                api_row = lookup.get(entry["team_name"], {})
-                entry["pf"] = api_row.get("totalPointsFor", 0)
-                entry["win_pct"] = api_row.get("winPercentage", 0)
-                entry["gb"] = api_row.get("gamesBack", 0)
-                entry["fantrax_id"] = api_row.get("teamId", "")
+            if not result["standings"]:
+                # Library standings failed — build from direct API instead
+                log(f"  Library standings empty, building from direct API...")
+                for row in api_standings:
+                    wlt = str(row.get("points", "0-0-0")).split("-")
+                    tn = row.get("teamName", "")
+                    result["standings"].append({
+                        "rank": row.get("rank", 0), "team_name": tn,
+                        "fed_id": resolve(tn), "fantrax_id": row.get("teamId", ""),
+                        "w": int(wlt[0]) if len(wlt) >= 1 and wlt[0].isdigit() else 0,
+                        "l": int(wlt[1]) if len(wlt) >= 2 and wlt[1].isdigit() else 0,
+                        "t": int(wlt[2]) if len(wlt) >= 3 and wlt[2].isdigit() else 0,
+                        "pf": safe_num(row.get("totalPointsFor"), 0),
+                        "win_pct": safe_num(row.get("winPercentage"), 0),
+                        "gb": safe_num(row.get("gamesBack"), 0),
+                    })
+                log(f"  Built {len(result['standings'])} standings from direct API")
+            else:
+                # Enrich existing library standings with API data
+                lookup = {r.get("teamName",""): r for r in api_standings}
+                for entry in result["standings"]:
+                    api_row = lookup.get(entry["team_name"], {})
+                    entry["pf"] = safe_num(api_row.get("totalPointsFor"), 0)
+                    entry["win_pct"] = safe_num(api_row.get("winPercentage"), 0)
+                    entry["gb"] = safe_num(api_row.get("gamesBack"), 0)
+                    entry["fantrax_id"] = api_row.get("teamId", "")
     except Exception as e: log(f"  Enrichment error: {e}")
 
     try:
@@ -356,7 +411,7 @@ def scrape_library(league_key, cfg):
         result["playoff_bracket"] = bracket
         if bracket["status"] == "complete":
             result["standings"] = compute_final_standings(result["standings"], bracket)
-            log(f"  Playoff bracket: complete — final standings updated")
+            log(f"  🏆 Playoff bracket: complete — final standings updated")
         else:
             log(f"  Playoff bracket: {bracket['status']}")
 
@@ -407,7 +462,7 @@ def scrape_library(league_key, cfg):
                 "fed_id": resolve(team.name), "players": [], "error": str(e)}
 
     if lib_fails >= len(league.teams) // 2:
-        log(f"  {lib_fails}/{len(league.teams)} failed — falling back to direct API rosters...")
+        log(f"  ⚠️  {lib_fails}/{len(league.teams)} failed — falling back to direct API rosters...")
         try:
             api_rosters = api_get("getTeamRosters", {"leagueId": lid})
             rosters_data = api_rosters.get("rosters", {}) if isinstance(api_rosters, dict) else {}
@@ -417,7 +472,7 @@ def scrape_library(league_key, cfg):
                     tn = team_data.get("teamName", "")
                     players = _resolve_roster(team_data.get("rosterItems", []), player_names, sport)
                     result["rosters"][team_id] = {"fantrax_id": team_id, "fantrax_name": tn, "fed_id": resolve(tn), "players": players}
-                log(f"  Direct API rosters: {len(rosters_data)} teams")
+                log(f"  ✅ Direct API rosters: {len(rosters_data)} teams")
                 result["method"] = "library+direct (rosters via API)"
         except Exception as e: log(f"  Direct API rosters also failed: {e}")
     return result
@@ -838,7 +893,7 @@ def compute_final_standings(standings, playoff_bracket):
 # ============================================================
 # SCHEDULE EXTRAS FROM GOOGLE SHEETS
 # ============================================================
-SCHEDULE_SHEET_ID = "YOUR_SCHEDULE_SHEET_ID"
+SCHEDULE_SHEET_ID = "1sMsJtToYwVcu1VORdqxRT8KnRzKbCBWdC3eOXkwP64g"
 SCHEDULE_SHEET_NAME = "Federation All-Time Schedule"
 SHEET_LEAGUE_NAMES = {"FedFL": "fed_fl", "FedHL": "fed_hl", "FedBA": "fed_ba", "FedLB": "fed_lb"}
 
@@ -905,7 +960,7 @@ def scrape_draft_picks():
             if picks:
                 all_picks[season] = picks
                 total = sum(len(v) for v in picks.values())
-                log(f"    {season}: {total} picks across {len(picks)} leagues")
+                log(f"    {season}: ✅ {total} picks across {len(picks)} leagues")
         except Exception as e: log(f"    {season}: error {e}")
     return all_picks
 
@@ -974,27 +1029,6 @@ def compute_federation(fed_data, mode="active"):
     for i,t in enumerate(s): t["federation_rank"] = i+1
     return s
 
-# ============================================================
-# DASHBOARD GENERATOR
-# ============================================================
-def generate_dashboard(combined, output_dir=None):
-    template_path = SCRIPT_DIR / "dashboard.html"
-    if not template_path.exists():
-        log(f"  dashboard.html template not found — skipping"); return None
-    log(f"  Generating dashboard_live.html...")
-    html = template_path.read_text(encoding="utf-8")
-    data_script = f'<script>window.FED_DATA = {json.dumps(combined, default=str)};</script>'
-    html = html.replace('<!-- FED_DATA_PLACEHOLDER -->', data_script)
-    out_path = SCRIPT_DIR / "dashboard_live.html"
-    out_path.write_text(html, encoding="utf-8")
-    log(f"  dashboard_live.html ({out_path.stat().st_size/1024:.1f} KB)")
-    # Also write index.html to web root when using --output-dir (server deployment)
-    if output_dir and output_dir.parent != SCRIPT_DIR:
-        web_root = output_dir.parent
-        idx_path = web_root / "index.html"
-        idx_path.write_text(html, encoding="utf-8")
-        log(f"  index.html ({idx_path.stat().st_size/1024:.1f} KB) -> {web_root}")
-    return out_path
 
 # ============================================================
 # TRANSACTIONS
@@ -1034,6 +1068,10 @@ def _parse_transaction_group(rows, team_name_lookup):
         if not parsed_date:
             parsed_date = date_str  # keep raw string if no format matches
 
+    # FAAB bid amount from cell with key="bid"
+    bid_cell = cells_by_key.get("bid", {})
+    bid_amount = safe_num(bid_cell.get("content", ""), 0)
+
     # Players from each row in the group
     players = []
     for row in rows:
@@ -1049,13 +1087,16 @@ def _parse_transaction_group(rows, team_name_lookup):
             "type": tx_type,
         })
 
-    return {
+    txn = {
         "id": tx_id,
         "date": parsed_date,
         "team_name": team_name,
         "fed_id": fed_id,
         "players": players,
     }
+    if bid_amount > 0:
+        txn["bid"] = bid_amount
+    return txn
 
 
 def scrape_transactions(league_key, league_id, count=500):
@@ -1076,13 +1117,13 @@ def scrape_transactions(league_key, league_id, count=500):
         )
         resp_json = resp.json()
     except Exception as e:
-        print(f"  Transaction API request failed for {league_key}: {e}")
+        print(f"  ⚠️  Transaction API request failed for {league_key}: {e}")
         return []
 
     # Handle API-level errors (e.g. "Not Logged in")
     if "pageError" in resp_json:
         err = resp_json["pageError"]
-        print(f"  Transaction API error for {league_key}: {err.get('title', err.get('code', 'unknown'))}")
+        print(f"  ⚠️  Transaction API error for {league_key}: {err.get('title', err.get('code', 'unknown'))}")
         return []
 
     # Extract rows from response
@@ -1090,7 +1131,7 @@ def scrape_transactions(league_key, league_id, count=500):
         data = resp_json["responses"][0]["data"]
         rows = data.get("table", {}).get("rows", [])
     except (KeyError, IndexError) as e:
-        print(f"  Unexpected transaction response for {league_key}: {e}")
+        print(f"  ⚠️  Unexpected transaction response for {league_key}: {e}")
         return []
 
     if not rows:
@@ -1134,7 +1175,7 @@ def scrape_all_transactions():
     current_season = "2025-26"
     results[current_season] = {}
     for lk, cfg in LEAGUES.items():
-        print(f"  {cfg['name']} transactions...")
+        print(f"  📋 {cfg['name']} transactions...")
         txns = scrape_transactions(lk, cfg["league_id"])
         if txns:
             results[current_season][lk] = {
@@ -1142,9 +1183,9 @@ def scrape_all_transactions():
                 "sport": cfg["sport"],
                 "transactions": txns,
             }
-            print(f"     {len(txns)} transactions")
+            print(f"     ✅ {len(txns)} transactions")
         else:
-            print(f"     No transactions returned")
+            print(f"     ⚠️  No transactions returned")
 
     return results
 
@@ -1153,23 +1194,23 @@ def scrape_all_transactions():
 # MAIN
 # ============================================================
 def main():
-    print("="*60); print("  Federation Scraper v3.6"); print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"); print("="*60)
+    print("="*60); print("  Federation Fantrax Scraper v3.6"); print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"); print("="*60)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     all_data = {}
 
     for lk, cfg in LEAGUES.items():
-        print(f"\n{cfg['name']} ({cfg['sport']})...")
+        print(f"\n📡 {cfg['name']} ({cfg['sport']})...")
         data = None; method = cfg.get("method", "library")
         if method == "library" and HAS_LIB:
             try: data = scrape_library(lk, cfg)
-            except Exception as e: print(f"  Library failed: {e}"); traceback.print_exc(); method = "direct"
+            except Exception as e: print(f"  ⚠️  Library failed: {e}"); traceback.print_exc(); method = "direct"
         if data is None or method == "direct":
             try: data = scrape_direct(lk, cfg)
-            except Exception as e: print(f"  Failed: {e}"); traceback.print_exc()
+            except Exception as e: print(f"  ❌ Failed: {e}"); traceback.print_exc()
         all_data[lk] = data
         if data:
             st, ro = data.get("standings", []), sum(len(r.get("players",[])) for r in data.get("rosters",{}).values())
-            tag = "ACTIVE" if is_league_active(data) else "NOT STARTED"
+            tag = "✅ ACTIVE" if is_league_active(data) else "⏳ NOT STARTED"
             print(f"  {tag} | {len(st)} standings, {ro} players [{data.get('method','')}]")
             for e in st[:3]:
                 pf_str = f"  PF:{e['pf']:.1f}" if e.get('pf') else ""
@@ -1177,25 +1218,53 @@ def main():
             if len(st) > 3: print(f"     ... +{len(st)-3} more")
             for tid, r in list(data.get("rosters",{}).items())[:1]:
                 ps = r.get("players",[])[:3]
-                print(f"  Sample roster ({r.get('fantrax_name','?')}): {', '.join(p.get('name','?') for p in ps)}")
+                print(f"  📋 Sample roster ({r.get('fantrax_name','?')}): {', '.join(p.get('name','?') for p in ps)}")
 
     # Previous NFL
-    print(f"\nLoading previous NFL season...")
+    print(f"\n📂 Loading previous NFL season...")
     nfl_prev_path = OUTPUT_DIR / NFL_PREV_FILE
-    local_prev_path = SCRIPT_DIR / "data" / NFL_PREV_FILE
+    local_prev_path = SCRIPT_DIR / ".." / "site" / "data" / NFL_PREV_FILE
     nfl_prev = None
     if nfl_prev_path.exists():
         with open(nfl_prev_path, "r", encoding="utf-8") as f: nfl_prev = json.load(f)
-        print(f"  Loaded {len(nfl_prev.get('standings',[]))} standings")
+        print(f"  ✅ Loaded {len(nfl_prev.get('standings',[]))} standings")
     elif local_prev_path.exists():
         with open(local_prev_path, "r", encoding="utf-8") as f: nfl_prev = json.load(f)
-        print(f"  Loaded {len(nfl_prev.get('standings',[]))} standings (from scraper/data/)")
-    else: print(f"  {NFL_PREV_FILE} not found")
+        print(f"  ✅ Loaded {len(nfl_prev.get('standings',[]))} standings (from scraper/data/)")
+    else: print(f"  ⚠️  {NFL_PREV_FILE} not found")
+
+    # Resolve unresolved player IDs in previous NFL rosters
+    if nfl_prev and nfl_prev.get("rosters"):
+        unresolved = 0
+        for _, roster in nfl_prev["rosters"].items():
+            for p in roster.get("players", []):
+                if p.get("name") and len(p["name"]) == 5 and p["name"].isalnum() and not p.get("real_team"):
+                    unresolved += 1
+        if unresolved > 0:
+            print(f"  🔧 Resolving {unresolved} player IDs in previous NFL rosters...")
+            try:
+                player_names = _load_player_names(LEAGUES["fed_fl"]["league_id"], "NFL")
+                resolved = 0
+                for _, roster in nfl_prev["rosters"].items():
+                    for p in roster.get("players", []):
+                        pid = p.get("name", "")
+                        if len(pid) == 5 and pid.isalnum() and pid in player_names:
+                            info = player_names[pid]
+                            p["name"] = info.get("name", pid)
+                            p["real_team"] = info.get("team", "")
+                            resolved += 1
+                print(f"  ✅ Resolved {resolved}/{unresolved} player names")
+                # Save fixed data
+                save_path = nfl_prev_path if nfl_prev_path.exists() else local_prev_path
+                with open(save_path, "w", encoding="utf-8") as f:
+                    json.dump(nfl_prev, f, indent=2, default=str)
+            except Exception as e:
+                print(f"  ⚠️  Player name resolution failed: {e}")
 
     # Fetch prior NFL season matchup scores if missing or lacking scores
     prev_has_scores = nfl_prev and nfl_prev.get("matchups") and "away_score" in (nfl_prev["matchups"][0] if nfl_prev["matchups"] else {})
     if nfl_prev and not prev_has_scores:
-        print(f"\nFetching prior NFL season matchup scores...")
+        print(f"\n📊 Fetching prior NFL season matchup scores...")
         try:
             prev_mus, prev_meta = scrape_matchup_scores_raw(NFL_PREV_LEAGUE_ID)
             if prev_mus:
@@ -1204,11 +1273,27 @@ def main():
                 save_path = nfl_prev_path if nfl_prev_path.exists() else local_prev_path
                 with open(save_path, "w", encoding="utf-8") as f:
                     json.dump(nfl_prev, f, indent=2, default=str)
-                print(f"  Got {len(prev_mus)} matchups, saved to {NFL_PREV_FILE}")
+                print(f"  ✅ Got {len(prev_mus)} matchups, saved to {NFL_PREV_FILE}")
             else:
-                print(f"  No matchups returned (league may require auth)")
+                print(f"  ⚠️  No matchups returned (league may require auth)")
         except Exception as e:
-            print(f"  Prior NFL scores failed: {e}")
+            print(f"  ❌ Prior NFL scores failed: {e}")
+
+    # Compute PA for previous NFL season if missing
+    if nfl_prev and nfl_prev.get("matchups") and nfl_prev.get("standings"):
+        if not nfl_prev["standings"][0].get("pa"):
+            pa = {}
+            for mu in nfl_prev["matchups"]:
+                if mu.get("is_playoff"): continue
+                away = mu.get("away_fed_id") or mu.get("away_name", "")
+                home = mu.get("home_fed_id") or mu.get("home_name", "")
+                a_score = mu.get("away_score", 0) or 0
+                h_score = mu.get("home_score", 0) or 0
+                pa[away] = pa.get(away, 0) + h_score
+                pa[home] = pa.get(home, 0) + a_score
+            for s in nfl_prev["standings"]:
+                s["pa"] = round(pa.get(s.get("fed_id", ""), 0), 2)
+            print(f"  📊 Computed PA for previous NFL season")
 
     # Build playoff bracket for previous NFL season
     if nfl_prev and nfl_prev.get("matchups") and nfl_prev.get("standings"):
@@ -1216,12 +1301,12 @@ def main():
         nfl_prev["playoff_bracket"] = bracket
         if bracket["status"] == "complete":
             nfl_prev["standings"] = compute_final_standings(nfl_prev["standings"], bracket)
-            print(f"  Previous NFL playoff bracket: complete — final standings updated")
+            print(f"  🏆 Previous NFL playoff bracket: complete — final standings updated")
         else:
             print(f"  Playoff bracket: {bracket['status']}")
 
     # Schedule extras (rivalry week labels from Google Sheet)
-    print(f"\nScraping schedule extras...")
+    print(f"\n📅 Scraping schedule extras...")
     schedule_extras = {}
     try:
         schedule_extras = scrape_schedule_extras()
@@ -1232,25 +1317,25 @@ def main():
                 all_data[lk]["schedule_meta"] = sm
         if schedule_extras:
             rw_info = ", ".join(f"{lk}=Wk{e.get('rivalry_week')}" for lk, e in schedule_extras.items() if e.get("rivalry_week"))
-            print(f"  Rivalry weeks: {rw_info or 'none found'}")
+            print(f"  ✅ Rivalry weeks: {rw_info or 'none found'}")
         else:
-            print(f"  No schedule extras (sheet may be private)")
-    except Exception as e: print(f"  Schedule extras failed: {e}")
+            print(f"  ⚠️  No schedule extras (sheet may be private)")
+    except Exception as e: print(f"  ❌ Schedule extras failed: {e}")
 
     # Draft picks
-    print(f"\nScraping draft picks ({len(DRAFT_SEASONS)} seasons)...")
+    print(f"\n📋 Scraping draft picks ({len(DRAFT_SEASONS)} seasons)...")
     draft_picks = draft_by_team = {}
     try:
         draft_picks = scrape_draft_picks()
         if draft_picks:
             draft_by_team = organize_picks_by_team(draft_picks)
             total = sum(sum(len(v) for v in leagues.values()) for leagues in draft_picks.values())
-            print(f"  {total} picks across {len(draft_picks)} seasons")
-        else: print(f"  No picks (sheet may be private)")
-    except Exception as e: print(f"  Draft picks failed: {e}")
+            print(f"  ✅ {total} picks across {len(draft_picks)} seasons")
+        else: print(f"  ⚠️  No picks (sheet may be private)")
+    except Exception as e: print(f"  ❌ Draft picks failed: {e}")
 
     # Transactions
-    print(f"\nScraping transactions...")
+    print(f"\n📋 Scraping transactions...")
     transactions = {}
     try:
         transactions = scrape_all_transactions()
@@ -1264,24 +1349,85 @@ def main():
                     for ek, ev in existing_leagues.items():
                         if ek not in leagues:
                             leagues[ek] = ev
-                            print(f"  Preserved existing {ek} ({len(ev.get('transactions', []))} transactions)")
+                            print(f"  📌 Preserved existing {ek} ({len(ev.get('transactions', []))} transactions)")
                 except Exception:
                     pass
             tx_data = {"season": season, "scraped_at": datetime.now().isoformat(), "teams": FED_TEAMS, "leagues": leagues}
             with open(tx_path, "w", encoding="utf-8") as f:
                 json.dump(tx_data, f, indent=2, default=str)
             total = sum(len(ld.get("transactions", [])) for ld in leagues.values())
-            print(f"  {season}: {total} transactions saved to {tx_path.name}")
+            print(f"  ✅ {season}: {total} transactions saved to {tx_path.name}")
     except Exception as e:
-        print(f"  Transactions failed: {e}")
+        print(f"  ❌ Transactions failed: {e}")
         traceback.print_exc()
+
+    # FAAB remaining — compute from transaction bid amounts + manual overrides
+    FAAB_BUDGET = 250
+    print(f"\n💰 Computing FAAB remaining...")
+
+    # Load manual FAAB overrides (e.g., for completed NFL season where bids weren't captured)
+    faab_overrides = {}
+    faab_override_path = OUTPUT_DIR / "faab.json"
+    if not faab_override_path.exists():
+        faab_override_path = SCRIPT_DIR / ".." / "site" / "data" / "faab.json"
+    if faab_override_path.exists():
+        try:
+            with open(faab_override_path, "r", encoding="utf-8") as f:
+                faab_overrides = json.load(f)
+            print(f"  Loaded manual FAAB overrides")
+        except Exception:
+            pass
+
+    # Apply FAAB to standings — from bids or manual overrides
+    current_season_key = None
+    for season in transactions:
+        current_season_key = season
+        break
+    if current_season_key and current_season_key in transactions:
+        for lk, league_txns in transactions[current_season_key].items():
+            faab_spent = {}  # fed_id -> total spent
+            for txn in league_txns.get("transactions", []):
+                bid = txn.get("bid", 0)
+                if bid > 0 and txn.get("fed_id"):
+                    yid = txn["fed_id"]
+                    faab_spent[yid] = faab_spent.get(yid, 0) + bid
+            # Apply to standings — use the base league key (fed_fl_prev -> fed_fl)
+            target_lk = lk.replace("_prev", "") if lk.endswith("_prev") else lk
+            if target_lk in all_data and all_data[target_lk] and all_data[target_lk].get("standings"):
+                for entry in all_data[target_lk]["standings"]:
+                    yid = entry.get("fed_id")
+                    spent = faab_spent.get(yid, 0)
+                    entry["faab_spent"] = spent
+                    entry["faab_remaining"] = FAAB_BUDGET - spent
+                faab_teams = sum(1 for v in faab_spent.values() if v > 0)
+                if faab_teams:
+                    print(f"  {LEAGUES.get(target_lk, {}).get('name', target_lk)}: {faab_teams} teams used FAAB, total ${sum(faab_spent.values()):.0f} spent")
+
+    # Apply manual FAAB overrides (takes priority over computed values)
+    for lk, team_overrides in faab_overrides.items():
+        if lk.startswith("_"): continue
+        if not team_overrides: continue
+        # Apply to all relevant data sources
+        targets = []
+        if all_data.get(lk) and all_data[lk].get("standings"):
+            targets.append(all_data[lk])
+        if lk == "fed_fl" and nfl_prev and nfl_prev.get("standings"):
+            targets.append(nfl_prev)
+        for target in targets:
+            for entry in target["standings"]:
+                yid = entry.get("fed_id")
+                if yid and yid in team_overrides:
+                    entry["faab_remaining"] = team_overrides[yid].get("remaining", FAAB_BUDGET)
+                    entry["faab_spent"] = FAAB_BUDGET - entry["faab_remaining"]
+        if targets:
+            print(f"  {LEAGUES.get(lk, {}).get('name', lk)}: applied manual FAAB overrides ({len(team_overrides)} teams)")
 
     # Federation
     fed_data = dict(all_data)
     if not is_league_active(all_data.get("fed_fl")) and nfl_prev and nfl_prev.get("standings"):
-        fed_data["fed_fl"] = nfl_prev; print(f"\nUsing previous NFL season for federation")
+        fed_data["fed_fl"] = nfl_prev; print(f"\n🏈 Using previous NFL season for federation")
 
-    print(f"\nComputing Federation Standings...")
+    print(f"\n🏆 Computing Federation Standings...")
     fed_active = compute_federation(fed_data, mode="active")
     fed_all = compute_federation(fed_data, mode="all")
     active_leagues = [lk for lk in LEAGUES if is_league_active(fed_data.get(lk))]
@@ -1297,14 +1443,47 @@ def main():
         "league_data": {k:v for k,v in all_data.items() if v}, "nfl_previous_season": nfl_prev,
         "federation_standings": fed_active, "federation_standings_all": fed_all,
         "draft_picks": draft_picks, "draft_picks_by_team": draft_by_team}
+
+    # Compute Power Rankings
+    print(f"\n📊 Computing Power Rankings...")
+    try:
+        from compute_pr import compute_pr_from_data
+        pr_output = compute_pr_from_data(combined)
+        combined["power_rankings"] = pr_output
+        print(f"  PR computed: {len(pr_output.get('federation', []))} teams ranked across {len(pr_output.get('leagues', {}))} leagues")
+    except Exception as e:
+        print(f"  ⚠️  PR computation failed: {e}")
+        combined["power_rankings"] = None
+
     with open(OUTPUT_DIR/"fed_combined.json", "w", encoding="utf-8") as f: json.dump(combined, f, indent=2, default=str)
 
-    dash_path = generate_dashboard(combined, OUTPUT_DIR)
-    print(f"\nSaved to {OUTPUT_DIR.resolve()}/")
-    for fp in sorted(OUTPUT_DIR.glob("*.json")): print(f"   {fp.name} ({fp.stat().st_size/1024:.1f} KB)")
-    if dash_path: print(f"   {dash_path.name} ({dash_path.stat().st_size/1024:.1f} KB)")
+    # Write split files for per-page loading
+    def _write_split(name, data):
+        with open(OUTPUT_DIR/f"{name}.json", "w", encoding="utf-8") as f:
+            json.dump(data, f, separators=(",", ":"), default=str)
 
-    print(f"\n{'='*72}"); print(f"  Federation Standings ({len(active_leagues)}/{len(LEAGUES)} active)"); print(f"{'='*72}")
+    _write_split("core", {
+        "scraped_at": combined["scraped_at"], "scraper_version": combined["scraper_version"],
+        "federation_season": combined["federation_season"], "teams": combined["teams"],
+        "team_name_map": combined.get("team_name_map", {}), "leagues": combined.get("leagues", {}),
+    })
+    for lk in ["fed_fl", "fed_ba", "fed_hl", "fed_lb"]:
+        if lk in combined.get("league_data", {}):
+            _write_split(f"league_{lk}", combined["league_data"][lk])
+    _write_split("nfl_previous_season", {"nfl_previous_season": combined.get("nfl_previous_season")})
+    _write_split("federation", {
+        "federation_standings": combined.get("federation_standings"),
+        "federation_standings_all": combined.get("federation_standings_all"),
+    })
+    _write_split("power_rankings", {"power_rankings": combined.get("power_rankings")})
+    _write_split("draft_picks_by_team", {"draft_picks_by_team": combined.get("draft_picks_by_team", {})})
+    _write_split("draft_picks", {"draft_picks": combined.get("draft_picks", {})})
+    print(f"\n📦 Split files written for per-page loading")
+
+    print(f"\n✅ Saved to {OUTPUT_DIR.resolve()}/")
+    for fp in sorted(OUTPUT_DIR.glob("*.json")): print(f"   📄 {fp.name} ({fp.stat().st_size/1024:.1f} KB)")
+
+    print(f"\n{'='*72}"); print(f"  🏆 Federation Cup ({len(active_leagues)}/{len(LEAGUES)} active)"); print(f"{'='*72}")
     print(f"  {'Rk':>3}  {'Team':<26} {'Pts':>4}  {'NFL':>7} {'NBA':>7} {'NHL':>7} {'MLB':>7}  {'W':>3}-{'L':<3}")
     print(f"  {'-'*72}")
     for t in fed_active:
@@ -1312,9 +1491,9 @@ def main():
         for lk in LEAGUES:
             bl = t["by_league"].get(lk,{})
             r = bl.get("rank")
-            ln += f"  {bl['fed_pts']:>2}({r:>2})" if r else f"  {'---':>7}"
-            ln += f"  {t['combined_w']:>3}-{t['combined_l']:<3}"
+            ln += f"  {bl['fed_pts']:>2}({r:>2})" if r else f"  {'—':>7}"
+        ln += f"  {t['combined_w']:>3}-{t['combined_l']:<3}"
         print(ln)
-    print(f"\nDone! Open dashboard_live.html in your browser.")
+    print(f"\nDone! Open site/index.html in your browser.")
 
 if __name__ == "__main__": main()

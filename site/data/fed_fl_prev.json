@@ -1,0 +1,2751 @@
+{
+  "league_key": "fed_fl_prev",
+  "league_id": "YOUR_PREV_NFL_LEAGUE_ID",
+  "name": "FedFL (Previous Season)",
+  "sport": "NFL",
+  "scraped_at": "2026-02-20T19:20:01.927017",
+  "method": "direct_api_authenticated",
+  "teams": [
+    {
+      "fantrax_id": "pr5mpmc7mcmjc9d3",
+      "fantrax_name": "Echo Rangers",
+      "short": "ECR",
+      "fed_id": "team_05"
+    },
+    {
+      "fantrax_id": "pwe60c14mbvhyc1g",
+      "fantrax_name": "Alpha FC",
+      "short": "AFC",
+      "fed_id": "team_01"
+    },
+    {
+      "fantrax_id": "k8o7lpkwmch1x70q",
+      "fantrax_name": "Bravo United",
+      "short": "BRU",
+      "fed_id": "team_02"
+    },
+    {
+      "fantrax_id": "ermmh0dcmcmjc9d2",
+      "fantrax_name": "Juliet SC",
+      "short": "JSC",
+      "fed_id": "team_10"
+    },
+    {
+      "fantrax_id": "bwuavhn4mcmjc9d2",
+      "fantrax_name": "India United",
+      "short": "RM\u00d0\u00a1\u00d0\u009a",
+      "fed_id": "team_09"
+    },
+    {
+      "fantrax_id": "b8zlzmwxmcmjc9d2",
+      "fantrax_name": "Charlie SC",
+      "short": "CSC",
+      "fed_id": "team_03"
+    },
+    {
+      "fantrax_id": "n525feoimcmjc9cz",
+      "fantrax_name": "Golf Town",
+      "short": "GLT",
+      "fed_id": "team_07"
+    },
+    {
+      "fantrax_id": "fjn0uwwtmcmjc9d2",
+      "fantrax_name": "Delta Athletic",
+      "short": "DAT",
+      "fed_id": "team_04"
+    },
+    {
+      "fantrax_id": "nabnj55tmcmjc9d2",
+      "fantrax_name": "Hotel FC",
+      "short": "HFC",
+      "fed_id": "team_08"
+    },
+    {
+      "fantrax_id": "31r1egj8mcmjc9d2",
+      "fantrax_name": "Foxtrot City",
+      "short": "FXC",
+      "fed_id": "team_06"
+    },
+    {
+      "fantrax_id": "uhvy8gafmcmjc9d2",
+      "fantrax_name": "Lima Rovers",
+      "short": "LMR",
+      "fed_id": "team_12"
+    },
+    {
+      "fantrax_id": "ifb9s3eamcmjc9d3",
+      "fantrax_name": "Kilo Athletic",
+      "short": "KAT",
+      "fed_id": "team_11"
+    }
+  ],
+  "standings": [
+    {
+      "rank": 1,
+      "team_name": "Lima Rovers",
+      "fed_id": "team_12",
+      "fantrax_id": "uhvy8gafmcmjc9d2",
+      "w": 12,
+      "l": 2,
+      "t": 0,
+      "pf": 1647.56,
+      "win_pct": 0.857,
+      "gb": 0.0,
+      "pa": 1305.86
+    },
+    {
+      "rank": 2,
+      "team_name": "Juliet SC",
+      "fed_id": "team_10",
+      "fantrax_id": "ermmh0dcmcmjc9d2",
+      "w": 11,
+      "l": 3,
+      "t": 0,
+      "pf": 1543.5,
+      "win_pct": 0.786,
+      "gb": 1.0,
+      "pa": 1311.5
+    },
+    {
+      "rank": 3,
+      "team_name": "Echo Rangers",
+      "fed_id": "team_05",
+      "fantrax_id": "pr5mpmc7mcmjc9d3",
+      "w": 9,
+      "l": 5,
+      "t": 0,
+      "pf": 1626.54,
+      "win_pct": 0.643,
+      "gb": 3.0,
+      "pa": 1332.52
+    },
+    {
+      "rank": 4,
+      "team_name": "Charlie SC",
+      "fed_id": "team_03",
+      "fantrax_id": "b8zlzmwxmcmjc9d2",
+      "w": 9,
+      "l": 5,
+      "t": 0,
+      "pf": 1545.42,
+      "win_pct": 0.643,
+      "gb": 3.0,
+      "pa": 1413.3
+    },
+    {
+      "rank": 5,
+      "team_name": "Delta Athletic",
+      "fed_id": "team_04",
+      "fantrax_id": "fjn0uwwtmcmjc9d2",
+      "w": 8,
+      "l": 6,
+      "t": 0,
+      "pf": 1559.92,
+      "win_pct": 0.571,
+      "gb": 4.0,
+      "pa": 1487.08
+    },
+    {
+      "rank": 6,
+      "team_name": "Foxtrot City",
+      "fed_id": "team_06",
+      "fantrax_id": "31r1egj8mcmjc9d2",
+      "w": 6,
+      "l": 8,
+      "t": 0,
+      "pf": 1398.64,
+      "win_pct": 0.429,
+      "gb": 6.0,
+      "pa": 1422.22
+    },
+    {
+      "rank": 7,
+      "team_name": "Bravo United",
+      "fed_id": "team_02",
+      "fantrax_id": "k8o7lpkwmch1x70q",
+      "w": 6,
+      "l": 8,
+      "t": 0,
+      "pf": 1378.46,
+      "win_pct": 0.429,
+      "gb": 6.0,
+      "pa": 1445.86
+    },
+    {
+      "rank": 8,
+      "team_name": "Kilo Athletic",
+      "fed_id": "team_11",
+      "fantrax_id": "ifb9s3eamcmjc9d3",
+      "w": 6,
+      "l": 8,
+      "t": 0,
+      "pf": 1268.74,
+      "win_pct": 0.429,
+      "gb": 6.0,
+      "pa": 1357.16
+    },
+    {
+      "rank": 9,
+      "team_name": "India United",
+      "fed_id": "team_09",
+      "fantrax_id": "bwuavhn4mcmjc9d2",
+      "w": 5,
+      "l": 9,
+      "t": 0,
+      "pf": 1245.72,
+      "win_pct": 0.357,
+      "gb": 7.0,
+      "pa": 1449.02
+    },
+    {
+      "rank": 10,
+      "team_name": "Golf Town",
+      "fed_id": "team_07",
+      "fantrax_id": "n525feoimcmjc9cz",
+      "w": 4,
+      "l": 10,
+      "t": 0,
+      "pf": 1269.28,
+      "win_pct": 0.286,
+      "gb": 8.0,
+      "pa": 1522.12
+    },
+    {
+      "rank": 11,
+      "team_name": "Alpha FC",
+      "fed_id": "team_01",
+      "fantrax_id": "pwe60c14mbvhyc1g",
+      "w": 4,
+      "l": 10,
+      "t": 0,
+      "pf": 1241.5,
+      "win_pct": 0.286,
+      "gb": 8.0,
+      "pa": 1449.82
+    },
+    {
+      "rank": 12,
+      "team_name": "Hotel FC",
+      "fed_id": "team_08",
+      "fantrax_id": "nabnj55tmcmjc9d2",
+      "w": 4,
+      "l": 10,
+      "t": 0,
+      "pf": 1240.7,
+      "win_pct": 0.286,
+      "gb": 8.0,
+      "pa": 1469.52
+    }
+  ],
+  "rosters": {
+    "k8o7lpkwmch1x70q": {
+      "fantrax_id": "k8o7lpkwmch1x70q",
+      "fantrax_name": "Bravo United",
+      "fed_id": "team_02",
+      "players": [
+        {
+          "name": "Aiyuk, Brandon",
+          "position": "WR",
+          "real_team": "SF",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Jones, Aaron",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Collins, Nico",
+          "position": "WR",
+          "real_team": "HOU",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Hurts, Jalen",
+          "position": "QB",
+          "real_team": "PHI",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Johnson, Kaleb",
+          "position": "RWT",
+          "real_team": "PIT",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Doubs, Romeo",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Hockenson, T.J.",
+          "position": "TE",
+          "real_team": "MIN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Corum, Blake",
+          "position": "RB",
+          "real_team": "LAR",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Nacua, Puka",
+          "position": "WR",
+          "real_team": "LAR",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Shaheed, Rashid",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Meyers, Jakobi",
+          "position": "RWT",
+          "real_team": "JAX",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Darnold, Sam",
+          "position": "QB",
+          "real_team": "SEA",
+          "status": "RESERVE"
+        },
+        {
+          "name": "20190",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Mixon, Joe",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Chubb, Nick",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Franklin, Troy",
+          "position": "RWT",
+          "real_team": "DEN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Boswell, Chris",
+          "position": "K",
+          "real_team": "PIT",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Williams, Kyren",
+          "position": "RB",
+          "real_team": "LAR",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    "ermmh0dcmcmjc9d2": {
+      "fantrax_id": "ermmh0dcmcmjc9d2",
+      "fantrax_name": "Juliet SC",
+      "fed_id": "team_10",
+      "players": [
+        {
+          "name": "Henry, Derrick",
+          "position": "RB",
+          "real_team": "BAL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Irving, Bucky",
+          "position": "RWT",
+          "real_team": "TB",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Wilson, Garrett",
+          "position": "WR",
+          "real_team": "NYJ",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Metcalf, DK",
+          "position": "WR",
+          "real_team": "PIT",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Prescott, Dak",
+          "position": "QB",
+          "real_team": "DAL",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Andrews, Mark",
+          "position": "TE",
+          "real_team": "BAL",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Hill, Tyreek",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Adams, Davante",
+          "position": "WR",
+          "real_team": "LAR",
+          "status": "RESERVE"
+        },
+        {
+          "name": "20090",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Kittle, George",
+          "position": "TE",
+          "real_team": "SF",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Mitchell, Adonai",
+          "position": "WR",
+          "real_team": "NYJ",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Allen, Keenan",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Ridley, Calvin",
+          "position": "WR",
+          "real_team": "TEN",
+          "status": "RESERVE"
+        },
+        {
+          "name": "White, Rachaad",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Kamara, Alvin",
+          "position": "RWT",
+          "real_team": "NO",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Pineiro, Eddy",
+          "position": "K",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Jackson, Lamar",
+          "position": "QB",
+          "real_team": "BAL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Taylor, Jonathan",
+          "position": "RB",
+          "real_team": "IND",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    "bwuavhn4mcmjc9d2": {
+      "fantrax_id": "bwuavhn4mcmjc9d2",
+      "fantrax_name": "India United",
+      "fed_id": "team_09",
+      "players": [
+        {
+          "name": "Bates, Jake",
+          "position": "K",
+          "real_team": "DET",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Watson, Christian",
+          "position": "WR",
+          "real_team": "GB",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Montgomery, David",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Skattebo, Cameron",
+          "position": "RWT",
+          "real_team": "NYG",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Shakir, Khalil",
+          "position": "WR",
+          "real_team": "BUF",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "McMillan, Tetairoa",
+          "position": "WR",
+          "real_team": "CAR",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Warren, Tyler",
+          "position": "TE",
+          "real_team": "IND",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Daniels, Jayden",
+          "position": "QB",
+          "real_team": "WAS",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Love, Jordan",
+          "position": "QB",
+          "real_team": "GB",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Williams, Jameson",
+          "position": "RWT",
+          "real_team": "DET",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Godwin, Chris",
+          "position": "WR",
+          "real_team": "TB",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Marks, Woody",
+          "position": "RB",
+          "real_team": "HOU",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Kmet, Cole",
+          "position": "TE",
+          "real_team": "CHI",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Njoku, David",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "20220",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Croskey-Merritt, Jacory",
+          "position": "RB",
+          "real_team": "WAS",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Nabers, Malik",
+          "position": "WR",
+          "real_team": "NYG",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Musgrave, Luke",
+          "position": "TE",
+          "real_team": "GB",
+          "status": "RESERVE"
+        }
+      ]
+    },
+    "fjn0uwwtmcmjc9d2": {
+      "fantrax_id": "fjn0uwwtmcmjc9d2",
+      "fantrax_name": "Delta Athletic",
+      "fed_id": "team_04",
+      "players": [
+        {
+          "name": "Brown, Dyami",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Williams, Kyle",
+          "position": "WR",
+          "real_team": "NE",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Little, Cam",
+          "position": "K",
+          "real_team": "JAX",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Barner, AJ",
+          "position": "TE",
+          "real_team": "SEA",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Lawrence, Trevor",
+          "position": "QB",
+          "real_team": "JAX",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Hunter, Travis",
+          "position": "WR",
+          "real_team": "JAX",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Pierce, Alec",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "LaPorta, Sam",
+          "position": "TE",
+          "real_team": "DET",
+          "status": "RESERVE"
+        },
+        {
+          "name": "20040",
+          "position": "DST",
+          "real_team": "",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Johnston, Quentin",
+          "position": "RWT",
+          "real_team": "LAC",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Barkley, Saquon",
+          "position": "RB",
+          "real_team": "PHI",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Kirk, Christian",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Mayfield, Baker",
+          "position": "QB",
+          "real_team": "TB",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Smith-Njigba, Jaxon",
+          "position": "WR",
+          "real_team": "SEA",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "20010",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Allen, Braelon",
+          "position": "RWT",
+          "real_team": "NYJ",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "McCaffrey, Christian",
+          "position": "RWT",
+          "real_team": "SF",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Etienne, Travis",
+          "position": "RB",
+          "real_team": "NO",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    "n525feoimcmjc9cz": {
+      "fantrax_id": "n525feoimcmjc9cz",
+      "fantrax_name": "Golf Town",
+      "fed_id": "team_07",
+      "players": [
+        {
+          "name": "Hall, Breece",
+          "position": "RB",
+          "real_team": "NYJ",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Charbonnet, Zach",
+          "position": "RB",
+          "real_team": "SEA",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Burden, Luther",
+          "position": "WR",
+          "real_team": "CHI",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Thomas, Brian",
+          "position": "RWT",
+          "real_team": "JAX",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Loop, Tyler",
+          "position": "K",
+          "real_team": "BAL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Jefferson, Justin",
+          "position": "WR",
+          "real_team": "MIN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Stevenson, Rhamondre",
+          "position": "RWT",
+          "real_team": "NE",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Walker III, Kenneth",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Stafford, Matthew",
+          "position": "QB",
+          "real_team": "LAR",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Gadsden, Oronde",
+          "position": "TE",
+          "real_team": "LAC",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Vidal, Kimani",
+          "position": "RWT",
+          "real_team": "LAC",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Diggs, Stefon",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Maye, Drake",
+          "position": "QB",
+          "real_team": "NE",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Taylor, Mason",
+          "position": "TE",
+          "real_team": "NYJ",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Higgins, Tee",
+          "position": "WR",
+          "real_team": "CIN",
+          "status": "RESERVE"
+        },
+        {
+          "name": "20200",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    "pr5mpmc7mcmjc9d3": {
+      "fantrax_id": "pr5mpmc7mcmjc9d3",
+      "fantrax_name": "Echo Rangers",
+      "fed_id": "team_05",
+      "players": [
+        {
+          "name": "Fairbairn, Kaimi",
+          "position": "K",
+          "real_team": "HOU",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "20320",
+          "position": "DST",
+          "real_team": "",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Jones, Daniel",
+          "position": "QB",
+          "real_team": "IND",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Burrow, Joe",
+          "position": "QB",
+          "real_team": "CIN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Rice, Rashee",
+          "position": "RWT",
+          "real_team": "KC",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Goedert, Dallas",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "St. Brown, Amon-Ra",
+          "position": "WR",
+          "real_team": "DET",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "20280",
+          "position": "DST",
+          "real_team": "",
+          "status": "RESERVE"
+        },
+        {
+          "name": "20130",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Hubbard, Chuba",
+          "position": "RB",
+          "real_team": "CAR",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Carter, Michael",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Fannin, Harold",
+          "position": "TE",
+          "real_team": "CLE",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Jacobs, Josh",
+          "position": "RB",
+          "real_team": "GB",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Brown, A.J.",
+          "position": "WR",
+          "real_team": "PHI",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Kraft, Tucker",
+          "position": "TE",
+          "real_team": "GB",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Achane, Devon",
+          "position": "RB",
+          "real_team": "MIA",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Downs, Josh",
+          "position": "WR",
+          "real_team": "IND",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Dobbins, J.K.",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "INJURED_RESERVE"
+        }
+      ]
+    },
+    "31r1egj8mcmjc9d2": {
+      "fantrax_id": "31r1egj8mcmjc9d2",
+      "fantrax_name": "Foxtrot City",
+      "fed_id": "team_06",
+      "players": [
+        {
+          "name": "Purdy, Brock",
+          "position": "QB",
+          "real_team": "SF",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Tracy, Tyrone",
+          "position": "RWT",
+          "real_team": "NYG",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Johnson, Juwan",
+          "position": "TE",
+          "real_team": "NO",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Henderson, TreVeyon",
+          "position": "RB",
+          "real_team": "NE",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Hampton, Omarion",
+          "position": "RWT",
+          "real_team": "LAC",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "20270",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Neal, Devin",
+          "position": "RB",
+          "real_team": "NO",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Myers, Jason",
+          "position": "K",
+          "real_team": "SEA",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Wilson, Michael",
+          "position": "WR",
+          "real_team": "ARI",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Herbert, Justin",
+          "position": "QB",
+          "real_team": "LAC",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Egbuka, Emeka",
+          "position": "WR",
+          "real_team": "TB",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Addison, Jordan",
+          "position": "WR",
+          "real_team": "MIN",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Williams, Javonte",
+          "position": "RB",
+          "real_team": "DAL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Monangai, Kyle",
+          "position": "RWT",
+          "real_team": "CHI",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Arroyo, Elijah",
+          "position": "TE",
+          "real_team": "SEA",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Brissett, Jacoby",
+          "position": "QB",
+          "real_team": "ARI",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Samuel, Deebo",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        }
+      ]
+    },
+    "uhvy8gafmcmjc9d2": {
+      "fantrax_id": "uhvy8gafmcmjc9d2",
+      "fantrax_name": "Lima Rovers",
+      "fed_id": "team_12",
+      "players": [
+        {
+          "name": "Allen, Josh",
+          "position": "QB",
+          "real_team": "BUF",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Pearsall, Ricky",
+          "position": "RWT",
+          "real_team": "SF",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Aubrey, Brandon",
+          "position": "K",
+          "real_team": "DAL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Chase, JaMarr",
+          "position": "WR",
+          "real_team": "CIN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Jennings, Jauan",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Sampson, Dylan",
+          "position": "RB",
+          "real_team": "CLE",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Wilson, Emanuel",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Swift, DAndre",
+          "position": "RB",
+          "real_team": "CHI",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Mason, Jordan",
+          "position": "RWT",
+          "real_team": "MIN",
+          "status": "RESERVE"
+        },
+        {
+          "name": "20030",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "London, Drake",
+          "position": "RWT",
+          "real_team": "ATL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Brown, Chase",
+          "position": "RB",
+          "real_team": "CIN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "McBride, Trey",
+          "position": "TE",
+          "real_team": "ARI",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "20180",
+          "position": "DST",
+          "real_team": "",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Pacheco, Isiah",
+          "position": "RB",
+          "real_team": "DET",
+          "status": "RESERVE"
+        },
+        {
+          "name": "McConkey, Ladd",
+          "position": "WR",
+          "real_team": "LAC",
+          "status": "RESERVE"
+        }
+      ]
+    },
+    "pwe60c14mbvhyc1g": {
+      "fantrax_id": "pwe60c14mbvhyc1g",
+      "fantrax_name": "Alpha FC",
+      "fed_id": "team_01",
+      "players": [
+        {
+          "name": "Borregales, Andres",
+          "position": "K",
+          "real_team": "NE",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Benson, Trey",
+          "position": "RB",
+          "real_team": "ARI",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Flowers, Zay",
+          "position": "WR",
+          "real_team": "BAL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Henry, Hunter",
+          "position": "TE",
+          "real_team": "NE",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Gibbs, Jahmyr",
+          "position": "RB",
+          "real_team": "DET",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Harrison, Marvin",
+          "position": "RWT",
+          "real_team": "ARI",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Tucker, Tre",
+          "position": "WR",
+          "real_team": "LV",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Dell, Tank",
+          "position": "WR",
+          "real_team": "HOU",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Loveland, Colston",
+          "position": "TE",
+          "real_team": "CHI",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Gabriel, Dillon",
+          "position": "QB",
+          "real_team": "CLE",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Gordon, Ollie",
+          "position": "RWT",
+          "real_team": "MIA",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Golden, Matthew",
+          "position": "WR",
+          "real_team": "GB",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Dart, Jaxson",
+          "position": "QB",
+          "real_team": "NYG",
+          "status": "RESERVE"
+        },
+        {
+          "name": "20230",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Reed, Jayden",
+          "position": "RWT",
+          "real_team": "GB",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Spears, Tyjae",
+          "position": "RB",
+          "real_team": "TEN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Ford, Jerome",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Stroud, C.J.",
+          "position": "QB",
+          "real_team": "HOU",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    "ifb9s3eamcmjc9d3": {
+      "fantrax_id": "ifb9s3eamcmjc9d3",
+      "fantrax_name": "Kilo Athletic",
+      "fed_id": "team_11",
+      "players": [
+        {
+          "name": "20161",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Ward, Cam",
+          "position": "QB",
+          "real_team": "TEN",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Demercado, Emari",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Worthy, Xavier",
+          "position": "WR",
+          "real_team": "KC",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Dicker, Cameron",
+          "position": "K",
+          "real_team": "LAC",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Mooney, Darnell",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Cook, James",
+          "position": "RB",
+          "real_team": "BUF",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Lamb, CeeDee",
+          "position": "RWT",
+          "real_team": "DAL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Legette, Xavier",
+          "position": "RWT",
+          "real_team": "CAR",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Likely, Isaiah",
+          "position": "RWT",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Young, Bryce",
+          "position": "QB",
+          "real_team": "CAR",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Hunt, Kareem",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Sutton, Courtland",
+          "position": "WR",
+          "real_team": "DEN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Evans, Mike",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Gainwell, Kenneth",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Williams, Caleb",
+          "position": "QB",
+          "real_team": "CHI",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Schultz, Dalton",
+          "position": "TE",
+          "real_team": "HOU",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    "b8zlzmwxmcmjc9d2": {
+      "fantrax_id": "b8zlzmwxmcmjc9d2",
+      "fantrax_name": "Charlie SC",
+      "fed_id": "team_03",
+      "players": [
+        {
+          "name": "Elliott, Jake",
+          "position": "K",
+          "real_team": "PHI",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Goff, Jared",
+          "position": "QB",
+          "real_team": "DET",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Smith, DeVonta",
+          "position": "WR",
+          "real_team": "PHI",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Robinson, WanDale",
+          "position": "WR",
+          "real_team": "TEN",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Moore, D.J.",
+          "position": "WR",
+          "real_team": "CHI",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Mahomes, Patrick",
+          "position": "QB",
+          "real_team": "KC",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Pollard, Tony",
+          "position": "RWT",
+          "real_team": "TEN",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Conner, James",
+          "position": "RWT",
+          "real_team": "ARI",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Dowdle, Rico",
+          "position": "RB",
+          "real_team": "PIT",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Robinson, Bijan",
+          "position": "RB",
+          "real_team": "ATL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Bowers, Brock",
+          "position": "TE",
+          "real_team": "LV",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Kelce, Travis",
+          "position": "TE",
+          "real_team": "(N/A)",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Judkins, Quinshon",
+          "position": "RB",
+          "real_team": "CLE",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "20050",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Jeanty, Ashton",
+          "position": "RWT",
+          "real_team": "LV",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "McLaurin, Terry",
+          "position": "WR",
+          "real_team": "WAS",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Pittman, Michael",
+          "position": "WR",
+          "real_team": "IND",
+          "status": "RESERVE"
+        }
+      ]
+    },
+    "nabnj55tmcmjc9d2": {
+      "fantrax_id": "nabnj55tmcmjc9d2",
+      "fantrax_name": "Hotel FC",
+      "fed_id": "team_08",
+      "players": [
+        {
+          "name": "Olave, Chris",
+          "position": "WR",
+          "real_team": "NO",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Pickens, George",
+          "position": "RWT",
+          "real_team": "DAL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Bass, Tyler",
+          "position": "K",
+          "real_team": "BUF",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Odunze, Rome",
+          "position": "WR",
+          "real_team": "CHI",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Ferguson, Jake",
+          "position": "TE",
+          "real_team": "DAL",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Butker, Harrison",
+          "position": "K",
+          "real_team": "KC",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Warren, Jaylen",
+          "position": "RB",
+          "real_team": "PIT",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "20151",
+          "position": "DST",
+          "real_team": "",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Kincaid, Dalton",
+          "position": "TE",
+          "real_team": "BUF",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Mims, Marvin",
+          "position": "WR",
+          "real_team": "DEN",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Waddle, Jaylen",
+          "position": "WR",
+          "real_team": "(N/A)",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Harris, Najee",
+          "position": "RB",
+          "real_team": "(N/A)",
+          "status": "INJURED_RESERVE"
+        },
+        {
+          "name": "Nix, Bo",
+          "position": "QB",
+          "real_team": "DEN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Harvey, RJ",
+          "position": "RB",
+          "real_team": "DEN",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "Brooks, Christopher",
+          "position": "RB",
+          "real_team": "GB",
+          "status": "RESERVE"
+        },
+        {
+          "name": "Pitts, Kyle",
+          "position": "TE",
+          "real_team": "ATL",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "20140",
+          "position": "DST",
+          "real_team": "",
+          "status": "ACTIVE"
+        },
+        {
+          "name": "McCarthy, J.J.",
+          "position": "QB",
+          "real_team": "MIN",
+          "status": "RESERVE"
+        }
+      ]
+    }
+  },
+  "matchups": [
+    {
+      "period": 1,
+      "away_name": "Echo Rangers",
+      "away_fed_id": "team_05",
+      "away_score": 83.42,
+      "home_name": "Alpha FC",
+      "home_fed_id": "team_01",
+      "home_score": 94.62,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 1,
+      "away_name": "Bravo United",
+      "away_fed_id": "team_02",
+      "away_score": 103.58,
+      "home_name": "Juliet SC",
+      "home_fed_id": "team_10",
+      "home_score": 118.66,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 1,
+      "away_name": "India United",
+      "away_fed_id": "team_09",
+      "away_score": 77.72,
+      "home_name": "Charlie SC",
+      "home_fed_id": "team_03",
+      "home_score": 95.62,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 1,
+      "away_name": "Golf Town",
+      "away_fed_id": "team_07",
+      "away_score": 79.18,
+      "home_name": "Delta Athletic",
+      "home_fed_id": "team_04",
+      "home_score": 117.22,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 1,
+      "away_name": "Hotel FC",
+      "away_fed_id": "team_08",
+      "away_score": 70.44,
+      "home_name": "Foxtrot City",
+      "home_fed_id": "team_06",
+      "home_score": 103.62,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 1,
+      "away_name": "Lima Rovers",
+      "away_fed_id": "team_12",
+      "away_score": 105.66,
+      "home_name": "Kilo Athletic",
+      "home_fed_id": "team_11",
+      "home_score": 91.1,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 2,
+      "away_name": "Alpha FC",
+      "away_fed_id": "team_01",
+      "away_score": 75.28,
+      "home_name": "Golf Town",
+      "home_fed_id": "team_07",
+      "home_score": 103.1,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 2,
+      "away_name": "Foxtrot City",
+      "away_fed_id": "team_06",
+      "away_score": 91.38,
+      "home_name": "Bravo United",
+      "home_fed_id": "team_02",
+      "home_score": 91.74,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 2,
+      "away_name": "Kilo Athletic",
+      "away_fed_id": "team_11",
+      "away_score": 95.08,
+      "home_name": "Charlie SC",
+      "home_fed_id": "team_03",
+      "home_score": 87.88,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 2,
+      "away_name": "Delta Athletic",
+      "away_fed_id": "team_04",
+      "away_score": 108.3,
+      "home_name": "Echo Rangers",
+      "home_fed_id": "team_05",
+      "home_score": 127.94,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 2,
+      "away_name": "Juliet SC",
+      "away_fed_id": "team_10",
+      "away_score": 108,
+      "home_name": "Hotel FC",
+      "home_fed_id": "team_08",
+      "home_score": 83.04,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 2,
+      "away_name": "Lima Rovers",
+      "away_fed_id": "team_12",
+      "away_score": 116.22,
+      "home_name": "India United",
+      "home_fed_id": "team_09",
+      "home_score": 117,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 3,
+      "away_name": "Delta Athletic",
+      "away_fed_id": "team_04",
+      "away_score": 101.02,
+      "home_name": "Alpha FC",
+      "home_fed_id": "team_01",
+      "home_score": 98.76,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 3,
+      "away_name": "Bravo United",
+      "away_fed_id": "team_02",
+      "away_score": 121.64,
+      "home_name": "Hotel FC",
+      "home_fed_id": "team_08",
+      "home_score": 83.42,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 3,
+      "away_name": "Charlie SC",
+      "away_fed_id": "team_03",
+      "away_score": 103.66,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 124.52,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 3,
+      "away_name": "Golf Town",
+      "away_fed_id": "team_07",
+      "away_score": 84.82,
+      "home_name": "Echo Rangers",
+      "home_fed_id": "team_05",
+      "home_score": 108.12,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 3,
+      "away_name": "Kilo Athletic",
+      "away_fed_id": "team_11",
+      "away_score": 103.72,
+      "home_name": "India United",
+      "home_fed_id": "team_09",
+      "home_score": 94.52,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 3,
+      "away_name": "Foxtrot City",
+      "away_fed_id": "team_06",
+      "away_score": 97.6,
+      "home_name": "Juliet SC",
+      "home_fed_id": "team_10",
+      "home_score": 162.22,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 4,
+      "away_name": "Alpha FC",
+      "away_fed_id": "team_01",
+      "away_score": 93.72,
+      "home_name": "Charlie SC",
+      "home_fed_id": "team_03",
+      "home_score": 150,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 4,
+      "away_name": "Bravo United",
+      "away_fed_id": "team_02",
+      "away_score": 103.1,
+      "home_name": "Delta Athletic",
+      "home_fed_id": "team_04",
+      "home_score": 128.56,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 4,
+      "away_name": "Echo Rangers",
+      "away_fed_id": "team_05",
+      "away_score": 119.98,
+      "home_name": "Foxtrot City",
+      "home_fed_id": "team_06",
+      "home_score": 127.82,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 4,
+      "away_name": "India United",
+      "away_fed_id": "team_09",
+      "away_score": 111.18,
+      "home_name": "Golf Town",
+      "home_fed_id": "team_07",
+      "home_score": 95.92,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 4,
+      "away_name": "Hotel FC",
+      "away_fed_id": "team_08",
+      "away_score": 91.54,
+      "home_name": "Kilo Athletic",
+      "home_fed_id": "team_11",
+      "home_score": 78.98,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 4,
+      "away_name": "Lima Rovers",
+      "away_fed_id": "team_12",
+      "away_score": 95.46,
+      "home_name": "Juliet SC",
+      "home_fed_id": "team_10",
+      "home_score": 95.98,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 5,
+      "away_name": "Alpha FC",
+      "away_fed_id": "team_01",
+      "away_score": 97.16,
+      "home_name": "Kilo Athletic",
+      "home_fed_id": "team_11",
+      "home_score": 68.12,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 5,
+      "away_name": "Charlie SC",
+      "away_fed_id": "team_03",
+      "away_score": 134.72,
+      "home_name": "Bravo United",
+      "home_fed_id": "team_02",
+      "home_score": 106.2,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 5,
+      "away_name": "Juliet SC",
+      "away_fed_id": "team_10",
+      "away_score": 127.18,
+      "home_name": "Delta Athletic",
+      "home_fed_id": "team_04",
+      "home_score": 138.16,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 5,
+      "away_name": "Echo Rangers",
+      "away_fed_id": "team_05",
+      "away_score": 95.28,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 101.02,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 5,
+      "away_name": "Foxtrot City",
+      "away_fed_id": "team_06",
+      "away_score": 125.74,
+      "home_name": "Golf Town",
+      "home_fed_id": "team_07",
+      "home_score": 93.12,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 5,
+      "away_name": "India United",
+      "away_fed_id": "team_09",
+      "away_score": 120.96,
+      "home_name": "Hotel FC",
+      "home_fed_id": "team_08",
+      "home_score": 97.48,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 6,
+      "away_name": "Alpha FC",
+      "away_fed_id": "team_01",
+      "away_score": 64.3,
+      "home_name": "India United",
+      "home_fed_id": "team_09",
+      "home_score": 106.34,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 6,
+      "away_name": "Kilo Athletic",
+      "away_fed_id": "team_11",
+      "away_score": 77.28,
+      "home_name": "Bravo United",
+      "home_fed_id": "team_02",
+      "home_score": 77.12,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 6,
+      "away_name": "Charlie SC",
+      "away_fed_id": "team_03",
+      "away_score": 148.08,
+      "home_name": "Juliet SC",
+      "home_fed_id": "team_10",
+      "home_score": 99.94,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 6,
+      "away_name": "Foxtrot City",
+      "away_fed_id": "team_06",
+      "away_score": 63.86,
+      "home_name": "Delta Athletic",
+      "home_fed_id": "team_04",
+      "home_score": 97.14,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 6,
+      "away_name": "Echo Rangers",
+      "away_fed_id": "team_05",
+      "away_score": 142.88,
+      "home_name": "Hotel FC",
+      "home_fed_id": "team_08",
+      "home_score": 81.26,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 6,
+      "away_name": "Golf Town",
+      "away_fed_id": "team_07",
+      "away_score": 108.14,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 155.5,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 7,
+      "away_name": "Foxtrot City",
+      "away_fed_id": "team_06",
+      "away_score": 108.5,
+      "home_name": "Alpha FC",
+      "home_fed_id": "team_01",
+      "home_score": 115.62,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 7,
+      "away_name": "Bravo United",
+      "away_fed_id": "team_02",
+      "away_score": 76.04,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 155.24,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 7,
+      "away_name": "Delta Athletic",
+      "away_fed_id": "team_04",
+      "away_score": 99.72,
+      "home_name": "Charlie SC",
+      "home_fed_id": "team_03",
+      "home_score": 130.74,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 7,
+      "away_name": "Echo Rangers",
+      "away_fed_id": "team_05",
+      "away_score": 113.54,
+      "home_name": "India United",
+      "home_fed_id": "team_09",
+      "home_score": 83.74,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 7,
+      "away_name": "Hotel FC",
+      "away_fed_id": "team_08",
+      "away_score": 136.46,
+      "home_name": "Golf Town",
+      "home_fed_id": "team_07",
+      "home_score": 63.58,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 7,
+      "away_name": "Juliet SC",
+      "away_fed_id": "team_10",
+      "away_score": 133.26,
+      "home_name": "Kilo Athletic",
+      "home_fed_id": "team_11",
+      "home_score": 62.78,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 8,
+      "away_name": "Hotel FC",
+      "away_fed_id": "team_08",
+      "away_score": 102.88,
+      "home_name": "Alpha FC",
+      "home_fed_id": "team_01",
+      "home_score": 77.32,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 8,
+      "away_name": "Golf Town",
+      "away_fed_id": "team_07",
+      "away_score": 141.24,
+      "home_name": "Bravo United",
+      "home_fed_id": "team_02",
+      "home_score": 112.66,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 8,
+      "away_name": "Echo Rangers",
+      "away_fed_id": "team_05",
+      "away_score": 168.48,
+      "home_name": "Charlie SC",
+      "home_fed_id": "team_03",
+      "home_score": 96.86,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 8,
+      "away_name": "Kilo Athletic",
+      "away_fed_id": "team_11",
+      "away_score": 121.3,
+      "home_name": "Delta Athletic",
+      "home_fed_id": "team_04",
+      "home_score": 62.28,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 8,
+      "away_name": "Lima Rovers",
+      "away_fed_id": "team_12",
+      "away_score": 103.12,
+      "home_name": "Foxtrot City",
+      "home_fed_id": "team_06",
+      "home_score": 85.78,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 8,
+      "away_name": "Juliet SC",
+      "away_fed_id": "team_10",
+      "away_score": 94.62,
+      "home_name": "India United",
+      "home_fed_id": "team_09",
+      "home_score": 63.6,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 9,
+      "away_name": "Alpha FC",
+      "away_fed_id": "team_01",
+      "away_score": 98.34,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 116.82,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 9,
+      "away_name": "India United",
+      "away_fed_id": "team_09",
+      "away_score": 66.02,
+      "home_name": "Bravo United",
+      "home_fed_id": "team_02",
+      "home_score": 97.8,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 9,
+      "away_name": "Charlie SC",
+      "away_fed_id": "team_03",
+      "away_score": 117.7,
+      "home_name": "Foxtrot City",
+      "home_fed_id": "team_06",
+      "home_score": 100.5,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 9,
+      "away_name": "Delta Athletic",
+      "away_fed_id": "team_04",
+      "away_score": 148.5,
+      "home_name": "Hotel FC",
+      "home_fed_id": "team_08",
+      "home_score": 73.12,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 9,
+      "away_name": "Kilo Athletic",
+      "away_fed_id": "team_11",
+      "away_score": 120.3,
+      "home_name": "Echo Rangers",
+      "home_fed_id": "team_05",
+      "home_score": 110.18,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 9,
+      "away_name": "Golf Town",
+      "away_fed_id": "team_07",
+      "away_score": 73.56,
+      "home_name": "Juliet SC",
+      "home_fed_id": "team_10",
+      "home_score": 86.66,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 10,
+      "away_name": "Juliet SC",
+      "away_fed_id": "team_10",
+      "away_score": 131.74,
+      "home_name": "Alpha FC",
+      "home_fed_id": "team_01",
+      "home_score": 99.48,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 10,
+      "away_name": "Bravo United",
+      "away_fed_id": "team_02",
+      "away_score": 114.02,
+      "home_name": "Echo Rangers",
+      "home_fed_id": "team_05",
+      "home_score": 126.2,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 10,
+      "away_name": "Charlie SC",
+      "away_fed_id": "team_03",
+      "away_score": 92.7,
+      "home_name": "Golf Town",
+      "home_fed_id": "team_07",
+      "home_score": 103.9,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 10,
+      "away_name": "India United",
+      "away_fed_id": "team_09",
+      "away_score": 74.44,
+      "home_name": "Delta Athletic",
+      "home_fed_id": "team_04",
+      "home_score": 139.62,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 10,
+      "away_name": "Foxtrot City",
+      "away_fed_id": "team_06",
+      "away_score": 130.6,
+      "home_name": "Kilo Athletic",
+      "home_fed_id": "team_11",
+      "home_score": 99.1,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 10,
+      "away_name": "Lima Rovers",
+      "away_fed_id": "team_12",
+      "away_score": 105.44,
+      "home_name": "Hotel FC",
+      "home_fed_id": "team_08",
+      "home_score": 86.3,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 11,
+      "away_name": "Alpha FC",
+      "away_fed_id": "team_01",
+      "away_score": 82.92,
+      "home_name": "Golf Town",
+      "home_fed_id": "team_07",
+      "home_score": 86.44,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 11,
+      "away_name": "Hotel FC",
+      "away_fed_id": "team_08",
+      "away_score": 75.5,
+      "home_name": "Bravo United",
+      "home_fed_id": "team_02",
+      "home_score": 105,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 11,
+      "away_name": "Charlie SC",
+      "away_fed_id": "team_03",
+      "away_score": 101.14,
+      "home_name": "Kilo Athletic",
+      "home_fed_id": "team_11",
+      "home_score": 77.92,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 11,
+      "away_name": "Delta Athletic",
+      "away_fed_id": "team_04",
+      "away_score": 107.12,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 128.58,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 11,
+      "away_name": "Echo Rangers",
+      "away_fed_id": "team_05",
+      "away_score": 69.34,
+      "home_name": "Juliet SC",
+      "home_fed_id": "team_10",
+      "home_score": 83.32,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 11,
+      "away_name": "India United",
+      "away_fed_id": "team_09",
+      "away_score": 71.46,
+      "home_name": "Foxtrot City",
+      "home_fed_id": "team_06",
+      "home_score": 96.64,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 12,
+      "away_name": "Delta Athletic",
+      "away_fed_id": "team_04",
+      "away_score": 112.94,
+      "home_name": "Alpha FC",
+      "home_fed_id": "team_01",
+      "home_score": 124.8,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 12,
+      "away_name": "Bravo United",
+      "away_fed_id": "team_02",
+      "away_score": 87.46,
+      "home_name": "Foxtrot City",
+      "home_fed_id": "team_06",
+      "home_score": 93.52,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 12,
+      "away_name": "Charlie SC",
+      "away_fed_id": "team_03",
+      "away_score": 106.58,
+      "home_name": "India United",
+      "home_fed_id": "team_09",
+      "home_score": 61.76,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 12,
+      "away_name": "Golf Town",
+      "away_fed_id": "team_07",
+      "away_score": 79.76,
+      "home_name": "Echo Rangers",
+      "home_fed_id": "team_05",
+      "home_score": 114.74,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 12,
+      "away_name": "Juliet SC",
+      "away_fed_id": "team_10",
+      "away_score": 102.52,
+      "home_name": "Hotel FC",
+      "home_fed_id": "team_08",
+      "home_score": 80.88,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 12,
+      "away_name": "Lima Rovers",
+      "away_fed_id": "team_12",
+      "away_score": 96.02,
+      "home_name": "Kilo Athletic",
+      "home_fed_id": "team_11",
+      "home_score": 75.66,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 13,
+      "away_name": "Bravo United",
+      "away_fed_id": "team_02",
+      "away_score": 76.2,
+      "home_name": "Alpha FC",
+      "home_fed_id": "team_01",
+      "home_score": 54.26,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 13,
+      "away_name": "Hotel FC",
+      "away_fed_id": "team_08",
+      "away_score": 84.8,
+      "home_name": "Charlie SC",
+      "home_fed_id": "team_03",
+      "home_score": 108.04,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 13,
+      "away_name": "Echo Rangers",
+      "away_fed_id": "team_05",
+      "away_score": 144.14,
+      "home_name": "Delta Athletic",
+      "home_fed_id": "team_04",
+      "home_score": 91.76,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 13,
+      "away_name": "Foxtrot City",
+      "away_fed_id": "team_06",
+      "away_score": 90.04,
+      "home_name": "Juliet SC",
+      "home_fed_id": "team_10",
+      "home_score": 99.54,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 13,
+      "away_name": "Kilo Athletic",
+      "away_fed_id": "team_11",
+      "away_score": 95.36,
+      "home_name": "Golf Town",
+      "home_fed_id": "team_07",
+      "home_score": 66.58,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 13,
+      "away_name": "Lima Rovers",
+      "away_fed_id": "team_12",
+      "away_score": 124.92,
+      "home_name": "India United",
+      "home_fed_id": "team_09",
+      "home_score": 93.76,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 14,
+      "away_name": "Alpha FC",
+      "away_fed_id": "team_01",
+      "away_score": 64.92,
+      "home_name": "Echo Rangers",
+      "home_fed_id": "team_05",
+      "home_score": 102.3,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 14,
+      "away_name": "Juliet SC",
+      "away_fed_id": "team_10",
+      "away_score": 99.86,
+      "home_name": "Bravo United",
+      "home_fed_id": "team_02",
+      "home_score": 105.9,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 14,
+      "away_name": "Charlie SC",
+      "away_fed_id": "team_03",
+      "away_score": 71.7,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 119.04,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 14,
+      "away_name": "Golf Town",
+      "away_fed_id": "team_07",
+      "away_score": 89.94,
+      "home_name": "Delta Athletic",
+      "home_fed_id": "team_04",
+      "home_score": 107.58,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 14,
+      "away_name": "Hotel FC",
+      "away_fed_id": "team_08",
+      "away_score": 93.58,
+      "home_name": "Foxtrot City",
+      "home_fed_id": "team_06",
+      "home_score": 83.04,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 14,
+      "away_name": "Kilo Athletic",
+      "away_fed_id": "team_11",
+      "away_score": 102.04,
+      "home_name": "India United",
+      "home_fed_id": "team_09",
+      "home_score": 103.22,
+      "complete": true,
+      "is_playoff": false
+    },
+    {
+      "period": 15,
+      "away_name": "None/Bye",
+      "away_fed_id": null,
+      "away_score": 0,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 0,
+      "complete": true,
+      "is_playoff": true
+    },
+    {
+      "period": 15,
+      "away_name": "Delta Athletic",
+      "away_fed_id": "team_04",
+      "away_score": 107.18,
+      "home_name": "Charlie SC",
+      "home_fed_id": "team_03",
+      "home_score": 100.86,
+      "complete": true,
+      "is_playoff": true
+    },
+    {
+      "period": 15,
+      "away_name": "None/Bye",
+      "away_fed_id": null,
+      "away_score": 0,
+      "home_name": "Juliet SC",
+      "home_fed_id": "team_10",
+      "home_score": 0,
+      "complete": true,
+      "is_playoff": true
+    },
+    {
+      "period": 15,
+      "away_name": "Foxtrot City",
+      "away_fed_id": "team_06",
+      "away_score": 122.4,
+      "home_name": "Echo Rangers",
+      "home_fed_id": "team_05",
+      "home_score": 129.5,
+      "complete": true,
+      "is_playoff": true
+    },
+    {
+      "period": 16,
+      "away_name": "Delta Athletic",
+      "away_fed_id": "team_04",
+      "away_score": 145.6,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 104.7,
+      "complete": true,
+      "is_playoff": true
+    },
+    {
+      "period": 16,
+      "away_name": "Echo Rangers",
+      "away_fed_id": "team_05",
+      "away_score": 110.26,
+      "home_name": "Juliet SC",
+      "home_fed_id": "team_10",
+      "home_score": 109.44,
+      "complete": true,
+      "is_playoff": true
+    },
+    {
+      "period": 17,
+      "away_name": "Delta Athletic",
+      "away_fed_id": "team_04",
+      "away_score": 111.62,
+      "home_name": "Echo Rangers",
+      "home_fed_id": "team_05",
+      "home_score": 86.8,
+      "complete": true,
+      "is_playoff": true
+    },
+    {
+      "period": 16,
+      "away_name": "Foxtrot City",
+      "away_fed_id": "team_06",
+      "away_score": 104.5,
+      "home_name": "Charlie SC",
+      "home_fed_id": "team_03",
+      "home_score": 128.46,
+      "complete": true,
+      "is_playoff": true,
+      "is_consolation": true,
+      "consolation_name": "5th Place"
+    },
+    {
+      "period": 17,
+      "away_name": "Juliet SC",
+      "away_fed_id": "team_10",
+      "away_score": 89.2,
+      "home_name": "Lima Rovers",
+      "home_fed_id": "team_12",
+      "home_score": 131.68,
+      "complete": true,
+      "is_playoff": true,
+      "is_consolation": true,
+      "consolation_name": "3rd Place"
+    }
+  ],
+  "full_name": "FedFL Previous",
+  "schedule_meta": {
+    "periods": {
+      "1": {
+        "start": "2025-09-04",
+        "end": "2025-09-10",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 1"
+      },
+      "2": {
+        "start": "2025-09-11",
+        "end": "2025-09-17",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 2"
+      },
+      "3": {
+        "start": "2025-09-18",
+        "end": "2025-09-24",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 3"
+      },
+      "4": {
+        "start": "2025-09-25",
+        "end": "2025-10-01",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 4"
+      },
+      "5": {
+        "start": "2025-10-02",
+        "end": "2025-10-08",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 5"
+      },
+      "6": {
+        "start": "2025-10-09",
+        "end": "2025-10-15",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 6"
+      },
+      "7": {
+        "start": "2025-10-16",
+        "end": "2025-10-22",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 7"
+      },
+      "8": {
+        "start": "2025-10-23",
+        "end": "2025-10-29",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 8"
+      },
+      "9": {
+        "start": "2025-10-30",
+        "end": "2025-11-05",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 9"
+      },
+      "10": {
+        "start": "2025-11-06",
+        "end": "2025-11-12",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 10"
+      },
+      "11": {
+        "start": "2025-11-13",
+        "end": "2025-11-19",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 11"
+      },
+      "12": {
+        "start": "2025-11-20",
+        "end": "2025-11-26",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 12"
+      },
+      "13": {
+        "start": "2025-11-27",
+        "end": "2025-12-03",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 13"
+      },
+      "14": {
+        "start": "2025-12-04",
+        "end": "2025-12-10",
+        "complete": true,
+        "current": false,
+        "is_playoff": false,
+        "name": "Week 14"
+      },
+      "15": {
+        "start": "2025-12-11",
+        "end": "2025-12-17",
+        "complete": true,
+        "current": false,
+        "is_playoff": true,
+        "name": "Playoffs - Round 1 (Week 15)"
+      },
+      "16": {
+        "start": "2025-12-18",
+        "end": "2025-12-24",
+        "complete": true,
+        "current": false,
+        "is_playoff": true,
+        "name": "Playoffs - Round 2 (Week 16)"
+      },
+      "17": {
+        "start": "2025-12-25",
+        "end": "2025-12-31",
+        "complete": true,
+        "current": false,
+        "is_playoff": true,
+        "name": "Playoffs - Round 3 (Week 17)"
+      }
+    },
+    "last_completed": 17
+  }
+}

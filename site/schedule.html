@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Federation — Schedule</title>
+<link rel="icon" type="image/svg+xml" href="logos/fed.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a class="nav-brand" href="index.html"><img src="logos/fed.svg" alt="Federation" onerror="this.style.display='none'"><span>Federation</span><span class="sub">Federation Cup</span></a>
+  <button class="hamburger" aria-label="Menu">&#9776;</button>
+  <div class="nav-tabs">
+    <a class="nav-tab" href="index.html">Standings</a>
+    <a class="nav-tab" href="rankings.html">Rankings</a>
+    <div class="nav-dropdown">
+      <span class="nav-tab">Leagues <span class="nav-drop-arrow">&#9660;</span></span>
+      <div class="nav-dropdown-menu">
+        <a class="nav-tab" href="leagues/fedfl.html"><img src="logos/leagues/fed_fl.svg" alt="" onerror="this.style.display='none'"> FedFL</a>
+        <a class="nav-tab" href="leagues/fedba.html"><img src="logos/leagues/fed_ba.svg" alt="" onerror="this.style.display='none'"> FedBA</a>
+        <a class="nav-tab" href="leagues/fedhl.html"><img src="logos/leagues/fed_hl.svg" alt="" onerror="this.style.display='none'"> FedHL</a>
+        <a class="nav-tab" href="leagues/fedlb.html"><img src="logos/leagues/fed_lb.svg" alt="" onerror="this.style.display='none'"> FedLB</a>
+      </div>
+    </div>
+    <a class="nav-tab active" href="schedule.html">Schedule</a>
+    <a class="nav-tab" href="team.html">Teams</a>
+    <div class="nav-dropdown">
+      <span class="nav-tab">More <span class="nav-drop-arrow">&#9660;</span></span>
+      <div class="nav-dropdown-menu">
+        <a class="nav-tab" href="transactions.html">Transactions</a>
+        <a class="nav-tab" href="constitution.html">&#x1F4DC; Rules</a>
+        <a class="nav-tab" href="history.html">&#x1F4DA; History</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-updated" id="lastUpdated"></div>
+</div></nav>
+<main>
+  <div class="ld" id="loading">Loading Schedule Data...</div>
+  <div id="app"></div>
+</main>
+<footer>
+  &copy; 2025&ndash;2026 Owner 9, Owner 7 &amp; Owner 1. All rights reserved.<br>
+  <span style="color:#445">Not affiliated with the NFL, NBA, NHL, MLB, or Fantrax. <a href="constitution.html#website-legal-notices">Legal notices</a>.</span>
+</footer>
+<script>window.PAGE_ID='schedule';</script>
+<script src="js/app.js"></script>
+<script src="js/schedule.js"></script>
+</body>
+</html>

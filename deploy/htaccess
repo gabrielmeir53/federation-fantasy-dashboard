@@ -1,5 +1,5 @@
 # Federation Dashboard — .htaccess
-# =================================
+# =========================
 
 # ── Force HTTPS ──────────────────────────────────────
 RewriteEngine On
@@ -10,8 +10,8 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 DirectoryIndex index.html
 
 # ── Cache static assets ──────────────────────────────
-# Logos and fonts: cache for 30 days
-<FilesMatch "\.(svg|woff2|woff|ttf|eot)$">
+# Logos, fonts, CSS, JS: cache for 30 days
+<FilesMatch "\.(svg|woff2|woff|ttf|eot|css|js)$">
     Header set Cache-Control "public, max-age=2592000"
 </FilesMatch>
 
@@ -32,7 +32,7 @@ Header always set X-Frame-Options "SAMEORIGIN"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
 # ── Block access to sensitive files ──────────────────
-<FilesMatch "\.(py|sh|log|md|env)$">
+<FilesMatch "\.(py|sh|log|md)$">
     Order Allow,Deny
     Deny from all
 </FilesMatch>

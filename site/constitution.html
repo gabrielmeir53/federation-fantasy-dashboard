@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Federation — Constitution, Bylaws &amp; Rules</title>
+<link rel="icon" type="image/svg+xml" href="logos/fed.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="
+  document.querySelectorAll('.katex-display').forEach(function(el){katex.render(el.textContent.trim(),el,{displayMode:true,throwOnError:false})});
+  document.querySelectorAll('.katex-inline').forEach(function(el){katex.render(el.textContent.trim(),el,{displayMode:false,throwOnError:false})});
+"></script>
+<style>.katex-display{margin:1.2rem 0;padding:1rem;background:var(--surface2);border-radius:6px;overflow-x:auto;text-align:center}.katex{font-size:1.1em}</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a class="nav-brand" href="index.html"><img src="logos/fed.svg" alt="Federation" onerror="this.style.display='none'"><span>Federation</span><span class="sub">Federation Cup</span></a>
+  <button class="hamburger" aria-label="Menu">&#9776;</button>
+  <div class="nav-tabs">
+    <a class="nav-tab" href="index.html">Standings</a>
+    <a class="nav-tab" href="rankings.html">Rankings</a>
+    <div class="nav-dropdown">
+      <span class="nav-tab">Leagues <span class="nav-drop-arrow">&#9660;</span></span>
+      <div class="nav-dropdown-menu">
+        <a class="nav-tab" href="leagues/fedfl.html"><img src="logos/leagues/fed_fl.svg" alt="" onerror="this.style.display='none'"> FedFL</a>
+        <a class="nav-tab" href="leagues/fedba.html"><img src="logos/leagues/fed_ba.svg" alt="" onerror="this.style.display='none'"> FedBA</a>
+        <a class="nav-tab" href="leagues/fedhl.html"><img src="logos/leagues/fed_hl.svg" alt="" onerror="this.style.display='none'"> FedHL</a>
+        <a class="nav-tab" href="leagues/fedlb.html"><img src="logos/leagues/fed_lb.svg" alt="" onerror="this.style.display='none'"> FedLB</a>
+      </div>
+    </div>
+    <a class="nav-tab" href="schedule.html">Schedule</a>
+    <a class="nav-tab" href="team.html">Teams</a>
+    <div class="nav-dropdown">
+      <span class="nav-tab active">More <span class="nav-drop-arrow">&#9660;</span></span>
+      <div class="nav-dropdown-menu">
+        <a class="nav-tab" href="transactions.html">Transactions</a>
+        <a class="nav-tab active" href="constitution.html">&#x1F4DC; Rules</a>
+        <a class="nav-tab" href="history.html">&#x1F4DA; History</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-updated" id="lastUpdated"></div>
+</div></nav>
+<div class="container">
+<div class="hero">
+  <h1>Constitution &amp; Bylaws</h1>
+  <div class="sub">Fantasy Sports Federation &bull; Template</div>
+</div>
+
+<input type="text" class="search-box" id="searchBox" placeholder="Search constitution...">
+<div class="match-count" id="matchCount"></div>
+
+<div class="toc" id="toc">
+  <h2>Table of Contents</h2>
+  <a href="#qr" class="t1">Quick Reference Guide</a>
+  <a href="#art1" class="t1">I. Federation Structure &amp; Breakdown</a>
+  <a href="#art1a" class="t2">A. Teams</a>
+  <a href="#art1b" class="t2">B. Team Ownership</a>
+  <a href="#art1c" class="t2">C. Federation Season</a>
+  <a href="#art1d" class="t2">D. Awarding a Champion</a>
+  <a href="#art2" class="t1">II. The Commission</a>
+  <a href="#art2a" class="t2">A. Structure</a>
+  <a href="#art2b" class="t2">B. Legislative Functions</a>
+  <a href="#art2c" class="t2">C. Judicial Functions</a>
+  <a href="#art2d" class="t2">D. Executive Functions</a>
+  <a href="#art3" class="t1">III. Draft</a>
+  <a href="#art4" class="t1">IV. Roster Transactions</a>
+  <a href="#art5" class="t1">V. League Rules</a>
+  <a href="#art5b" class="t2">B. Basketball (FedBA)</a>
+  <a href="#art5c" class="t2">C. Football (FedFL)</a>
+  <a href="#art5d" class="t2">D. Hockey (FedHL)</a>
+  <a href="#art5e" class="t2">E. Baseball (FedLB)</a>
+  <a href="#art6" class="t1">VI. Code of Conduct</a>
+  <a href="#website-legal-notices" class="t1">Website &amp; Legal Notices</a>
+</div>
+
+<div id="body">
+
+<section id="qr">
+<h1>Quick Reference Guide</h1>
+<h2>Overview</h2>
+<ul>
+<li><strong>12 teams</strong> competing across <strong>4 dynasty leagues</strong>: NBA (FedBA), NFL (FedFL), NHL (FedHL), MLB (FedLB)</li>
+<li><strong>Federation Season:</strong> NFL regular season start &rarr; following year's MLB regular season end (~13 months)</li>
+<li><strong>Fantasy Platform:</strong> Fantrax is the official fantasy platform for all dynasty leagues.</li>
+<li><strong>Commission:</strong> Owner 1, Owner 7, Owner 9 (equal voting power)</li>
+</ul>
+<h2>Championship &amp; Scoring</h2>
+<p><strong>Federation Points by League Finish:</strong> 1st: 12pts | 2nd: 11pts | 3rd: 10pts | 4th: 9pts | 5th: 8pts | 6th: 7pts | 7th: 6pts | 8th: 5pts | 9th: 4pts | 10th: 3pts | 11th: 2pts | 12th: 1pt</p>
+<p><strong>Tiebreakers:</strong> League Championships &rarr; Win % &rarr; Avg Points &rarr; Head-to-Head</p>
+<h2>Key Voting Thresholds</h2>
+<ul>
+<li>Constitutional amendments: 75% approval</li>
+<li>New rules: Simple majority (51%)</li>
+<li>Rule changes: Simple majority (51%)</li>
+<li>Mid-season changes: 83.34% approval</li>
+<li>Commission veto override: Unanimous (rules) or 66.67% (trades)</li>
+</ul>
+<h2>Roster Sizes &amp; Limits</h2>
+<table><thead><tr><th>League</th><th>Starters</th><th>Bench</th><th>Position Limits</th></tr></thead><tbody>
+<tr><td>Basketball (FedBA)</td><td>10</td><td>5</td><td>None</td></tr>
+<tr><td>Football (FedFL)</td><td>9</td><td>7</td><td>Max 3 QBs</td></tr>
+<tr><td>Hockey (FedHL)</td><td>14</td><td>4</td><td>Max 4 Goaltenders</td></tr>
+<tr><td>Baseball (FedLB)</td><td>20</td><td>5</td><td>Max 13 Pitchers</td></tr>
+</tbody></table>
+<h2>Trades &amp; Transactions</h2>
+<ul>
+<li><strong>FAAB Budget:</strong> $250 per league ($1,000 total per season)</li>
+<li><strong>Trade Review:</strong> 48-hour review period for all trades</li>
+<li><strong>Trade Deadlines:</strong> Set annually by Commission (between midseason and playoffs)</li>
+<li><strong>Interleague trades:</strong> Allowed when leagues not in no-trade window</li>
+<li><strong>Draft picks:</strong> Tradeable (including conditional trades)</li>
+</ul>
+<h2>Team Management</h2>
+<ul>
+<li><strong>Activity Requirements:</strong> Set valid, competitive lineups weekly. Respond to official communications within 7 days.</li>
+<li><strong>Abandonment</strong> = Failure to set lineup for 3 consecutive weeks (or 10 days in baseball) in 2 sports, OR respond to Commission communication within 7 days.</li>
+</ul>
+<h2>Financial Structure</h2>
+<ul>
+<li><strong>Dues Distribution:</strong> Federation Pot: 66.67% of total dues. Each League Pot: 8.34% of total dues.</li>
+<li><strong>Payout Structure (per pot):</strong> Champion: 70% | Runner-up: 20% | 3rd Place: 10%</li>
+</ul>
+<h2>Playoffs (All Leagues)</h2>
+<ul>
+<li>Top 6 teams make playoffs (1st &amp; 2nd get byes)</li>
+<li>Bottom 6 teams do not participate in any Postseason play</li>
+<li>3 postseason weeks determine final standings 1-6</li>
+</ul>
+<h2>Season Lengths</h2>
+<ul>
+<li>Football: 14 regular season weeks + 3 playoff weeks</li>
+<li>Hockey: 21 regular season weeks + 3 playoff weeks</li>
+<li>Basketball: 21 regular season weeks + 3 playoff weeks</li>
+<li>Baseball: 22 regular season weeks + 3 playoff weeks</li>
+</ul>
+</section>
+
+<section id="art1">
+<h1>I. Federation Structure &amp; Breakdown</h1>
+<h2 id="art1a">A. Teams</h2>
+<ol>
+<li>The Fantasy Sports Federation (hereafter known as "The Federation" or "Federation") will include 12 teams (hereafter known as "team(s)," "member(s)") competing in four (4) fantasy dynasty leagues (hereafter known as "The Leagues," "Leagues," or "League").
+  <ol type="a"><li>Each of the four dynasty leagues will be based on four major sports leagues (hereafter "sports," "sports leagues") within the United States and Canada: the National Basketball Association (hereafter "NBA"), the National Football League (hereafter "NFL"), the National Hockey League (hereafter "NHL"), and Major League Baseball (hereafter "MLB").</li></ol>
+</li>
+<li>Expansion of the Federation requires &frac34; (75%) approval of teams.</li>
+</ol>
+
+<h2 id="art1b">B. Team Ownership</h2>
+<ol>
+<li>An "owner" is an individual who has been approved by the Federation and has ownership rights, responsibilities, and voting privileges for a specific team.</li>
+<li><strong>Co-Ownership</strong>
+  <ol>
+  <li>A team may have more than one owner, or "co-owner", with an additional owner needing approval of a simple majority of teams (or 51%). In such cases, the following clarifications apply:</li>
+  </ol>
+  <p><strong>(b) Voting Rights</strong> &mdash; Each team receives one vote per matter, irrespective of the number of co-owners. Co-owners must agree internally and submit one unified vote per issue to the Federation or Commission.</p>
+  <p><strong>(c) Decision-Making Authority</strong> &mdash; Teams must specify to the Commission how internal disagreements among co-owners regarding trades, lineup setting, financial obligations, or other team operations will be resolved. Absent a defined agreement, the Commission may impose a standard procedure (e.g., requiring a simple majority decision among co-owners).</p>
+  <p><strong>(d) Communications</strong> &mdash; All official communications will be sent either to, or jointly to (if within a group setting/application), each approved co-owner. Responses or decisions communicated by any co-owner will be considered binding on behalf of the team unless otherwise explicitly stated by the co-owners to the Commission.</p>
+  <p><strong>(e) Liability for Obligations</strong> &mdash; All co-owners share equal responsibility, unless otherwise agreed to, for financial obligations (e.g., dues), compliance with Federation rules, and penalties resulting from violations. The Federation may hold all co-owners collectively accountable.</p>
+</li>
+<li><strong>Exit Clause</strong>
+  <ol type="a">
+  <li>If an owner wishes to exit the Federation, they must notify the Commission, hereon as defined under Art. II, prior to August 1st during that Federation Season of their intentions, and may not exit until the conclusion of that Federation Season.</li>
+  <li><strong>Replacement Teams</strong>
+    <ol>
+    <li>If a team exits, a replacement team must be found promptly to ensure the Federation's continuation.</li>
+    <li>A replacement team acquires all assets, including players, draft picks, and prior trades (including conditional trades and terms subject thereof) of the team that exited. A replacement team has no claims to any future assets traded away by the exiting team.</li>
+    <li>In order for a candidate for a replacement team to be approved by the Federation, the following procedures must be followed:
+      <ol type="a">
+      <li>A member of the Federation must approach at least one member of the Commission and nominate the candidate.</li>
+      <li>The Commission will review the nominee and, within 36 hours, choose to approve the nomination. Once approved, the Federation will be notified of the nomination.</li>
+      <li>Within 48 hours of notice, the Federation will vote to approve the replacement team. In order for a replacement team to be approved, at least &frac12; of teams (50%) must approve the nomination, not including the exiting team(s).</li>
+      </ol>
+    </li>
+    </ol>
+  </li>
+  </ol>
+</li>
+<li><strong>Team Management and Activity</strong>
+  <ol type="a">
+  <li>All team owners are required to maintain an active and engaged presence in all four Federation leagues. Activity is defined as setting a valid and competitive lineup for each weekly matchup and responding to official Federation or Commission communications in a timely manner.</li>
+  <li>A team will be considered "abandoned" if the owner:
+    <ol>
+    <li>Fails to set a valid lineup for: (a) Three (3) consecutive weeks of two of the FedFL, FedBA, FedHL; or (b) Ten (10) consecutive days in FedLB and three (3) consecutive weeks in another League.</li>
+    <li>Fails to respond to official communication from the Commission regarding league matters within seven (7) days.</li>
+    </ol>
+  </li>
+  <li><strong>Abandoned Team Procedure</strong>
+    <ol>
+    <li>If a team is deemed abandoned, the Commission will make a final attempt to contact the owner.</li>
+    <li>If no response is received, the Commission will assume temporary control of the abandoned team for the remainder of that Federation Season.</li>
+    <li>To ensure impartiality, the Commission will only act to set the team's weekly lineup. Lineups will be set based on the fantasy platform's default player projections. The Commission is prohibited from making any trades, waiver claims, or free agent acquisitions for the abandoned team.</li>
+    <li>The team will be considered vacant and a replacement owner will be sought for the following Federation Season as per Art. I, &sect; B(3).</li>
+    </ol>
+  </li>
+  </ol>
+</li>
+</ol>
+
+<h2 id="art1c">C. Federation Season</h2>
+<p>(1) A Federation Season will last from the start of the NFL's Regular Season to the end of the following year's MLB Regular Season, lasting approximately 12-13 months, with an overlap of Federation Seasons in the month of September.</p>
+
+<h2 id="art1d">D. Awarding a Champion</h2>
+<p>(1) Each team will earn Federation Points based on their final standings in each League:</p>
+<table><thead><tr><th>Finish</th><th>Pts</th><th>Finish</th><th>Pts</th></tr></thead><tbody>
+<tr><td>1st</td><td>12</td><td>7th</td><td>6</td></tr>
+<tr><td>2nd</td><td>11</td><td>8th</td><td>5</td></tr>
+<tr><td>3rd</td><td>10</td><td>9th</td><td>4</td></tr>
+<tr><td>4th</td><td>9</td><td>10th</td><td>3</td></tr>
+<tr><td>5th</td><td>8</td><td>11th</td><td>2</td></tr>
+<tr><td>6th</td><td>7</td><td>12th</td><td>1</td></tr>
+</tbody></table>
+<p>(2) The team with the most Federation Points at the end of the Federation Season will be named the Federation Champion. If there is a tie of Federation Points, the following tiebreakers will be used until a Federation Champion is determined:</p>
+<ol type="a">
+<li>The team with the most League Championships in that Federation Season.</li>
+<li>The team with the highest combined win percentage in that Federation Season.</li>
+<li>The team with the highest combined average points per game in each League during that Federation Season.</li>
+<li>The team that won more head-to-head matchups amongst the tied teams across Federation play that season.</li>
+</ol>
+<p>(3) At the end of every decade of Federation play, the team that has accumulated the most Federation Points in the preceding 10 seasons will receive all interest made by the Federation Pot's savings account, as defined in Article II, Section B (Art. II, &sect; B).</p>
+</section>
+
+<section id="art2">
+<h1>II. The Commission</h1>
+<h2 id="art2a">A. Structure</h2>
+<p>(1) The Commission will be composed of three teams, each holding equal voting power. The Commission will vest all Legislative, Judicial, and Executive functions of the Federation.</p>
+<p>(a) The teams that will be members of the Commission are Owner 1's team, Owner 7's team, and Owner 9's team.</p>
+
+<h2 id="art2b">B. Legislative Functions</h2>
+<ol>
+<li>To enact this Constitution, the Federation must vote in the affirmative by at least 75% (at least &frac34; of the teams).</li>
+<li>The Commission will oversee Legislative activity, with every team in the Federation having an equal vote and the right to propose amendments and rules. These amendments and rules will be passed by:
+  <ol type="a"><li>The Commission proposing a "resolution" (which amends the Constitution &amp; Bylaws; creates and/or amends the Rules; or alters the Code of Conduct) for the Federation to consider; or</li>
+  <li>A team proposing a "resolution" to the Commission. The Commission will then present the resolution to the Federation.</li></ol>
+</li>
+<li>To amend the Constitution, the Federation must vote at least 75%, or at least &frac34; of the teams, must vote in favor of such a measure.</li>
+<li>To pass a rule which has not been discussed in the current Constitution and By-Laws, the Federation must vote, and those in favor of enacting such a rule must have a simple majority, or at least 51% of the vote, to create it.
+  <ol type="a"><li>In order to enact a change or repeal of said rule after it is passed, the rule amending said rule must receive a simple majority, or at least 51% of the vote, to take effect.</li>
+  <li>The Commission may veto a rule passed by the Federation, but only if the Commission unanimously supports a veto. The other teams of the Federation, not including members of the Commission, may override the veto, but their decision to override the Commission's veto must be unanimous.</li></ol>
+</li>
+<li><strong>Resolution Timeline</strong>
+  <p><strong>(a) Non-Emergency Resolutions</strong> &mdash; Must be presented prior to the FedFL Rookie Draft. Will be voted during the yearly Owner's Meeting taking place between the FedFL Rookie Draft and the beginning of the proceeding Federation Season. Each year, the Federation must hold an Owner's Meeting. The specific time and date must be determined by a quorum (&frac56; of the Federation). Only a quorum is needed for an Owner's Meeting to be valid both in convening and in decision making. Will take effect the following Federation Season. These resolutions will be passed via a simple majority unless it is an amendment to the Constitution which requires a &frac34; majority.</p>
+  <p><strong>(b) Emergency Resolution</strong> &mdash; If a resolution is to take effect during an ongoing Federation Season, or an ongoing League year, it must be explicitly stated in the resolution proposal. In such cases, the proposed amendment or rule would require at least 83.34%, or at least &frac56; of the teams, approval for the proposal to take effect prior to the following Federation Season.</p>
+</li>
+</ol>
+
+<h2 id="art2c">C. Judicial Functions</h2>
+<ol>
+<li>Any concerns and/or disputes may be brought to the Commission, which will act as a "court". The Commission has the power to hold teams responsible for actions it deems break the Constitution, By-Laws, and/or Rules set out by the Federation and its Leagues.
+  <ol type="a"><li>If a concern and/or dispute arises between a member of the Commission and the Federation, the Commission member accused will recuse themselves from acting as a part of the court, and the Commission will temporarily nominate someone to take the accused Commission member's role. The temporary nomination must be unanimously chosen by all teams of the Commission and the other parties in the dispute.</li></ol>
+</li>
+<li>In the event a trade dispute or other Federation matter directly involves two (2) or all three (3) members of the Commission, the standard judicial function is suspended. The involved Commission members shall be automatically recused from any vote.
+  <ol type="a"><li>The matter shall then be put to a vote of all non-Commission Federation teams. A simple majority vote from this group will be required for a binding judicial resolution.</li></ol>
+</li>
+</ol>
+
+<h2 id="art2d">D. Executive Functions</h2>
+<ol>
+<li>The Commission will be responsible for executing the Federation Constitution and By-Laws, any rules the Federation may pass, and any judgments made in its Judicial capacity.</li>
+<li>The Commission is responsible for collecting and distributing Federation dues, which will then be split into five pots: one for the Federation, as well as one for each individual League.
+  <ol type="a"><li>&frac23; of the dues (~66.67%) will go to the Federation Pot, with the remaining &frac13; (~33.34%) being divided equally amongst the four League Pots. Each League Pot will have &frac{1}{12} of the total dues (~8.34%).</li>
+  <li>Each Pot will be divided up, with 70% going to each respective Pot's Champion, 20% going to the Pot's Runner-Up, and 10% going to the Pot's 3rd Place, all based on final standings.</li></ol>
+</li>
+<li>Dues will be set annually by the Commission.
+  <ol type="a"><li>Failure to pay dues in a timely manner, or failure to agree to a payment plan with the Commission, may result in suspension or expulsion from the Federation.</li>
+  <li>Any changes to dues put forth by the Commission must be voted on as a rule by the Federation, and must receive &frac23; of the vote (~66.67%).</li>
+  <li>Dues will be held in a High-Yield Savings Account, opened by one of the Commission members. The Commission members, prior to opening the account, will sign a contract ensuring that funds will not be used for anything other than the Federation, as prescribed by the Constitution and Rules.</li></ol>
+</li>
+<li>The Commission is responsible for creating and maintaining a statistical record of the Federation's history, which will be available to all teams upon request.</li>
+<li><strong>Inaugural Season Directives</strong>
+  <ol type="a"><li>For the sole purpose of establishing the Federation and ensuring its smooth operation prior to the start of the 2026-27 Federation Season, the Commission is granted the authority to issue binding directives on administrative and procedural matters without requiring a Federation vote.</li>
+  <li>The scope of this authority is strictly limited to foundational matters, including but not limited to: establishing the initial draft lottery and order, setting dates for the Federation Draft, confirming official team names, and finalizing initial dues collection procedures. If any Directive is authorized, the Commission members will provide an explanation of the reasoning for said change to the Federation.</li>
+  <li>This authority shall expire permanently at the official start of the 2026-27 Federation Season. All subsequent matters shall be governed by the standard procedures outlined in this Constitution.</li></ol>
+</li>
+</ol>
+</section>
+
+<section id="art3">
+<h1>III. Draft</h1>
+<h2>A. Federation Draft</h2>
+<ol>
+<li>The initial Federation Draft will encompass all four sports (NBA, NFL, NHL, and MLB), with players from all Leagues eligible to be drafted at any point in the snake draft.
+  <ol type="a"><li>The Federation Draft will last 74 rounds for a total of 888 players, with the date(s) of the Draft being agreed upon by the Federation.</li>
+  <li>The draft order will be published under the Rules once a random order has been determined.</li></ol>
+</li>
+<li>If, in the future, the Federation votes to expand the number of teams within it, a 62-round Expansion Draft will be held to fill in the new team rosters.
+  <ol type="a"><li>Current teams can protect up to 2 players from each league.</li>
+  <li>Once two players of the same League have been selected from a current team during the Expansion Draft, that team can protect two more players from the same League.</li>
+  <li>A maximum of three NBA, four NFL, four NHL, and five MLB players may be selected from each current team's roster.</li></ol>
+</li>
+</ol>
+<h2>B. League Drafts</h2>
+<ol>
+<li>In subsequent years, each League will have its own non-snake Rookie Draft, based on the reverse order of final standings in that League from the prior Federation Season.
+  <ol type="a"><li>The Commission will determine and announce the date of each Rookie Draft at least one month prior to the respective Rookie Draft, with approval from the Federation.</li>
+  <li>Following the inaugural Federation Season, each team's roster in each League will receive a number of taxi squad, or "minor", players equal to the number of rounds that League's Rookie Draft includes.</li></ol>
+</li>
+<li>If, in the future, the Federation decides to expand the roster size of a League, a snake draft will be held to fill the position(s), based on the reverse order of standings in that League from the prior Federation Season. This will be separate from the traditional Rookie Draft.</li>
+</ol>
+</section>
+
+<section id="art4">
+<h1>IV. Roster Transactions</h1>
+<h2>A. Waivers</h2>
+<ol>
+<li>Waivers for all sports will utilize Free Agent Acquisition Budget (FAAB), with teams bidding on free agents.</li>
+<li>Each team will receive $250 in each League per season, totaling $1000 for the Federation Season, towards their FAAB.</li>
+<li>FAAB is eligible for intra- and interleague trades.</li>
+</ol>
+<h2>B. Trades</h2>
+<ol>
+<li><strong>Interleague Trades</strong> &mdash; Interleague trades are allowed, as long as none of the Leagues involved in the trade are in their no-trade windows.</li>
+<li><strong>Trade Deadline &amp; No-Trade Window</strong>
+  <ol type="a"><li>The Trade Deadline for each League will occur between the halfway point of the League's Regular Season and the start of the League's Playoffs.</li>
+  <li>A League's No-Trade Window will last from its trade deadline until the end of the League's Playoffs.</li>
+  <li>The No-Trade Window prevents any one of that league's players, rookies/prospect picks, or FAAB from being traded.</li>
+  <li>When any League's No-Trade Window expires at the end of that League's championship round, its players, picks, and proceeding season FAAB are eligible to be traded, both interleague and intraleague.</li></ol>
+</li>
+<li>League Trade Deadlines will be set annually by the Commission. Any changes to a League's trade deadline put forth by the Commission must be voted on as a rule by the Federation, and must receive &frac23; of the vote (~66.67%).</li>
+<li><strong>Trades Involving Draft Picks</strong>
+  <ol type="a"><li>Federation Draft and future Rookie Draft picks are eligible for both interleague and intraleague trades.</li>
+  <li>A "conditional trade" is any trade that involves a draft pick based upon a team or player's performance. The terms of a conditional trade must be stated to the Commission at the time of the trade, with the Federation being informed of such terms. The Commission will come up with terms to be agreed upon prior to the Federation Draft to ensure future commitments from teams if participating in a conditional trade. Conditional trades will be recorded and tracked by the Commission. Any unreasonably complicated conditional trade will be considered to have been made in bad-faith.</li></ol>
+</li>
+<li>All trades will go under a 48-hour review period before a trade is finalized. No trade may take effect until the review period has passed.</li>
+<li>During the review period, any team may bring to the Commission a potential bad-faith trade. In doing so, the team must explain why they believe the trade was made in bad faith and would constitute collusion.
+  <ol type="a"><li>"Collusion" as referred to in Art. IV is defined as "any one team making a move to benefit (an)other team(s) without trying to improve its own position".</li>
+  <li>Upon notice, the Commission will contact the parties involved with the alleged bad-faith claim. The parties of the trade, during this time, may justify their trade to members of the Commission or to the overall Federation. Upon either receiving a justification provided by said teams or two hours passing, whichever is sooner, the Commission will make a public announcement of a potential bad-faith trade to the Federation. Public comment will be accepted by the Commission regarding said trade.</li>
+  <li>Within 36 hours of notice of a potential bad-faith trade, the Commission may veto such trade, but only through unanimous approval. The Federation may veto the Commission's veto, but only with a &frac23; vote (66.67%), excluding the teams involved in the trade.</li></ol>
+</li>
+<li>Upon any veto, the Commission (including any substituting member) may provide an explanation to the Federation as to why they voted to do so.</li>
+<li>If one or more Commission members are involved in a trade, the Federation can motion to veto the trade, needing a &frac23; (66.67%) vote (excluding the teams involved in the trade) in order to do so.</li>
+</ol>
+<p class="fn">While conditional trades are permitted, trades deemed "unreasonably complicated" are considered bad-faith. Examples include: conditions that cannot be objectively verified using the fantasy platform's statistics or public sports data; conditions based on events outside of player or team performance; or trades with an excessive number of branching conditions. If a team is concerned that their trade may fall under the "unreasonably complicated" category, they may contact the Commission for preliminary approval.</p>
+</section>
+
+<section id="art5">
+<h1>V. League Rules</h1>
+<h2>A. All Leagues</h2>
+<p><strong>(1) Tiebreakers</strong> &mdash; Tiebreakers for all sports, both for seeding purposes and in the unlikely need of naming a League Champion, are as follows: (1) Win Percentage, (2) Points For, (3) Head-to-Head Record, (4) Points Scored in Head-to-Head Games.</p>
+<p><strong>(2) Postseason</strong></p>
+<p><strong>(a) Playoffs</strong> &mdash; A League's Playoff field will be determined by the top six teams with the highest winning percentage. The two teams with the highest winning percentage get a first round bye, with the second round being re-seeded. Winners of each game will move along further in the Playoffs. The winner of the final Playoff game finishes in 1st place in the final League standings. Teams that do not qualify for the Playoffs finish 7-12 in the final League standings based on regular season record, with Points For being the tie-breaker.</p>
+<ul>
+<li><strong>First Round:</strong> Game 1: 3-seed vs. 6-seed | Game 2: 4-seed vs. 5-seed | Bye week for 1-seed, 2-seed</li>
+<li><strong>Second Round:</strong> Game 3: 1-seed vs. lowest remaining seed | Game 4: 2-seed vs. highest remaining seed</li>
+<li><strong>Third Round:</strong> Game 6 (Championship): Game 3 winner vs. Game 4 winner</li>
+</ul>
+<p><strong>(b) Consolation</strong> &mdash; Once a team has lost a Playoff game (not including the Championship), they will play against the other Playoff team that lost their game that round, which will determine their final standing in the League that season.</p>
+<ul>
+<li><strong>Second Round:</strong> Game 5 (Consolation Game 1): Game 1 loser vs. Game 2 loser &rarr; Winner: 5th, Loser: 6th</li>
+<li><strong>Third Round:</strong> Game 7 (Consolation Game 2): Game 5 loser vs. Game 6 loser &rarr; Winner: 3rd, Loser: 4th</li>
+</ul>
+<p><strong>(3) Hamlin Rule</strong> &mdash; If, in an emergency, the NBA, NFL, NHL, or MLB cancels one of their games, the Federation will follow the directive of the fantasy platform, in terms of how to handle the scoring for players involved.</p>
+
+<h2 id="art5b">B. Fantasy Sports Federation Basketball Association (FedBA)</h2>
+<p><strong>Roster:</strong> 1 PG, 1 SG, 1 SF, 1 PF, 1 C, 5 Utility | 5 bench | up to 3 IR</p>
+<p><strong>Roster Limits:</strong> No position-specific roster limits beyond starting lineup requirements.</p>
+<p><strong>Scoring:</strong> ESPN's standard scoring system.</p>
+<p><strong>Regular Season:</strong> 21 regular season weeks + 3 playoff weeks. Every team plays against each other once; the remaining ten regular season games will rotate annually on an 11-year rotation, playing every team twice per regular season in 10 out of 11 seasons.</p>
+
+<h2 id="art5c">C. Fantasy Sports Federation Football League (FedFL)</h2>
+<p><strong>Roster:</strong> 1 QB, 2 RB, 2 WR, 1 TE, 1 Flex (RB, WR, or TE), 1 D/ST, 1 K | 7 bench | up to 2 IR</p>
+<p><strong>Roster Limits:</strong> A team may not have more than three (3) players with QB eligibility on its roster at any given time.</p>
+<p><strong>Scoring:</strong> ESPN's standard scoring system, with the following changes: .5 points per reception; .1 point per Field Goal yard.</p>
+<p><strong>Regular Season:</strong> 14 regular season weeks + 3 playoff weeks. Every team plays against each other once; the remaining three regular season games will be based on the prior FedFL season's final standings, with teams being sorted into scheduling pods: Pod A: 1st, 6th, 9th, 10th | Pod B: 2nd, 5th, 8th, 11th | Pod C: 3rd, 4th, 7th, 12th.</p>
+
+<h2 id="art5d">D. Fantasy Sports Federation Hockey League (FedHL)</h2>
+<p><strong>Roster:</strong> 2 LW, 2 C, 2 RW, 4 D, 2 G, 2 Skaters (LW, C, RW, or D) | 4 bench | up to 3 IR</p>
+<p><strong>Roster Limits:</strong> A team may not have more than four (4) players with G eligibility on its roster at any given time.</p>
+<p><strong>Scoring:</strong> ESPN's standard scoring system.</p>
+<p><strong>Regular Season:</strong> 21 regular season weeks + 3 playoff weeks. Same rotation format as FedBA.</p>
+
+<h2 id="art5e">E. Fantasy Sports Federation League Baseball (FedLB)</h2>
+<p><strong>Roster:</strong> 1 C, 1 1B, 1 2B, 1 SS, 1 3B, 3 OF, 4 Utility, 6 SP, 2 RP | 5 bench | up to 4 IR</p>
+<p><strong>Roster Limits:</strong> A team may not have more than thirteen (13) players with P eligibility on its roster at any given time.</p>
+<p><strong>Scoring:</strong> ESPN's standard scoring system.</p>
+<p><strong>Regular Season:</strong> 22 regular season weeks + 3 playoff weeks. Every team plays against each other once.</p>
+<p><strong>Prospects:</strong> A prospect draft process will be determined by the Commission and approved by a simple majority of the Federation prior to the start of the FedLB season.</p>
+</section>
+
+<section id="art6">
+<h1>VI. Code of Conduct</h1>
+<p>A. The Federation hereby adopts the "Fantasy Sports Federation Code of Conduct" as an official and binding document.</p>
+<p>B. All owners, by virtue of their membership in the Federation, agree to abide by the principles and rules outlined in the Code of Conduct.</p>
+<p>C. The Commission is granted the explicit authority to enforce the Code of Conduct and to levy penalties for violations, as outlined within the Code.</p>
+
+<h2>Principles of Conduct</h2>
+<p><strong>A. Sportsmanship and Respect</strong> &mdash; All owners shall conduct themselves in a respectful manner in all official and unofficial league communications. Harassment, personal attacks, discrimination, and the use of hateful or offensive language will not be tolerated. Friendly rivalries and competitive banter are encouraged but must not cross the line into malicious personal insults or targeted harassment.</p>
+<p><strong>B. Competitive Integrity</strong> &mdash; Duty to compete. Prohibition of collusion. Prohibition of tanking. Bad-faith transactions are prohibited.</p>
+<p><strong>C. League Activity and Engagement</strong> &mdash; Active management. Timely communication. Financial responsibility.</p>
+
+<h2>Enforcement and Penalties</h2>
+<p>Any owner who believes a violation has occurred may bring the issue to the Commission for review. The Commission will investigate all credible reports and has final authority to interpret this Code of Conduct.</p>
+<p><strong>Minor Infractions:</strong> An informal or formal warning from the Commission.</p>
+<p><strong>Significant Infractions:</strong> Reversal of a transaction, forfeiture of a game, temporary suspension of roster transaction privileges, or forfeiture of FAAB.</p>
+<p><strong>Major or Repeated Infractions:</strong> Forfeiture of future draft picks, suspension of league activities for a set period, or, in the most severe cases, suspension or expulsion from the Federation.</p>
+</section>
+
+<!-- Rules, Resolutions & Directives removed for template. Add your own here. -->
+
+<section>
+<h1 id="power-rankings" style="margin-top:3rem;border-top:2px solid var(--border);padding-top:2rem">Power Rankings Methodology</h1>
+
+<p>Every week, each team receives a <strong>Power Rating</strong> in each active league. The <strong>Federation Power Rating</strong> is the average across all active and frozen leagues. Scores are centered at 50, with most teams falling between 35 and 65. Higher is better.</p>
+
+<h2>The Six Factors</h2>
+
+<p>The Power Rating is a weighted composite of six z-score-normalized components. Each component captures a distinct dimension of team performance:</p>
+
+<table class="rules-table" style="width:100%;margin:1rem 0">
+<thead><tr><th style="text-align:left">Factor</th><th>Weight</th><th style="text-align:left">What It Measures</th></tr></thead>
+<tbody>
+<tr><td><strong>Win Percentage</strong></td><td style="text-align:center">35%</td><td>Win&ndash;loss record. The most important factor because wins determine league rank, which determines federation points (12 for 1st, 11 for 2nd, &hellip;, 1 for 12th).</td></tr>
+<tr><td><strong>Points Per Game</strong></td><td style="text-align:center">25%</td><td>Average weekly scoring. The best single predictor of future wins and the primary tiebreaker for standings.</td></tr>
+<tr><td><strong>Margin of Victory</strong></td><td style="text-align:center">20%</td><td>Average scoring differential per matchup. Winning by 50 every week is fundamentally stronger than winning by 1. MOV has the highest standalone correlation with actual standings (<span class="katex-inline">\rho = 0.94</span>).</td></tr>
+<tr><td><strong>Consistency</strong></td><td style="text-align:center">5%</td><td>Scoring reliability, measured as <span class="katex-inline">1 - \text{CV}</span> where CV is the coefficient of variation (standard deviation &divide; mean). A team that scores 100 every week is safer than one that swings between 60 and 140.</td></tr>
+<tr><td><strong>Strength of Schedule</strong></td><td style="text-align:center">10%</td><td>The average quality of opponents <em>at the time you played them</em>, measured by their rolling Power Rating. Beating a top team counts more than beating a bottom team.</td></tr>
+<tr><td><strong>Momentum</strong></td><td style="text-align:center">5%</td><td>A 50/50 blend of recent win rate and recent scoring ratio vs.&nbsp;the league average over the last 5 weeks. Captures who is trending up or down.</td></tr>
+</tbody>
+</table>
+
+<h2>How It Works</h2>
+
+<p>For each league, the system computes all six raw statistics for every team, then converts each to a <strong>z-score</strong>&mdash;the number of standard deviations above or below the league mean. This normalization is critical: it makes scores directly comparable across sports where raw point scales differ wildly (NBA teams score ~1,200/week; NHL teams score ~90).</p>
+
+<p>The composite Power Rating for team <span class="katex-inline">i</span> in league <span class="katex-inline">L</span> is:</p>
+
+<div class="katex-display">
+\text{PR}_i = 0.35\, z^{(i)}_{\text{WIN}} + 0.25\, z^{(i)}_{\text{PPG}} + 0.20\, z^{(i)}_{\text{MOV}} + 0.05\, z^{(i)}_{\text{CON}} + 0.10\, z^{(i)}_{\text{SOS}} + 0.05\, z^{(i)}_{\text{MOM}}
+</div>
+
+<p>The display score is then scaled to a human-readable range:</p>
+
+<div class="katex-display">
+\text{Display Score}_i = 50 + 10 \times \text{PR}_i
+</div>
+
+<h2>Component Formulas</h2>
+
+<h3>Win Percentage</h3>
+<div class="katex-display">
+\text{WIN\%}_i = \frac{w_i + 0.5 \cdot t_i}{w_i + l_i + t_i}
+</div>
+<p>Where <span class="katex-inline">w</span>, <span class="katex-inline">l</span>, and <span class="katex-inline">t</span> are wins, losses, and ties. Ties count as half a win. At 35%, this is the largest single weight because league rank&mdash;determined primarily by Win%&mdash;directly sets federation point allocation.</p>
+
+<h3>Points Per Game</h3>
+<div class="katex-display">
+\text{PPG}_i = \frac{1}{W} \sum_{j=1}^{W} s_{i,j}
+</div>
+<p>Average weekly score across <span class="katex-inline">W</span> completed weeks. Reduced from ~80% in the previous formula to 25% here, reflecting that scoring power alone does not determine outcomes.</p>
+
+<h3>Margin of Victory</h3>
+<div class="katex-display">
+\text{MOV}_i = \frac{1}{W} \sum_{j=1}^{W} \left( s_{i,j} - s_{\text{opp}(i,j)} \right)
+</div>
+<p>Average scoring margin. This captures dominance: two teams with identical 10&ndash;4 records may be very different if one wins by 50 each week and the other wins by 1. MOV carries 20% weight because it has the highest standalone predictive power of any single component.</p>
+
+<h3>Consistency</h3>
+<div class="katex-display">
+\text{CON}_i = \text{clamp}\!\left(1 - \frac{\sigma_i}{\text{PPG}_i},\; 0,\; 1\right)
+</div>
+<p>Where <span class="katex-inline">\sigma_i</span> is the standard deviation of weekly scores. The coefficient of variation (<span class="katex-inline">\sigma / \mu</span>) is subtracted from 1 so higher values mean <em>more</em> consistent. At only 5%, this acts as a minor tiebreaker&mdash;its standalone correlation with standings is the lowest of all components (<span class="katex-inline">\rho \approx 0.43</span>).</p>
+
+<h3>Strength of Schedule</h3>
+<div class="katex-display">
+\text{SOS}_i = \frac{1}{W} \sum_{j=1}^{W} \text{PR}_{\text{through-}j}\!\left(\text{opp}(i,j)\right)
+</div>
+<p>For each week, a simplified Power Rating (using only Win%, PPG, MOV, and CON) is computed for every team using matchups through that week. Team <span class="katex-inline">i</span>&rsquo;s SOS is the average of its opponents&rsquo; rolling ratings at the time of each matchup.</p>
+<p><strong>Why PR-based instead of Win%-based:</strong> In a 12-team round-robin, a dominant team never faces itself, which artificially deflates its opponents&rsquo; average Win%. This creates a systematic bias of ~&pm;0.11. Using the multi-component PR reduces this to ~&pm;0.03. The computation uses 3 iterative passes for convergence.</p>
+
+<h3>Momentum</h3>
+<div class="katex-display">
+\text{MOM}_i = 0.5 \cdot z\!\left(\frac{\text{wins in last } K}{K}\right) + 0.5 \cdot z\!\left(\frac{1}{K}\sum_{k=1}^{K} \frac{s_{i,k}}{\bar{s}_k}\right)
+</div>
+<p>Where <span class="katex-inline">K = \min(W, 5)</span> and <span class="katex-inline">\bar{s}_k</span> is the league-wide average score in week <span class="katex-inline">k</span>. This hybrid captures both &ldquo;are you winning recently?&rdquo; and &ldquo;are you scoring well relative to the field?&rdquo; At 5%, it serves as a trajectory signal rather than a primary driver.</p>
+
+<h2>Early-Season Adjustment</h2>
+<p>In the first few weeks of a season, Consistency and Momentum lack sufficient data. Their weights are ramped in gradually:</p>
+<div class="katex-display">
+f_{\text{CON}} = \min\!\left(1,\; \frac{W-1}{3}\right) \qquad f_{\text{MOM}} = \min\!\left(1,\; \frac{W-1}{4}\right)
+</div>
+<p>Excess weight is redistributed to Win% (60%) and PPG (40%). By Week 5, all components are at full strength. At Week 1, the effective weights are Win% 41%, PPG 29%, MOV 20%, SOS 10%&mdash;a sensible split for limited data.</p>
+
+<h2>Federation Power Rating</h2>
+<div class="katex-display">
+\text{Fed\_PR}_i = \frac{1}{|\mathcal{A}|} \sum_{L \in \mathcal{A}} \text{PR}_i^{(L)}
+</div>
+<p>Where <span class="katex-inline">\mathcal{A}</span> is the set of leagues that have completed at least one week of play (active or frozen). Because each per-league PR is already z-score normalized, a score of 58 in basketball means the same thing as 58 in hockey: well above average.</p>
+
+<h2>League Lifecycle</h2>
+<p>Each league is in one of three states:</p>
+<ul>
+<li><strong>Pending:</strong> No completed matchups. Excluded from the federation PR average.</li>
+<li><strong>Active:</strong> At least one completed matchup. PR recomputed weekly from all matchups to date.</li>
+<li><strong>Frozen:</strong> Season complete (including playoffs). PR locked permanently and remains in the federation average.</li>
+</ul>
+<p>Both regular-season and playoff matchups are included in all PR calculations. A frozen league&rsquo;s PR carries equal weight alongside any active league, consistent with how federation points work.</p>
+
+<h2>Weight Selection</h2>
+<p>The weights were determined through a grid search across 1,453 combinations, evaluated against Spearman rank correlation and Mean Absolute Displacement (MAD) with actual standings across all four leagues. The selected weights (35/25/20/5/10/5) achieve an average <span class="katex-inline">\rho = 0.984</span> and MAD of 0.29 positions&mdash;meaning the Power Rating matches actual standings to within a fraction of a position on average.</p>
+
+</section>
+
+<section>
+<h1 id="website-legal-notices" style="margin-top:3rem;border-top:2px solid var(--border);padding-top:2rem">Website &amp; Legal Notices</h1>
+
+<h2>Intellectual Property</h2>
+<p>The Federation Dashboard website, including its source code, visual design, layout, original team logos and branding, constitution text, and all other original creative content, is &copy; 2025&ndash;2026 Owner 9, Owner 7 &amp; Owner 1. All rights reserved. No part of this website may be reproduced, distributed, or transmitted in any form without prior written permission from the copyright holders, except for brief quotations for personal, non-commercial use.</p>
+
+<h2>Third-Party Trademarks &amp; Player Information</h2>
+<p>This website is a privately operated fantasy sports league dashboard and is <strong>not affiliated with, endorsed by, or in any way officially connected to</strong> the National Football League (NFL), National Basketball Association (NBA), National Hockey League (NHL), Major League Baseball (MLB), Fantrax, or any of their respective teams, franchises, players, or affiliates.</p>
+<p>All professional sports league names, team names, player names, statistics, and related marks are the property of their respective owners. Their use on this site is solely for informational and identificatory purposes within the context of a private fantasy sports league and constitutes nominative fair use. No commercial use of such names or marks is intended or implied.</p>
+
+<h2>Data &amp; Statistics</h2>
+<p>Player statistics, standings, and related data displayed on this site are sourced from the Fantrax fantasy sports platform through its publicly available API. These statistics reflect publicly available factual information. This site does not claim ownership over any such data.</p>
+
+<h2>Limitation of Liability</h2>
+<p>This website is provided &ldquo;as is&rdquo; without warranty of any kind, express or implied. The site operators shall not be liable for any errors, omissions, or inaccuracies in the content displayed, nor for any actions taken in reliance thereon.</p>
+
+<h2>Contact</h2>
+<p>For questions or concerns regarding this website or its content, please contact the Federation Commission.</p>
+</section>
+
+</div>
+</div>
+<footer>
+  &copy; 2025&ndash;2026 Owner 9, Owner 7 &amp; Owner 1. All rights reserved.<br>
+  <span style="color:#445">Not affiliated with the NFL, NBA, NHL, MLB, or Fantrax. <a href="constitution.html#website-legal-notices">Legal notices</a>.</span>
+</footer>
+<script>window.PAGE_ID='static';</script>
+<script src="js/app.js"></script>
+<script>
+const box=document.getElementById('searchBox'),body=document.getElementById('body'),cnt=document.getElementById('matchCount'),toc=document.getElementById('toc');
+let origHTML=body.innerHTML;
+box.addEventListener('input',function(){
+  const q=this.value.trim();
+  body.innerHTML=origHTML;
+  const secs=body.querySelectorAll('section');
+  if(!q||q.length<2){secs.forEach(s=>s.classList.remove('hidden'));toc.style.display='';cnt.style.display='none';return;}
+  toc.style.display='none';
+  const re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+  let total=0,first=null;
+  secs.forEach(sec=>{
+    const txt=sec.textContent||'';
+    if(!re.test(txt)){sec.classList.add('hidden');re.lastIndex=0;return;}
+    re.lastIndex=0;sec.classList.remove('hidden');
+    const walker=document.createTreeWalker(sec,NodeFilter.SHOW_TEXT,null,false);
+    const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+    for(const node of nodes){
+      if(node.parentElement.closest('script,style'))continue;
+      if(re.test(node.textContent)){
+        re.lastIndex=0;
+        const m=node.textContent.match(re);if(m)total+=m.length;
+        const span=document.createElement('span');
+        span.innerHTML=node.textContent.replace(re,'<mark class="hl">$1</mark>');
+        node.parentElement.replaceChild(span,node);
+        if(!first){const mk=span.querySelector('mark.hl');if(mk)first=mk;}
+      }
+      re.lastIndex=0;
+    }
+  });
+  cnt.textContent=total+' match'+(total!==1?'es':'')+' found';cnt.style.display='block';
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+</script>
+</body>
+</html>

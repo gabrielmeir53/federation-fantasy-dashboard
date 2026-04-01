@@ -1,11 +1,11 @@
 @echo off
 REM ============================================================
-REM  Federation Dashboard Scraper - Daily Runner
+REM  Federation Fantrax Scraper - Daily Runner
 REM  Schedule this in Windows Task Scheduler to run daily.
 REM ============================================================
 
-REM Change this to wherever you put the scraper folder
-cd /d "%~dp0"
+REM Navigate to the scraper directory (one level up from deploy/, then into scraper/)
+cd /d "%~dp0..\scraper"
 
 REM Run the scraper with verbose output and Excel export
 python scrape_fantrax.py --verbose --xlsx
