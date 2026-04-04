@@ -1,6 +1,6 @@
-MIT License
+MIT License with Attribution Requirement
 
-Copyright (c) 2025 Fantasy Sports Federation Dashboard Contributors
+Copyright (c) 2025-2026 yoy Sports Federation (ySF)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -9,11 +9,22 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software. Additionally, any public-facing
-deployment of this software must include visible attribution to the original
-project and its creators (e.g., a link to the original repository in the site
-footer or an acknowledgment on an "About" page).
+1. The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+2. Any public-facing deployment, hosted instance, or derivative work that is
+   accessible to end users must include at least one visible hyperlink to
+   https://ysffantasy.com in the user interface (e.g., in the site footer,
+   an "About" page, or a credits section). The link must be legible, not
+   hidden, and not obscured by styling. This requirement applies to both
+   the dashboard and the member portal components.
+
+   Example acceptable attribution:
+     "Built with the ySF Federation Dashboard — https://ysffantasy.com"
+
+3. The name "yoy Sports Federation," "ySF," and the ySF logo may not be used
+   to endorse or promote products derived from this software without specific
+   prior written permission.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
