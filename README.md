@@ -78,7 +78,7 @@ Run four simultaneous Fantrax leagues with 12 teams where each owner manages a f
 - Chronological list of all trades, adds, drops, and waiver claims across all leagues
 - Sidebar filters: season, league, team, transaction type
 - Free-text search across player names
-- Separate page (`site/transactions.html`) with its own navigation
+- Separate page (`transactions.html`) with its own navigation
 - Mobile-responsive with collapsible filter sidebar
 
 ### Schedule Viewer
@@ -89,11 +89,21 @@ Run four simultaneous Fantrax leagues with 12 teams where each owner manages a f
 - Period date ranges shown for each week
 - Status badges: Final, Live, Upcoming
 
+### Member Portal (`portal/`)
+- Authenticated member portal with session-based login and CSRF protection
+- **Trade system**: submit 2-4 team trades with structured dropdowns (players, draft picks, FAAB), counter-party accept/reject workflow, Commission review with Telegram notifications, iMessage polling endpoint, 48-hour review period
+- **Trade deadlines**: per-league deadlines with auto-detected championship end dates from playoff schedules; locked league assets shown greyed out and non-selectable
+- **Proposals & voting**: submit rule changes and constitutional amendments, commissioner review, member voting with configurable thresholds (51% rules, 75% amendments, 83% emergency)
+- **Memos**: commissioner-authored announcements with Markdown support
+- **Dashboard scoreboard**: live matchup scores with team logos, "All Games / My Games" toggle, timezone-aware timestamps, personalized greeting
+- **Role-based access**: commissioners see admin tools, trade review queue, and deadline settings
+- **Notifications**: email (Gmail SMTP) and Telegram bot for trade status changes
+
 ### Constitution / Rules Page
 - Fully customizable league rules, bylaws, and amendments
 - Real-time searchable with match highlighting
 - Auto-generated table of contents with section links
-- Separate page (`site/constitution.html`) linked from the main dashboard navigation
+- Separate page (`constitution.html`) linked from the main dashboard navigation
 
 ### Navigation and UX
 - Sticky top nav with league tabs and per-league logo icons
@@ -105,7 +115,7 @@ Run four simultaneous Fantrax leagues with 12 teams where each owner manages a f
 
 ### Automated Data Scraping
 - Python scraper fetches all data from Fantrax APIs and Google Sheets
-- Generates a self-contained `site/index.html` with all data embedded (no API calls at runtime)
+- Generates a self-contained `dashboard_live.html` with all data embedded (no API calls at runtime)
 - Cron job support for automated updates (every 30 minutes recommended)
 - Manual trigger endpoint (`trigger.php`) for on-demand refresh
 - Lock file prevents overlapping scraper runs
@@ -132,26 +142,29 @@ cd federation-dashboard
 cp .env.example .env
 # Edit .env with your Fantrax league IDs (see Configuration Guide below)
 
-# 3. Edit the CONFIG section in scraper/scrape_fantrax.py with your team names,
+# 3. Edit the CONFIG section in scrape_fantrax.py with your team names,
 #    owners, abbreviations, and colors (see Configuration Guide below)
 
 # 4. Install Python dependencies
 pip install -r requirements.txt
 
 # 5. Run the scraper
-python scraper/scrape_fantrax.py --verbose
+python scrape_fantrax.py --verbose
 
-# 6. Serve the site locally
-python -m http.server 8090 --directory site
-# Visit http://localhost:8090
+# 6. Open the generated dashboard in your browser
+# macOS:
+open dashboard_live.html
+# Windows:
+start dashboard_live.html
+# Linux:
+xdg-open dashboard_live.html
 ```
 
-The scraper will connect to all 4 of your Fantrax leagues, fetch standings, rosters, matchups, and transactions, compute federation standings, and generate JSON files in `site/data/`:
+The scraper will connect to all 4 of your Fantrax leagues, fetch standings, rosters, matchups, and transactions, compute federation standings, and generate:
 
-- `site/data/league_fed_fl.json`, `site/data/league_fed_ba.json`, etc. (per-league data)
-- `site/data/federation.json` (federation standings)
-- `site/data/core.json` (team metadata)
-- `site/data/fed_combined.json` (combined data)
+- `data/fed_fl.json`, `data/fed_ba.json`, `data/fed_hl.json`, `data/fed_lb.json` (per-league data)
+- `data/fed_combined.json` (combined federation data)
+- `dashboard_live.html` (self-contained HTML dashboard with all data embedded)
 
 ### Scraper Command-Line Options
 
@@ -178,7 +191,7 @@ The scraper will connect to all 4 of your Fantrax leagues, fetch standings, rost
                                           This is your league ID
    ```
 
-4. **Enter your league IDs** in the `LEAGUES` dictionary in `scraper/scrape_fantrax.py`:
+4. **Enter your league IDs** in the `LEAGUES` dictionary in `scrape_fantrax.py`:
 
 ```python
 LEAGUES = {
@@ -268,7 +281,7 @@ FED_TEAMS = {
 ```
 
 **Logo requirements:**
-- Place SVG files in `site/logos/teams/`
+- Place SVG files in `logos/teams/`
 - SVG format is recommended for crisp rendering at any size
 - Logos display at 22px--48px in the dashboard depending on context
 - If a logo file is missing, the dashboard gracefully hides the image element
@@ -301,7 +314,7 @@ Track draft capital across future seasons for all leagues.
 - Round rows: Current owner of that pick. If the name differs from the column header, the pick is marked as traded.
 - Blank rows separate leagues.
 
-3. **Configure in `scraper/scrape_fantrax.py`:**
+3. **Configure in `scrape_fantrax.py`:**
 
 ```python
 DRAFT_SHEET_ID = "YOUR_GOOGLE_SHEET_ID_HERE"
@@ -333,7 +346,7 @@ Track rivalry weeks and other special schedule labels.
 
 Any cell containing "Rivalry" (case-insensitive) marks that week as the rivalry week for that league. The dashboard shows a red dot on rivalry weeks in the schedule viewer.
 
-3. **Configure in `scraper/scrape_fantrax.py`:**
+3. **Configure in `scrape_fantrax.py`:**
 
 ```python
 SCHEDULE_SHEET_ID = "YOUR_SCHEDULE_SHEET_ID_HERE"
@@ -351,10 +364,10 @@ current_season = "2025-26"    # Update this each year
 
 NFL seasons span two calendar years (September to February), so they overlap with the NBA/NHL/MLB seasons. When the current NFL season hasn't started yet (all W-L records are 0-0), the scraper automatically uses previous season data for federation standings calculations.
 
-The previous NFL season data is stored in `site/data/fed_fl_prev.json`. To generate this file:
+The previous NFL season data is stored in `data/fed_fl_prev.json`. To generate this file:
 
-1. At the end of each NFL season (after playoffs), run `scraper/tools/scrape_last_nfl.py` to archive the data.
-2. Or manually save the `data/fed_fl.json` from the completed season as `site/data/fed_fl_prev.json`.
+1. At the end of each NFL season (after playoffs), run `tools/scrape_last_nfl.py` to archive the data.
+2. Or manually save the `data/fed_fl.json` from the completed season as `data/fed_fl_prev.json`.
 
 ```python
 NFL_PREV_FILE = "fed_fl_prev.json"
@@ -368,68 +381,70 @@ NFL_PREV_LEAGUE_ID = "YOUR_PREVIOUS_NFL_LEAGUE_ID"
 
 ```
 federation-dashboard/
-├── scraper/                   # Data scraper system
-│   ├── scrape_fantrax.py      #   Main scraper (~1500 lines)
-│   ├── compute_pr.py          #   Power rankings computation
-│   ├── send_weekly_pr.py      #   Weekly PR email sender
-│   ├── run_weekly_pr.sh       #   Cron wrapper for weekly PR
-│   ├── requirements.txt       #   Python dependencies
-│   └── tools/                 #   Diagnostic & utility scripts
-│       ├── diagnose.py        #     Tests all Fantrax API endpoints
-│       ├── diagnose_api.py    #     Fantrax API response diagnostics
-│       ├── scrape_direct.py   #     Alternative scraper (direct HTTP only)
-│       ├── scrape_selenium.py #     Selenium scraper (for auth-protected leagues)
-│       ├── scrape_last_nfl.py #     Archives previous NFL season data
-│       └── ...                #     Additional test/diagnostic scripts
+├── scrape_fantrax.py          # Main scraper (~1300 lines)
+│                               #   Connects to all 4 Fantrax league APIs
+│                               #   Fetches standings, rosters, matchups, transactions
+│                               #   Scrapes draft picks & schedule from Google Sheets
+│                               #   Computes federation standings & playoff brackets
+│                               #   Generates dashboard_live.html with embedded data
 │
-├── site/                      # Frontend website (multi-page)
-│   ├── index.html             #   Federation standings (main page)
-│   ├── rankings.html          #   Power rankings page
-│   ├── team.html              #   Team profiles page
-│   ├── schedule.html          #   Schedule viewer page
-│   ├── transactions.html      #   Transaction log page
-│   ├── constitution.html      #   League rules & bylaws
-│   ├── history.html           #   Historical data page
-│   ├── leagues/               #   Per-league pages
-│   │   ├── fedfl.html         #     NFL league dashboard
-│   │   ├── fedba.html         #     NBA league dashboard
-│   │   ├── fedhl.html         #     NHL league dashboard
-│   │   └── fedlb.html         #     MLB league dashboard
-│   ├── js/                    #   Modular JavaScript
-│   │   ├── app.js             #     Core app, data loading, utilities
-│   │   ├── federation.js      #     Federation standings view
-│   │   ├── federation-chart.js#     Federation race chart
-│   │   ├── league.js          #     Per-league view
-│   │   ├── rankings.js        #     Power rankings view
-│   │   ├── teams.js           #     Team profiles
-│   │   ├── schedule.js        #     Schedule viewer
-│   │   └── transactions.js    #     Transaction log
-│   ├── css/style.css          #   Stylesheet
-│   ├── fonts/                 #   Palatino font files (WOFF2)
-│   ├── data/                  #   Generated JSON (gitignored)
-│   │   └── fed_fl_prev.json   #     Previous NFL season (tracked in git)
-│   └── logos/                 #   SVG logo assets
-│       ├── fed.svg            #     Federation logo
-│       ├── leagues/           #     Per-league logos (4 SVGs)
-│       └── teams/             #     Team logos (12 SVGs)
+├── dashboard.html             # Dashboard template (~800 lines)
+│                               #   Single-file static site (HTML + CSS + JS)
+│                               #   Renders federation standings, league tabs,
+│                               #   team profiles, playoff brackets, schedules
+│                               #   Uses CSS custom properties for dark theme
 │
-├── power-rankings/            # Power rankings analysis
-│   ├── compute_example.py     #   Example PR computation
-│   ├── optimize_weights.py    #   Weight optimization via grid search
-│   ├── pr_data.json           #   Sample PR data
-│   └── FedPR_v2_*.tex/.pdf   #   Algorithm documentation (LaTeX)
+├── transactions.html          # Transaction log page
+│                               #   Sidebar filters (season, league, team, type)
+│                               #   Free-text player search
+│                               #   Loads data from data/transactions_YYYY-YY.json
 │
-├── deploy/                    # Server deployment files
-│   ├── run_scraper.sh         #   cPanel cron wrapper
-│   ├── run_scraper.bat        #   Windows Task Scheduler alternative
-│   ├── trigger.php            #   Manual scraper trigger (web endpoint)
-│   └── htaccess               #   Apache config (rename to .htaccess)
+├── constitution.html          # League rules page (customize with your rules)
+│                               #   Searchable with real-time match highlighting
+│                               #   Table of contents with section links
+│
+├── requirements.txt           # Python dependencies: fantraxapi, requests
 │
 ├── .env.example               # Environment configuration template
-├── .gitignore
-├── requirements.txt           # Python dependencies
-├── LICENSE                    # MIT License
-└── README.md                  # This file
+│
+├── logos/                     # SVG logo assets
+│   ├── federation.svg         #   Your federation logo (used in nav bar)
+│   ├── leagues/               #   Per-league logos (4 SVGs)
+│   │   ├── fed_fl.svg         #     NFL league logo
+│   │   ├── fed_ba.svg         #     NBA league logo
+│   │   ├── fed_hl.svg         #     NHL league logo
+│   │   └── fed_lb.svg         #     MLB league logo
+│   └── teams/                 #   Team logos (12 SVGs, one per franchise)
+│       ├── alpha.svg
+│       ├── bravo.svg
+│       └── ...
+│
+├── deploy/                    # Server deployment files
+│   ├── run_scraper.sh         #   cPanel cron wrapper script
+│   │                          #     Activates virtualenv, runs scraper,
+│   │                          #     copies output to web root,
+│   │                          #     lock file & log rotation
+│   ├── run_scraper.bat        #   Windows Task Scheduler alternative
+│   ├── trigger.php            #   Manual scraper trigger (web endpoint)
+│   │                          #     Token-protected, rate-limited (2 min)
+│   │                          #     Shows spinner, auto-redirects to dashboard
+│   └── htaccess               #   Apache config (rename to .htaccess)
+│                               #     HTTPS redirect, asset caching,
+│                               #     security headers, compression,
+│                               #     blocks access to .py/.sh/.log files
+│
+├── tools/                     # Development utilities & diagnostics
+│   ├── diagnose.py            #   Tests all Fantrax API endpoints
+│   ├── diagnose_api.py        #   Fantrax API response diagnostics
+│   ├── scrape_direct.py       #   Alternative scraper (direct HTTP only)
+│   ├── scrape_selenium.py     #   Selenium scraper (for auth-protected leagues)
+│   ├── scrape_last_nfl.py     #   Archives previous NFL season data
+│   ├── save_nfl_prev_scores.py#   Saves NFL matchup scores locally
+│   ├── test_matchup_scores.py #   Tests matchup scoring logic
+│   └── test_nfl_api.py        #   Tests NFL API endpoint availability
+│
+└── data/                      # Generated output (gitignored except prev season)
+    └── fed_fl_prev.json       #   Previous NFL season data (tracked in git)
 ```
 
 ---
@@ -446,9 +461,8 @@ federation-dashboard/
                │
                ▼
 ┌──────────────────────────────┐
-│  scraper/scrape_fantrax.py   │
-│  scraper/compute_pr.py       │
-│    (Python 3.9+)             │
+│    scrape_fantrax.py         │
+│    (Python 3.9+ scraper)     │
 │                              │
 │  1. Pull standings, rosters, │
 │     matchups, transactions   │
@@ -457,20 +471,27 @@ federation-dashboard/
 │  4. Build playoff brackets   │
 │  5. Fetch draft picks &      │
 │     schedule from Sheets     │
-│  6. Compute power rankings   │
-│  7. Output JSON to site/data │
+│  6. Output JSON + live HTML  │
 └──────────┬───────────────────┘
            │
-           ▼
-  site/data/*.json  ──►  site/ (multi-page static site)
-  (per-league,             index.html, rankings.html,
-   federation,             team.html, schedule.html, etc.
-   power rankings)         Loads JSON via fetch()
+     ┌─────┴──────┐
+     ▼            ▼
+  data/*.json   dashboard_live.html
+  (raw JSON)    (self-contained HTML
+     │           with embedded JSON)
+     ▼
+  dashboard.html  ◄── template
+     Loads JSON via fetch() in dev mode
+     OR uses embedded window.FED_DATA in production
 ```
 
-### Data Loading
+### Data Modes
 
-The dashboard is a multi-page static site that loads JSON data via `fetch()` from the `site/data/` directory. The scraper generates per-league JSON files (`league_fed_fl.json`, etc.), `federation.json`, `core.json`, and `power_rankings.json`. Each page loads only the data it needs for faster initial load.
+The dashboard supports two data loading modes:
+
+1. **Embedded data (production):** The scraper reads `dashboard.html` as a template, injects all JSON data into a `<script>` tag via a placeholder comment, and writes `dashboard_live.html`. This file is completely self-contained -- no API calls needed at runtime. This is what gets deployed to your server as `index.html`.
+
+2. **Fetched data (development):** When you open `dashboard.html` directly (without the scraper injecting data), it detects that `window.FED_DATA` is undefined and falls back to fetching `data/fed_combined.json` via `fetch()`. This requires running a local HTTP server (see [Local Development](#local-development)).
 
 ### Federation Points Calculation
 
@@ -502,7 +523,7 @@ Then globally:
 9. **Fetch draft picks** from Google Sheets
 10. **Fetch schedule extras** (rivalry week labels) from Google Sheets
 11. **Compute federation standings** (sum points, apply tiebreakers)
-12. **Generate JSON files** to `site/data/`
+12. **Generate combined JSON** and **dashboard_live.html**
 
 ---
 
@@ -510,18 +531,24 @@ Then globally:
 
 ### Local Development
 
-The simplest way to develop:
+The simplest way to develop is to run the scraper and open the generated file:
 
 ```bash
-# Run the scraper to generate JSON data in site/data/
-python scraper/scrape_fantrax.py --verbose
+# Run the scraper to generate dashboard_live.html
+python scrape_fantrax.py --verbose
 
-# Serve the site directory
-python -m http.server 8090 --directory site
-# Visit http://localhost:8090
+# Open the self-contained dashboard
+open dashboard_live.html
 ```
 
-The dashboard loads JSON data from `data/` via `fetch()`. Edit HTML/JS/CSS files in `site/` and refresh.
+If you want to use the template mode (fetching JSON dynamically), serve the project with Python's built-in HTTP server:
+
+```bash
+python -m http.server 8090
+# Visit http://localhost:8090/dashboard.html
+```
+
+This is useful for development because you can edit `dashboard.html` without re-running the scraper. Just refresh the page after making changes.
 
 ### cPanel Deployment
 
@@ -531,22 +558,31 @@ This section covers deploying to a cPanel shared hosting environment, which is t
 
 ```
 /home/USERNAME/
-├── repo/                               # Repository (not web-accessible)
-│   ├── scraper/
-│   │   ├── scrape_fantrax.py
-│   │   ├── compute_pr.py
-│   │   └── run_scraper.sh             # Cron wrapper
-│   ├── site/data/fed_fl_prev.json     # Previous NFL season data
-│   └── cron.log                       # Auto-rotated scraper log
+├── scraper/                            # Scraper code (not web-accessible)
+│   ├── scrape_fantrax.py
+│   ├── dashboard.html                  # Template (scraper reads this)
+│   ├── deploy/run_scraper.sh           # Cron wrapper (copy here)
+│   ├── data/
+│   │   └── fed_fl_prev.json            # Previous NFL season data
+│   └── cron.log                        # Auto-rotated scraper log
 │
-└── yourdomain.com/                     # Public web root (site/ contents)
-    ├── .htaccess                       # From deploy/htaccess
-    ├── index.html, rankings.html, etc. # HTML pages
-    ├── leagues/                        # Per-league pages
-    ├── js/, css/, fonts/               # Frontend assets
+└── yourdomain.com/                     # Public web root
+    ├── .htaccess                       # From deploy/htaccess (renamed)
+    ├── index.html                      # Generated by scraper (embedded data)
+    ├── constitution.html
+    ├── transactions.html
     ├── trigger.php                     # Manual scraper trigger
     ├── data/                           # JSON files (written by scraper)
-    └── logos/                          # SVG logo assets
+    │   ├── fed_combined.json
+    │   ├── fed_fl.json
+    │   ├── fed_ba.json
+    │   ├── fed_hl.json
+    │   ├── fed_lb.json
+    │   └── transactions_2025-26.json
+    └── logos/                          # Full logo directory tree
+        ├── federation.svg
+        ├── leagues/
+        └── teams/
 ```
 
 #### Step-by-Step Deploy Instructions
@@ -562,16 +598,16 @@ This section covers deploying to a cPanel shared hosting environment, which is t
 
 2. **Upload scraper files** to `/home/USERNAME/scraper/`:
    - `scrape_fantrax.py`
-   - `site/index.html`
+   - `dashboard.html`
    - `requirements.txt`
-   - `site/data/fed_fl_prev.json` (if you have previous NFL season data)
+   - `data/fed_fl_prev.json` (if you have previous NFL season data)
 
 3. **Upload web files** to the domain's public web root (`/home/USERNAME/yourdomain.com/`):
-   - `site/constitution.html`
-   - `site/transactions.html`
+   - `constitution.html`
+   - `transactions.html`
    - `deploy/trigger.php` (copy to web root)
    - `deploy/htaccess` --> rename to `.htaccess`
-   - `site/logos/` directory (entire directory tree)
+   - `logos/` directory (entire directory tree)
 
 4. **Copy and configure `run_scraper.sh`:**
    ```bash
@@ -619,8 +655,8 @@ The cron wrapper script automatically rotates `cron.log` when it exceeds 5000 li
 
 Since the dashboard is a static HTML file, you can host it on any static hosting provider:
 
-1. Run the scraper locally (or via GitHub Actions) to generate `site/index.html`
-2. Deploy the generated file along with `site/constitution.html`, `site/transactions.html`, `site/logos/`, and `data/`
+1. Run the scraper locally (or via GitHub Actions) to generate `dashboard_live.html`
+2. Deploy the generated file along with `constitution.html`, `transactions.html`, `logos/`, and `data/`
 3. Set up a GitHub Actions workflow to run the scraper on a schedule and commit the output
 
 **Note:** You won't have `trigger.php` on static hosts. Use GitHub Actions' `workflow_dispatch` for manual triggers.
@@ -650,7 +686,7 @@ Description=Federation Dashboard Scraper
 [Service]
 Type=oneshot
 WorkingDirectory=/opt/federation-dashboard
-ExecStart=/opt/federation-dashboard/venv/bin/python scraper/scrape_fantrax.py --verbose --output-dir /var/www/html/data
+ExecStart=/opt/federation-dashboard/venv/bin/python scrape_fantrax.py --verbose --output-dir /var/www/html/data
 User=www-data
 ```
 
@@ -679,7 +715,7 @@ The default configuration is 12 teams. To adjust:
 
 4. **Update the playoff bracket** if your league uses a different playoff format. The default assumes 6 teams qualify (top 2 get byes). Modify `build_playoff_bracket()` in the scraper if your format differs.
 
-5. **Update the dashboard table columns.** The CSS classes `.c1`, `.c2`, `.c3`, `.ct`, `.cm`, `.cb` color-code ranks (gold/silver/bronze for 1-3, green for 4-6, gray for 7-9, red for 10-12). Adjust the `cc()` function in `site/index.html` for your team count.
+5. **Update the dashboard table columns.** The CSS classes `.c1`, `.c2`, `.c3`, `.ct`, `.cm`, `.cb` color-code ranks (gold/silver/bronze for 1-3, green for 4-6, gray for 7-9, red for 10-12). Adjust the `cc()` function in `dashboard.html` for your team count.
 
 ### Changing Sports
 
@@ -708,14 +744,14 @@ To add or remove leagues:
    }
    ```
 
-3. **Add a nav tab** in `site/index.html`:
+3. **Add a nav tab** in `dashboard.html`:
    ```html
    <button class="nav-tab" data-page="mls">
        <img src="logos/leagues/fed_sc.svg" alt="Soccer"> MLS
    </button>
    ```
 
-4. **Add the league mapping** in the JavaScript section of `site/index.html`:
+4. **Add the league mapping** in the JavaScript section of `dashboard.html`:
    ```javascript
    const LM = {
        // ... existing leagues ...
@@ -727,7 +763,7 @@ To add or remove leagues:
 
 5. **Update federation points** if the number of leagues changes (the formula per-league stays the same, but maximum possible points increases).
 
-6. **Create a league logo** SVG and place it in `site/logos/leagues/`.
+6. **Create a league logo** SVG and place it in `logos/leagues/`.
 
 ### Theming
 
@@ -773,9 +809,9 @@ You will also want to adjust the `body::before` radial gradient and the `nav` ba
 
 ### Adding Your Constitution
 
-The `site/constitution.html` file is a customizable league rules page:
+The `constitution.html` file is a customizable league rules page:
 
-1. Open `site/constitution.html` in a text editor
+1. Open `constitution.html` in a text editor
 2. Find the `<body>` section with `<section>` elements
 3. Replace the content with your own league rules using this structure:
 
@@ -944,11 +980,11 @@ https://docs.google.com/spreadsheets/d/SHEET_ID/gviz/tq?tqx=out:csv&sheet=TAB_NA
 | `Could not map Fantrax team names` | Team was renamed on Fantrax | Add the new Fantrax display name to `TEAM_NAME_MAP` in the scraper config. Run with `--verbose` to see the unrecognized name. |
 | `403 Forbidden` or `Not logged in` | League is set to Private on Fantrax | Go to Fantrax: Commissioner --> League Setup --> Misc --> set visibility to **Public** |
 | `dashboard.html template not found` | Scraper running from wrong directory | Run the scraper from the repo root, or use `--output-dir` to specify the output path |
-| `Playoff bracket: not_started` | Previous NFL season data is missing | Ensure `site/data/fed_fl_prev.json` exists. Generate it with `scraper/tools/scrape_last_nfl.py` |
+| `Playoff bracket: not_started` | Previous NFL season data is missing | Ensure `data/fed_fl_prev.json` exists. Generate it with `tools/scrape_last_nfl.py` |
 | Scraper lock stuck | Previous scraper run crashed | Delete the `.scraper.lock` file in the scraper directory. It auto-clears after 10 minutes. |
 | Player names showing as numeric IDs | Player ID resolution failed | The scraper tries league-specific IDs first, then sport-wide. Check that `getPlayerIds` returns data. Some newly added players may not be in the ID database yet. |
 | JSON files are empty or tiny | Fantrax API rate limiting or outage | Wait 5 minutes, then retry with `--verbose` to identify which API call is failing |
-| Dashboard shows blank page | No data loaded | Check browser console (F12). Ensure `data/fed_combined.json` exists (for template mode) or that `site/index.html` was generated (for embedded mode). |
+| Dashboard shows blank page | No data loaded | Check browser console (F12). Ensure `data/fed_combined.json` exists (for template mode) or that `dashboard_live.html` was generated (for embedded mode). |
 | `trigger.php` returns 403 | Token mismatch | Verify the `$SECRET` value in `trigger.php` matches the `?token=` parameter in your URL |
 | Cron job not running | Path or permission issue | Check `cron.log` for errors. Ensure `run_scraper.sh` is executable: `chmod +x run_scraper.sh`. Verify the Python path exists. |
 | NHL rosters show "137" for player IDs | Known `fantraxapi` library bug | The scraper automatically falls back to direct API for rosters when >50% fail. No action needed. |
@@ -971,7 +1007,7 @@ Contributions are welcome. Here is how to get started:
    ```
 3. **Make your changes** and test locally:
    ```bash
-   python scraper/scrape_fantrax.py --verbose
+   python scrape_fantrax.py --verbose
    # Open dashboard_live.html and verify your changes
    ```
 4. **Commit** with a clear message describing your change
@@ -979,10 +1015,10 @@ Contributions are welcome. Here is how to get started:
 
 ### Development Tips
 
-- The dashboard is vanilla HTML/CSS/JS with no build step. Edit `site/index.html` directly and refresh.
+- The dashboard is vanilla HTML/CSS/JS with no build step. Edit `dashboard.html` directly and refresh.
 - Use `python -m http.server 8090` for local development with JSON fetching.
 - Run the scraper with `--verbose` to see detailed progress and catch issues early.
-- The `scraper/tools/` directory contains diagnostic scripts for testing individual API endpoints.
+- The `tools/` directory contains diagnostic scripts for testing individual API endpoints.
 
 ### Code Style
 
@@ -1010,8 +1046,8 @@ This project is licensed under the **MIT License** -- see [LICENSE](LICENSE) for
 If you use this project (in whole or in part) for your own fantasy league dashboard, you **must** include visible attribution to the original creators. Add one of the following to your site's footer or an "About" page:
 
 ```
-Built with the Federation Fantasy Dashboard
-(github.com/gabrielmeir53/federation-fantasy-dashboard)
+Built with the Fantasy Federation Dashboard — originally created by the ySF Commission
+(github.com/gabrielmeir53/ysffantasy)
 ```
 
 Or at minimum, include a link back to the original repository in your site footer. This is a condition of use -- we put a lot of work into building this, and a shout-out is the least we ask in return.

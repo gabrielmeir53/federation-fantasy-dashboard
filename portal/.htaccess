@@ -1,0 +1,16 @@
+# Serve index.php by default
+DirectoryIndex index.php
+
+# Block direct access to includes and setup
+RedirectMatch 403 ^/portal/includes/
+RedirectMatch 403 ^/portal/setup/
+
+# Disable directory listing
+Options -Indexes
+
+# PHP session settings
+<IfModule mod_php.c>
+  php_value session.cookie_httponly 1
+  php_value session.cookie_secure 1
+  php_value session.use_strict_mode 1
+</IfModule>
